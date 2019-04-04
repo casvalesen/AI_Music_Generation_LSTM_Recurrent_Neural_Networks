@@ -8,7 +8,7 @@
 ## Topic
 
 I would like to do my project on music generation using Recurrent Neural Networks. 
-Google´s Magenta team are currently working on many interesting approaches to this.
+Google´s Magenta team are currently working on many interesting approaches to this. The project will make use of the Magenta Resources, but will also be original in that it will be a new combination of approaches with a specific musical context in mind. 
 https://magenta.tensorflow.org/
 
 ## Model 
@@ -18,7 +18,7 @@ and have a certain coherency. An interesting approach to this is to first train 
 
 See: https://magenta.tensorflow.org/2016/11/09/tuning-recurrent-networks-with-reinforcement-learning
 
-A goal in either the first or second phase of the project is also that the music generator is going to be somewhat responsive to another player. This aspect will draw inspiration from the work done by Google Creative Lab on AI Duet. 
+A goal in either the first or second phase of the project is also that the music generator is going to also be somewhat responsive to another player. This aspect will draw inspiration from the work done by Google Creative Lab on AI Duet. 
 https://magenta.tensorflow.org/2017/02/16/ai-duet
 
 ## Datasets 
