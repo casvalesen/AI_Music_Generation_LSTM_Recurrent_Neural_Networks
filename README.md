@@ -14,7 +14,7 @@ https://magenta.tensorflow.org/
 ## Model 
 
 The Goal is to design a music generator that is capable of generating melodies that are both musically expressive 
-and have a certain coherency. An interesting approach to this is to first train an LSTM on a dataset consisting of composed melodies, then tune this generator using rule based Q-learning. 
+and have a certain coherency. An interesting approach to this is to first train an LSTM on a dataset consisting of composed melodies, then tune this generator using rule based Q-learning (Jaques,Gu, Turner & Eck, 2017)
 
 See: https://magenta.tensorflow.org/2016/11/09/tuning-recurrent-networks-with-reinforcement-learning
 
@@ -28,5 +28,7 @@ https://magenta.tensorflow.org/maestro-wave2midi2wave
 
 
 ## References (Will be expanded for proper citation)
+Jaques, N., Gu,S., Turner, R E., & Eck, D. 2017.'TUNING RECURRENT NEURAL NETWORKS WITH REINFORCEMENT LEARNING'. Under review as a conference paper at ICLR 2017. 
+
 -  https://arxiv.org/pdf/1810.12247.pdf
 - https://arxiv.org/pdf/1803.05428.pdf
