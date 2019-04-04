@@ -25,3 +25,8 @@ https://magenta.tensorflow.org/2017/02/16/ai-duet
 
 Several Datasets are available for the task, amongst others the MEASTRO dataset create by Google Magenta
 https://magenta.tensorflow.org/maestro-wave2midi2wave
+
+
+## References (Will be expanded for proper citation)
+-  https://arxiv.org/pdf/1810.12247.pdf
+- https://arxiv.org/pdf/1803.05428.pdf
