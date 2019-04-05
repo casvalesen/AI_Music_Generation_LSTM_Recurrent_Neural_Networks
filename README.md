@@ -3,6 +3,9 @@
 - This project accounts for 80% of the final mark.
 - The project report is due on the 30th of April 2019.  
 
+**Comments**:
+* **MV 5 April 2019**: project topic approved
+
 # Project Overview: Music Generation with RNN
 
 ## Topic
