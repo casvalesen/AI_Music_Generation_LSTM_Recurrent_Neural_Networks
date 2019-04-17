@@ -37,7 +37,12 @@ http://www.midiworld.com/search/?q=video%20game%20themes
 TV Themes
 http://www.midiworld.com/search/?q=tv%20themes
 
+Modal Classical 
+Classical music from selected composers were also included as part of the style specific dataset. This was composers who were in the 
+expressionist, impressionist and (..) paradigms as this was the moderns sounding style that would suit the model context. 
 
+http://www.midiworld.com/classic.htm#d
+http://www.midiworld.com/classic.htm#m
 
 Theoretically, this is similar to training approaches used in Natural Language processing for building language context specific models (Reference needed). 
 
