@@ -16,6 +16,37 @@ The application context of the music project is in the realm of generating melod
 
 The data consisted of midi files and was selected with the overall application. 
 
+### General melody generation
+
+- General melody dataset 
+
+### Style Specific melody generation 
+
+Style specific dataset. 
+
+As the data contained a much lower number of instances, this data was duplicated in order to provide specificity. 
+
+Movie themes
+http://www.midiworld.com/search/1/?q=movie%20themes
+
+Movie themes of a symphonic nature were emphasized, (e.g in duplication). 
+
+Video Game themes
+http://www.midiworld.com/search/?q=video%20game%20themes
+
+TV Themes
+http://www.midiworld.com/search/?q=tv%20themes
+
+
+
+Theoretically, this is similar to training approaches used in Natural Language processing for building language context specific models (Reference needed). 
+
+- Transform to melodies from 
+- Think about target and prediction
+
+Midi files were inspected using the musical notation software Sibelius. 
+
+Style extraction? 
 
 ## Data processing 
 
