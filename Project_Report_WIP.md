@@ -66,7 +66,7 @@ The second iteration will then tune this LSTM using the Deep Q-learning approach
 
 
 
-### Preliminary Experiment: Bach Cello Bot 
+### Preliminary Experiment: Bach Bot- Monophonic Cello RNN 
 
 In order to familiarize myself with the Google Magenta toolkit and create a simple baseline model for further iterations, I first trained a simple model on using data from bachs cello suites. The advantage of this data is that it is mostly monophonic, e.g one melody, and captures many aspects of classical melodic and harmonic movement such as development of a repeated theme, development of a harmonic sequence and dramatic development. 
 
