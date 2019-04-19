@@ -76,6 +76,7 @@ Duration interpreted as on/off at timestep
 
 - The midi data was converted to the NoteSequence protocol developed by Google Magenta (Reference).   
 
+(Graph of bach cello suite). 
 
 ## Model 
 
@@ -88,6 +89,10 @@ The second iteration will then tune this LSTM using the Deep Q-learning approach
 ### Preliminary Experiment: Bach Bot - Monophonic Cello RNN 
 
 In order to familiarize myself with the Google Magenta toolkit and create a simple baseline model for further iterations, I first trained a simple model on using data from bachs cello suites. The advantage of this data is that it is mostly monophonic, e.g one melody, and captures many aspects of classical melodic and harmonic movement such as development of a repeated theme, development of a harmonic sequence and dramatic development. In data science terms, this means the data has a includes data patterns common in western musical traditions, such as absolute value differences in the sequence (melodic intervals), relative value difference patterns that are repeated with different absolute values locally (thematic development), and meta patterns  for how these different types of relative value difference patterns alternate depending on their absolute values (harmonic development). 
+
+- Musical Analysis of bach cello suite in data science language
+
+
 
 The initial cello suite was downloaded from an open source midi file repository (8 Notes, 2019). 
 
