@@ -4,7 +4,7 @@
 ## Project Goal
 
 The Goal is to design a music generator that is capable of generating melodies that are both musically expressive 
-and have a certain coherency. The model will generate a monophonic melody line, which will be responsive to a real time input melody. 
+and have a certain coherency. The model will generate a monophonic melody line, (which will be responsive to a real time input melody. )
 
 
 ## Artificial Intelligence Research Context 
