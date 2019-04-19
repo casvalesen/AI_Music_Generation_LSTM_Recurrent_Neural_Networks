@@ -7,9 +7,21 @@ The Goal is to design a music generator that is capable of generating melodies t
 and have a certain coherency. The model will generate a monophonic melody line, which will be responsive to a real time input melody. 
 
 
+## Artificial Intelligence Research Context 
+
+As with text and visual art generation, music generation falls within the space of computational creativity. 
+
+In addition to providing a number of usecases, it is also interesting in the sense that creativity is a fundamental aspect of human intelligence 
+
+It is recognized that contemporary AI hold advantages over humans in analytical tasks such as identifying relationships and caputuring complex dynamics of large datasets. However, creativity is argued to be one of the areas in which humans still hold significant (Parry et. al, 2016 p.580; Jarrahi, 2018 p.582)
+
+
+Exploration of computational creativity is therefore an important step on the path to general or strong Artificial Intelligence (Russel & Norvig, 2016 p.16;   ). 
+
 ## Application Context
 
 The application context of the music project is in the realm of generating melodies for real time music improvisations in a cinematic style, such as film and game music. 
+
 
 
 ## Datasets
@@ -55,12 +67,20 @@ Style extraction?
 
 ## Data processing 
 
-The midi data was converted to the NoteSequence protocol developed by Google Magenta (Reference).   
+### Handling of Musical Data
+
+- Midi format: Basic properties of musical data
+Like text data, musical data in fundamentally sequential. 
+Pitch at timestep 
+Duration interpreted as on/off at timestep 
+
+- The midi data was converted to the NoteSequence protocol developed by Google Magenta (Reference).   
 
 
 ## Model 
 
 In the first iteration, the model will consist of a music generation RNN LSTM. 
+This is uses a similar basis as character level RNN´s developed for Natural Language Processing (Jaques et. al.,2017) 
 
 The second iteration will then tune this LSTM using the Deep Q-learning approach by Jaques et. al.(2017). 
 
@@ -77,6 +97,9 @@ The initial cello suite was downloaded from an open source midi file repository 
 
 ## References (Will be expanded for proper citation)
 Jaques, N., Gu,S., Turner, R E., & Eck, D. 2017.'TUNING RECURRENT NEURAL NETWORKS WITH REINFORCEMENT LEARNING'.  NIPS 2016 Deep Reinforcement Learning Workshop. Available at: https://arxiv.org/pdf/1611.02796v2.pdf [Accessed 04.04.2019]
-
+Jarrahi, M.H (2018) Artificial intelligence and the future of work: Human-AI symbiosis in organizational decision making. Business Horizons. No. 61 pp. 577-586. 
+Google AI (2019). Magenta - Make music and Art Using Machine LEarning. https://magenta.tensorflow.org/[Accessed 19.04.2018]
+Parry, K. Cohen, M & Bhattacharya, S (2016) Rise of the Machines: A Critical Consideration of Automated Leadership Decision Making in Organisations. Group and Organisation Management. 2016 vol. Vol. 41(5) pp. 571–594
+Russel, S & Norvig, P. (2016) Artificial Intelligence - A Modern Approach. 3rd Edition. Pearson Education Limited, Essex. 
 -  https://arxiv.org/pdf/1810.12247.pdf
 - https://arxiv.org/pdf/1803.05428.pdf
