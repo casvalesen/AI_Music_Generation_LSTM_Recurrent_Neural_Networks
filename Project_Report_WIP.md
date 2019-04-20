@@ -78,6 +78,9 @@ Duration interpreted as on/off at timestep
 
 (Graph of bach cello suite). 
 
+
+###  Working with tf Records
+
 ## Model 
 
 In the first iteration, the model will consist of a music generation RNN LSTM. 
