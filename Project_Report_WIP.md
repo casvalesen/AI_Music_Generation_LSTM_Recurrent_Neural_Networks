@@ -108,6 +108,8 @@ The initial cello suite was downloaded from an open source midi file repository 
 
 - input data: 130 , 128 pitches on/off, 2 values for ....?
 
+- Polyphonic midi files, aka. multiple simultaneous. Preprocessing extracted individual melodies / melody segments. 
+
 ## Data sources
 8 notes (2019).Bach - Cello Suite No.1 in G major, BWV 1007 (complete) midi file for Cello (midi). 8 Notes.  https://www.8notes.com/scores/14093.asp?ftype=midi [Accessed 18.04.2018]
 
