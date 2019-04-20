@@ -97,6 +97,11 @@ In order to familiarize myself with the Google Magenta toolkit and create a simp
 The initial cello suite was downloaded from an open source midi file repository (8 Notes, 2019). 
 
 
+- Using default Magenta Tensorflow graphs 
+
+
+
+
 ## Data sources
 8 notes (2019).Bach - Cello Suite No.1 in G major, BWV 1007 (complete) midi file for Cello (midi). 8 Notes.  https://www.8notes.com/scores/14093.asp?ftype=midi [Accessed 18.04.2018]
 
