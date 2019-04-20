@@ -11,12 +11,9 @@ and have a certain coherency. The model will generate a monophonic melody line, 
 
 As with text and visual art generation, music generation falls within the space of computational creativity. 
 
-In addition to providing a number of usecases, it is also interesting in the sense that creativity is a fundamental aspect of human intelligence 
+In addition to providing a number of usecases, it is also interesting in the sense that creativity is a fundamental aspect of human intelligence (Reference). 
 
-It is recognized that contemporary AI hold advantages over humans in analytical tasks such as identifying relationships and caputuring complex dynamics of large datasets. However, creativity is argued to be one of the areas in which humans still hold significant (Parry et. al, 2016 p.580; Jarrahi, 2018 p.582)
-
-
-Exploration of computational creativity is therefore an important step on the path to general or strong Artificial Intelligence (Russel & Norvig, 2016 p.16;   ). 
+It is recognized that contemporary AI hold advantages over humans in analytical tasks such as identifying relationships and caputuring complex dynamics of large datasets. However, creativity is argued to be one of the areas in which humans still hold significant (Parry et. al, 2016 p.580; Jarrahi, 2018 p.582). Exploration of computational creativity is therefore an important step on the path to general or strong Artificial Intelligence (Russel & Norvig, 2016 p.16; Jaques et. al.,2017 ). 
 
 ## Application Context
 
