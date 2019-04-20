@@ -102,8 +102,11 @@ The initial cello suite was downloaded from an open source midi file repository 
 
 - Using default Magenta Tensorflow graphs 
 
+## Iteration 1: Mono_rnn based on Magenta´s RNN Model 
 
+- First part of Lakh dataset used, ... entries. 
 
+- input data: 130 , 128 pitches on/off, 2 values for ....?
 
 ## Data sources
 8 notes (2019).Bach - Cello Suite No.1 in G major, BWV 1007 (complete) midi file for Cello (midi). 8 Notes.  https://www.8notes.com/scores/14093.asp?ftype=midi [Accessed 18.04.2018]
