@@ -19,7 +19,38 @@ It is recognized that contemporary AI hold advantages over humans in analytical 
 
 The application context of the music project is in the realm of generating melodies for real time music improvisations in a cinematic style, such as film and game music. 
 
+## Evalation mechanisms 
 
+As a creative RNN is in its nature not trying to predict an accurate value such as a time series or classification, 
+evaluation of creative RNN is in its nature 
+
+- Approaches to evaluation taken in papers, with refs (.....). Magenta refs, Jaques et. al., other papers for magenta.
+
+- Note on explainable AI. 
+
+For the purely generative models, evaluation is based on how well the RNN LSTM model has been able to learn general musical parameters. Note sequences were generated based on several different primers, which aimed at 
+
+*Primer: Starting note*
+
+This examines what the AI generates freely when it does not try to match the musical characteristics of a specific melody. 
+
+*Primer: Simple Major melody* 
+
+This examines what the AI generates when it is fed a simple major melody, with two ascending steps and one step leading back ot the melody. It tests whether the melody is able:
+- to generate melodies in the major scale
+- imitate stepwise melody movement 
+- use a leading note half step below the root note to lead back to the root note in melodic movements. 
+
+*Primer: Simple Minor Melody.* 
+
+This test is equivalent to the major melody, just in minor. It examines what the AI generates when it is fed a simple minor melody, with two ascending steps and one step leading back ot the melody. It tests whether the melody is able:
+- to generate melodies in the minor scale
+- imitate stepwise melody movement 
+- use a leading note whole step below the root note to lead back to the root note in melodic movements. 
+
+*Primer: Arpeggiated chord progression* 
+
+This tests whether the model is able to capture arpeggiated chords, aka. individual chord notes in sequence, and chord progressions. 
 
 ## Datasets
 
@@ -27,7 +58,8 @@ The data consisted of midi files and was selected with the overall application.
 
 ### General melody generation
 
-- General melody dataset 
+- General melody dataset: Lakh dataset
+
 
 ### Style Specific melody generation 
 
@@ -75,7 +107,6 @@ Duration interpreted as on/off at timestep
 
 (Graph of bach cello suite). 
 
-
 ###  Working with tf Records
 
 ## Model 
@@ -106,6 +137,13 @@ The initial cello suite was downloaded from an open source midi file repository 
 - input data: 130 , 128 pitches on/off, 2 values for ....?
 
 - Polyphonic midi files, aka. multiple simultaneous. Preprocessing extracted individual melodies / melody segments. 
+
+*Primer: One note* 
+
+*Primer: Simple major Melody* 
+
+*Primer: Simple minor Melody*
+
 
 ## Data sources
 8 notes (2019).Bach - Cello Suite No.1 in G major, BWV 1007 (complete) midi file for Cello (midi). 8 Notes.  https://www.8notes.com/scores/14093.asp?ftype=midi [Accessed 18.04.2018]
