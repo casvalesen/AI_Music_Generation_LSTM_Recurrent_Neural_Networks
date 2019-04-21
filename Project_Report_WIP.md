@@ -19,6 +19,20 @@ It is recognized that contemporary AI hold advantages over humans in analytical 
 
 The application context of the music project is in the realm of generating melodies for real time music improvisations in a cinematic style, such as film and game music. 
 
+## Models
+
+### General Music Model
+
+As with Language models, a music model can be first trained as a general model, then adapted to the specific application context. In Language this could entail building a general model for the language in question, then specialising the model to a certain application field using application specific data. In music, this training process could be utilised by first training the model on a general music data from which the model could learn general musical rules and conventions. The model could then be further trained on a data from specific style of music in order to specialise it to this field. 
+
+In the first iteration, the model will consist of a music generation RNN LSTM. 
+This is uses a similar basis as character level RNN´s developed for Natural Language Processing (Jaques et. al.,2017) 
+
+
+### Style Specific Model 
+
+The second iteration will then tune this LSTM using the Deep Q-learning approach by Jaques et. al.(2017). 
+
 ## Evalation mechanisms 
 
 As a creative RNN is in its nature not trying to predict an accurate value such as a time series or classification, 
@@ -27,6 +41,8 @@ evaluation of creative RNN is in its nature
 - Approaches to evaluation taken in papers, with refs (.....). Magenta refs, Jaques et. al., other papers for magenta.
 
 - Note on explainable AI. 
+
+### General Model Evaluation
 
 For the purely generative models, evaluation is based on how well the RNN LSTM model has been able to learn general musical parameters. Note sequences were generated based on several different primers, which aimed at 
 
@@ -109,21 +125,12 @@ Duration interpreted as on/off at timestep
 
 ###  Working with tf Records
 
-## Model 
-
-In the first iteration, the model will consist of a music generation RNN LSTM. 
-This is uses a similar basis as character level RNN´s developed for Natural Language Processing (Jaques et. al.,2017) 
-
-The second iteration will then tune this LSTM using the Deep Q-learning approach by Jaques et. al.(2017). 
-
 
 ### Preliminary Experiment: Bach Bot - Monophonic Cello RNN 
 
 In order to familiarize myself with the Google Magenta toolkit and create a simple baseline model for further iterations, I first trained a simple model on using data from bachs cello suites. The advantage of this data is that it is mostly monophonic, e.g one melody, and captures many aspects of classical melodic and harmonic movement such as development of a repeated theme, development of a harmonic sequence and dramatic development. In data science terms, this means the data has a includes data patterns common in western musical traditions, such as absolute value differences in the sequence (melodic intervals), relative value difference patterns that are repeated with different absolute values locally (thematic development), and meta patterns  for how these different types of relative value difference patterns alternate depending on their absolute values (harmonic development). 
 
 - Musical Analysis of bach cello suite in data science language
-
-
 
 The initial cello suite was downloaded from an open source midi file repository (8 Notes, 2019). 
 
