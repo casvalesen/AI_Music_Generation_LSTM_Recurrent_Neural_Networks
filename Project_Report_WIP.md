@@ -1,11 +1,24 @@
 # Project Report: Music Generation with AI and Deep Learning (WIP) 
 
 
-## Project Goal
+## Project Goals
+
+### Application Goals
 
 The Goal is to design a music generator that is capable of generating melodies that are both musically expressive 
 and have a certain coherency. The model will generate a monophonic melody line, (which will be responsive to a real time input melody. )
 
+### Research Goals 
+
+Explore, evaluate and compare different methods using sequence based machine learning and Artificial Intelligence for creative sequence generation in the field of musical melodies. 
+
+IT 1: Examine the effectivenss of a training LSTM RNN  on a general musical dataset of 11 133 musical 
+
+IT 2: Examine effeciveness of training LSTM RNN first on a larger general music dataset of () (2.1), then on a smaller selection of context specific music examples. 
+
+IT 3: Examine using Q-learning based on general musical rules to improve the musical melodies generated. 
+
+(IT 4: Examine RL approaches to making the RNN learn the style of a human musician it plays along with) 
 
 ## Artificial Intelligence Research Context 
 
@@ -20,6 +33,13 @@ It is recognized that contemporary AI hold advantages over humans in analytical 
 The application context of the music project is in the realm of generating melodies for real time music improvisations in a cinematic style, such as film and game music. 
 
 ## Models
+
+### LSTM Recurrent Neural Networks for sequence generation 
+
+Goodfellow, I., Bengio, Y., & Courville., A.(2016 p.397)
+
+Géron, A. (2017 p.407)
+
 
 ### General Music Model
 
@@ -145,17 +165,26 @@ The initial cello suite was downloaded from an open source midi file repository 
 
 - Polyphonic midi files, aka. multiple simultaneous. Preprocessing extracted individual melodies / melody segments. 
 
+- Mono_rnn
+- RNN lstm model, 
+
+**Model Evaluation**
+
 *Primer: One note* 
 
 *Primer: Simple major Melody* 
 
 *Primer: Simple minor Melody*
 
+*Primer: Arpeggiated chord progression*
+
 
 ## Data sources
 8 notes (2019).Bach - Cello Suite No.1 in G major, BWV 1007 (complete) midi file for Cello (midi). 8 Notes.  https://www.8notes.com/scores/14093.asp?ftype=midi [Accessed 18.04.2018]
 
 ## References (Will be expanded for proper citation)
+-  Géron, A. (2017) *Hands-On Machine Learning with Scikit-Learn & Tensorflow* O´Reilly Media Inc, Sebastopol. 
+- Goodfellow, I., Bengio, Y., & Courville., A.(2016) *Deep Learning* MIT Press, London. 
 - Jaques, N., Gu,S., Turner, R E., & Eck, D. 2017.'TUNING RECURRENT NEURAL NETWORKS WITH REINFORCEMENT LEARNING'.  NIPS 2016 -Deep Reinforcement Learning Workshop. Available at: https://arxiv.org/pdf/1611.02796v2.pdf [Accessed 04.04.2019]
 - Jarrahi, M.H (2018) Artificial intelligence and the future of work: Human-AI symbiosis in organizational decision making. Business Horizons. No. 61 pp. 577-586. 
 - Google AI (2019). Magenta - Make music and Art Using Machine LEarning. https://magenta.tensorflow.org/[Accessed 19.04.2018]
