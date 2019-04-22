@@ -32,7 +32,7 @@ It is recognized that contemporary AI hold advantages over humans in analytical 
 
 The application context of the music project is in the realm of generating melodies for real time music improvisations in a cinematic style, such as film and game music. 
 
-## General Musical Data Patterns 
+## Musical Data 
 
 The data used for the model consists of musical material from the western musical traditions.  Although developing through history, the fundamental building blocks of this music have persisted from Bach (18th Century) to contemporary popular music (music history reference). A selection of these are: 
 
