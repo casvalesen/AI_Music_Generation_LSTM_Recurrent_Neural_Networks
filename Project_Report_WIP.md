@@ -22,7 +22,7 @@ and have a certain coherency. The model will generate a monophonic melody line, 
 
 ### Research Goals 
 
-Explore, evaluate and compare different methods using sequence based machine learning and Artificial Intelligence for creative sequence generation in the field of musical melodies. 
+Thus, the project entails the implementation and evaluation of a neural network for a sequence modelling task in the context of music generation. The research goals are to explore, evaluate and compare different methods using sequence based machine learning and Artificial Intelligence for creative sequence generation in the field of musical melodies. 
 
 IT 1: Examine the effectivenss of a training LSTM RNN  on a general musical dataset of 11 133 musical 
 
