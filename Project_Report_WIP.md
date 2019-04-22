@@ -1,5 +1,17 @@
 # Project Report: Music Generation with AI and Deep Learning (WIP) 
 
+### Project Criteria: 
+
+Individual project on a topic falling in the scope of the course
+• Focus on methodological aspects, principles, and implementation
+
+Allowing for
+• Accounting for individual preferences
+• Allowing to explore a given topic in more depth
+• Allowing to gain hands-on experience in coding a solution
+
+Selected:
+• Implement and evaluate a neural network for a sequence modelling task
 
 ## Project Goals
 
@@ -58,6 +70,9 @@ The data used for the model consists of musical material from the western musica
 
 *Rhythm*: On/off sequences in time.  
 
+**Performance** 
+
+Phrasing
 
 ## Models
 
@@ -132,7 +147,9 @@ The data consisted of midi files and was selected with the overall application.
 
 - General melody dataset: Lakh dataset
 
-- Performance: Maestro
+- Performance: Maestro, classical musical material and performance 
+
+
 
 ### Style Specific melody generation 
 
@@ -174,7 +191,7 @@ Style extraction?
 
 **Jazz Solos**
 
-The purpose of including the jazz solos was to 
+The purpose of including the jazz solos was for the model to learn jazz improvisational phrasing and performance. 
 
 A selection of jazz solos where also included in the dataset.
 Miles: Phrasing and clear motif statements. Both modal and fusion included for a more modern flavous(ref)
@@ -200,6 +217,8 @@ Duration interpreted as on/off at timestep
 
 ###  Working with tf Records
 
+- Refer to command line code for data processing 
+
 
 ### Preliminary Experiment: Bach Bot - Monophonic Cello RNN 
 
@@ -208,7 +227,6 @@ In order to familiarize myself with the Google Magenta toolkit and create a simp
 - Musical Analysis of bach cello suite in data science language
 
 The initial cello suite was downloaded from an open source midi file repository (8 Notes, 2019). 
-
 
 - Using default Magenta Tensorflow graphs 
 
@@ -274,7 +292,8 @@ https://groups.google.com/a/tensorflow.org/forum/#!topic/magenta-discuss/6ZLbzTj
 - Jaques, N., Gu,S., Turner, R E., & Eck, D. 2017.'TUNING RECURRENT NEURAL NETWORKS WITH REINFORCEMENT LEARNING'.  NIPS 2016 -Deep Reinforcement Learning Workshop. Available at: https://arxiv.org/pdf/1611.02796v2.pdf [Accessed 04.04.2019]
 - Jarrahi, M.H (2018) Artificial intelligence and the future of work: Human-AI symbiosis in organizational decision making. Business Horizons. No. 61 pp. 577-586. 
 - Google AI (2019). Magenta - Make music and Art Using Machine LEarning. https://magenta.tensorflow.org/[Accessed 19.04.2018]
-- Google AI Magenta (2019). Magenta Github Repository. https://github.com/tensorflow/magenta [Accessed 19.04.2018]
+- Google AI Magenta (2019a). Magenta Github Repository. https://github.com/tensorflow/magenta [Accessed 19.04.2018]
+- Google AI Magenta (2019b). The Maestro Dataset. *Tensorflow Magenta* https://magenta.tensorflow.org/datasets/maestro
 - Parry, K. Cohen, M & Bhattacharya, S (2016) Rise of the Machines: A Critical Consideration of Automated Leadership Decision Making in Organisations. Group and Organisation Management. 2016 vol. Vol. 41(5) pp. 571–594
 - Pease, T. & Pulling, K. 2001 *Modern Jazz Voicings* Berklee Press, Boston MA.
 - Pease, T. 2004 *Jazz Composition: Theory and Practice* Berklee Press, Boston MA. 
