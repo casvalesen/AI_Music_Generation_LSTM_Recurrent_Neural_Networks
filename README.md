@@ -35,3 +35,20 @@ Jaques, N., Gu,S., Turner, R E., & Eck, D. 2017.'TUNING RECURRENT NEURAL NETWORK
 
 -  https://arxiv.org/pdf/1810.12247.pdf
 - https://arxiv.org/pdf/1803.05428.pdf
+
+## Repository Contents 
+
+The repository Contains: 
+
+- **Project Report :** A research report including research goals, dataset selection, model design, implementation consideration and evaluations. 
+
+- **Implementation Code in Jypyter Notebook format:**  The Model implementation code.  ( ) 
+
+- **Data Preprocessing Code:** Command Line code used for data preprocessing ( ) 
+
+- **Custom Dataset:** The custom dataset build for the project.  (  ) 
+
+- **AI composer outputs:** Midi files from all the model generations, audio files for selected examples ( ). 
+
+
+
