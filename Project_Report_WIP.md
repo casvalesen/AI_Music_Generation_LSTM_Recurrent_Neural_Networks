@@ -103,18 +103,22 @@ Style specific dataset.
 
 As the data contained a much lower number of instances, this data was duplicated in order to provide specificity. 
 
-Movie themes
+**Movie themes**
+
 http://www.midiworld.com/search/1/?q=movie%20themes
 
 Movie themes of a symphonic nature were emphasized, (e.g in duplication). 
 
-Video Game themes
+**Video Game themes**
+
 http://www.midiworld.com/search/?q=video%20game%20themes
 
-TV Themes
+**TV Themes**
+
 http://www.midiworld.com/search/?q=tv%20themes
 
-Modal Classical 
+**Modal Classical** 
+
 Classical music from selected composers were also included as part of the style specific dataset. This was composers who were in the 
 expressionist, impressionist and nasjonal romantic with inspiration of Scandinavian folk music (..) paradigms as this was the moderns sounding style that would suit the model context. 
 
@@ -129,6 +133,19 @@ Theoretically, this is similar to training approaches used in Natural Language p
 Midi files were inspected using the musical notation software Sibelius. 
 
 Style extraction? 
+
+**Jazz Solos**
+
+The purpose of including the jazz solos was to 
+
+A selection of jazz solos where also included in the dataset.
+Miles: Phrasing and clear motif statements. Both modal and fusion included for a more modern flavous(ref)
+Coltrane: Phrasing and modal work     (ref)
+Herbie Hancock: Phrasing and modal work (ref)
+Wayne Shorter:   Phrasing and modal work  (ref) 
+Kenny Wheeler: 70´s modal and ambiuous tonalities (ref)
+
+
 
 ## Data processing 
 
