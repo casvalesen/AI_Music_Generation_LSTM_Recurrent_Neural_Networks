@@ -147,17 +147,14 @@ The data consisted of midi files and was selected with the overall application.
 
 ### General melody generation
 
-- General melody dataset: Lakh dataset
+- General melody dataset: Lakh dataset 178 579 midi files containing  
 
-- Performance: Maestro, classical musical material and performance 
-
+- Performance: Maestro, 1 202 midi files capturing world class performers classical musical material and performance 
 
 
 ### Style Specific melody generation 
 
-Style specific dataset. 
-
-As the data contained a much lower number of instances, this data was duplicated in order to provide specificity. 
+Style specific dataset. 530 files combining both polyphonic and monophonic instances. 
 
 
 **Movie themes**
@@ -191,11 +188,12 @@ Midi files were inspected using the musical notation software Sibelius.
 
 Style extraction? 
 
-**Jazz Solos**
+**Jazz**
 
 The purpose of including the jazz solos was for the model to learn jazz improvisational phrasing and performance. 
 
-A selection of jazz solos where also included in the dataset.
+*Solos*
+A selection of 64 jazz solos where also included in the dataset. 
 Miles: Phrasing and clear motif statements. Both modal and fusion included for a more modern flavous(ref)
 Coltrane: Phrasing and modal work     (ref)
 Herbie Hancock: Phrasing and modal work (ref)
@@ -203,6 +201,9 @@ Wayne Shorter:   Phrasing and modal work  (ref)
 Kenny Wheeler: 70´s modal and ambiuous tonalities (ref)
 
 https://jazzomat.hfm-weimar.de/dbformat/dbcontent.html
+
+*Ensemble* 
+
 
 ## Data processing 
 
@@ -272,7 +273,26 @@ harmonic development?
 
 For the second iteration, a sixth primer melody was added. This was a simple phrase which would be similar to what would be used by the musical instrument player in the improvisation application context. 
 
+Lakh dataset: 
+Maestro:
+
 It was a modal melody, e.g. a melody following a single 
+
+
+**2.1: Style specific dataset**
+
+*Training*
+
+Transfer Learning (Géron, 2017 p.289)
+
+The style specific data contained a much lower number of than the instances in the Lakh and Maestro training sets combined, 530 as opposed to 179 781 instances. The data was selected because it was closer to the instances likely encountered in the application context. 
+
+Overfitting the model on this data as opposed to keeping it balanced between the general and specific datasets was therefore justified. (?)
+
+A rather Naive approach was used for this second stage training, in which the training  steps was increased by a factor 179 781/530≈ 340 to give equal weight to the context data. (?)
+
+(Two step training for language models) 
+
 
 
 # Conclusion 
