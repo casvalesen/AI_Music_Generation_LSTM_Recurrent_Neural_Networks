@@ -82,6 +82,8 @@ Goodfellow, I., Bengio, Y., & Courville., A.(2016 p.397)
 
 Géron, A. (2017 p.407)
 
+Magenta Melody RNN (reference)
+
 
 ### General Music Model
 
