@@ -32,6 +32,33 @@ It is recognized that contemporary AI hold advantages over humans in analytical 
 
 The application context of the music project is in the realm of generating melodies for real time music improvisations in a cinematic style, such as film and game music. 
 
+## General Musical Data Patterns 
+
+The data used for the model consists of musical material from the western musical traditions.  Although developing through history, the fundamental building blocks of this music have persisted from Bach (18th Century) to contemporary popular music (music history reference). A selection of these are: 
+
+(check out music informatics for references here)
+
+**Intervals**  : such as absolute value differences in the sequence (melodic intervals)
+
+*Scales* : 
+
+*Modal* (Pease & Pulling, 2001) (Pease, T. 2004)
+
+**Melody** : A sequence of 
+
+*Themes* : 
+
+*Melodic Development* : Meta pattern     :relative value difference patterns that are repeated with different absolute values locally (thematic development) 
+
+**Harmony** :
+
+*Chords*:      In monophonic (single melodies) these would often be "broken" in the sense that chord notes are played in sequence rather than simultaneously. 
+
+*Harmonic Development/ Chord progression* :  meta patterns  for how these different types of relative value difference patterns alternate depending on their absolute values (harmonic development).
+
+*Rhythm*: On/off sequences in time.  
+
+
 ## Models
 
 ### LSTM Recurrent Neural Networks for sequence generation 
@@ -58,11 +85,19 @@ The second iteration will then tune this LSTM using the Deep Q-learning approach
 As a creative RNN is in its nature not trying to predict an accurate value such as a time series or classification, 
 evaluation of creative RNN is in its nature 
 
+Although accuracy rate might give an objective measure of how well the model predicts a melody note, it is not very informative on how the model performs in context specific terms, namely in how it manages to be musically expressive and use established musical conventions. 
+
+- It was therefore needed to define 
+
 - Approaches to evaluation taken in papers, with refs (.....). Magenta refs, Jaques et. al., other papers for magenta.
+
+This model evaluation definitions are in the field of explainable AI( ref). Since the objective measures or parameters captured by the model are not necessarily informative in the application context in the same way coefficients would be in regression, it is necessary to probe the AI model to generate outputs to get a general sense of how the model is performing and reasoning in the subject specific context (ref). 
 
 - Note on explainable AI. 
 
+
 ### General Model Evaluation
+
 
 For the purely generative models, evaluation is based on how well the RNN LSTM model has been able to learn general musical parameters. Note sequences were generated based on several different primers, which aimed at 
 
@@ -176,7 +211,7 @@ The initial cello suite was downloaded from an open source midi file repository 
 
 - Using default Magenta Tensorflow graphs 
 
-## Iteration 1: Mono_rnn based on Magenta´s RNN Model 
+## Iteration 1: Mono_rnn based on Magenta´s RNN LSTM Model 
 
 - First part of Lakh dataset used, ... entries. 
 
@@ -189,13 +224,36 @@ The initial cello suite was downloaded from an open source midi file repository 
 
 **Model Evaluation**
 
+Key? 
+intervals? 
+harmonic development? 
+
 *Primer: One note* 
+
+
 
 *Primer: Simple major Melody* 
 
+
+
 *Primer: Simple minor Melody*
 
+
+
 *Primer: Arpeggiated chord progression*
+
+
+
+*Primer: Bach Cello Suite 4 bars 
+
+
+## Iteration 2: Mono_rnn based on Magenta´s RNN LSTM Model, complete Lakh dataset (2.1) and style specific dataset (2.2)
+
+For the second iteration, a sixth primer melody was added. This was a simple phrase which would be similar to what would be used by the musical instrument player in the improvisation application context. 
+
+It was a modal melody, e.g. a melody following a single 
+
+
 
 
 ## Data sources
@@ -210,13 +268,15 @@ http://www.acroche2.com/midi_jazz.html
 https://groups.google.com/a/tensorflow.org/forum/#!topic/magenta-discuss/6ZLbzTjjpHM
 
 ## References (Will be expanded for proper citation)
--  Géron, A. (2017) *Hands-On Machine Learning with Scikit-Learn & Tensorflow* O´Reilly Media Inc, Sebastopol. 
+- Géron, A. (2017) *Hands-On Machine Learning with Scikit-Learn & Tensorflow* O´Reilly Media Inc, Sebastopol. 
 - Goodfellow, I., Bengio, Y., & Courville., A.(2016) *Deep Learning* MIT Press, London. 
 - Jaques, N., Gu,S., Turner, R E., & Eck, D. 2017.'TUNING RECURRENT NEURAL NETWORKS WITH REINFORCEMENT LEARNING'.  NIPS 2016 -Deep Reinforcement Learning Workshop. Available at: https://arxiv.org/pdf/1611.02796v2.pdf [Accessed 04.04.2019]
 - Jarrahi, M.H (2018) Artificial intelligence and the future of work: Human-AI symbiosis in organizational decision making. Business Horizons. No. 61 pp. 577-586. 
 - Google AI (2019). Magenta - Make music and Art Using Machine LEarning. https://magenta.tensorflow.org/[Accessed 19.04.2018]
 - Google AI Magenta (2019). Magenta Github Repository. https://github.com/tensorflow/magenta [Accessed 19.04.2018]
 - Parry, K. Cohen, M & Bhattacharya, S (2016) Rise of the Machines: A Critical Consideration of Automated Leadership Decision Making in Organisations. Group and Organisation Management. 2016 vol. Vol. 41(5) pp. 571–594
+- Pease, T. & Pulling, K. 2001 *Modern Jazz Voicings* Berklee Press, Boston MA.
+- Pease, T. 2004 *Jazz Composition: Theory and Practice* Berklee Press, Boston MA. 
 - Russel, S & Norvig, P. (2016) Artificial Intelligence - A Modern Approach. 3rd Edition. Pearson Education Limited, Essex. 
 -  https://arxiv.org/pdf/1810.12247.pdf
 - https://arxiv.org/pdf/1803.05428.pdf
