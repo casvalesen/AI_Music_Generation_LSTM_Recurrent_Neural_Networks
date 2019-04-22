@@ -91,6 +91,7 @@ This tests whether the model is able to capture arpeggiated chords, aka. individ
 ## Datasets
 
 The data consisted of midi files and was selected with the overall application. 
+- Building custom dataset
 
 ### General melody generation
 
@@ -102,6 +103,7 @@ The data consisted of midi files and was selected with the overall application.
 Style specific dataset. 
 
 As the data contained a much lower number of instances, this data was duplicated in order to provide specificity. 
+
 
 **Movie themes**
 
@@ -145,7 +147,7 @@ Herbie Hancock: Phrasing and modal work (ref)
 Wayne Shorter:   Phrasing and modal work  (ref) 
 Kenny Wheeler: 70´s modal and ambiuous tonalities (ref)
 
-
+https://jazzomat.hfm-weimar.de/dbformat/dbcontent.html
 
 ## Data processing 
 
@@ -202,6 +204,8 @@ The initial cello suite was downloaded from an open source midi file repository 
 http://www.midiworld.com/classic.htm#d
 
 https://jazzomat.hfm-weimar.de/dbformat/dbcontent.html
+
+http://www.acroche2.com/midi_jazz.html
 
 https://groups.google.com/a/tensorflow.org/forum/#!topic/magenta-discuss/6ZLbzTjjpHM
 
