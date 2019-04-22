@@ -275,6 +275,11 @@ For the second iteration, a sixth primer melody was added. This was a simple phr
 It was a modal melody, e.g. a melody following a single 
 
 
+# Conclusion 
+
+
+# Directions for further research 
+
 
 
 ## Data sources
