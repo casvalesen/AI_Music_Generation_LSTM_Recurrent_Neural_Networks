@@ -116,7 +116,7 @@ http://www.midiworld.com/search/?q=tv%20themes
 
 Modal Classical 
 Classical music from selected composers were also included as part of the style specific dataset. This was composers who were in the 
-expressionist, impressionist and (..) paradigms as this was the moderns sounding style that would suit the model context. 
+expressionist, impressionist and nasjonal romantic with inspiration of Scandinavian folk music (..) paradigms as this was the moderns sounding style that would suit the model context. 
 
 http://www.midiworld.com/classic.htm#d
 http://www.midiworld.com/classic.htm#m
@@ -181,6 +181,12 @@ The initial cello suite was downloaded from an open source midi file repository 
 
 ## Data sources
 8 notes (2019).Bach - Cello Suite No.1 in G major, BWV 1007 (complete) midi file for Cello (midi). 8 Notes.  https://www.8notes.com/scores/14093.asp?ftype=midi [Accessed 18.04.2018]
+
+http://www.midiworld.com/classic.htm#d
+
+https://jazzomat.hfm-weimar.de/dbformat/dbcontent.html
+
+https://groups.google.com/a/tensorflow.org/forum/#!topic/magenta-discuss/6ZLbzTjjpHM
 
 ## References (Will be expanded for proper citation)
 -  Géron, A. (2017) *Hands-On Machine Learning with Scikit-Learn & Tensorflow* O´Reilly Media Inc, Sebastopol. 
