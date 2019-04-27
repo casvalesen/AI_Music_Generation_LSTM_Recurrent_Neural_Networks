@@ -86,6 +86,8 @@ Géron, A. (2017 p.407)
 
 Magenta Melody RNN (reference)
 
+(Graves, 2013)
+
 
 ### General Music Model
 
@@ -120,7 +122,11 @@ This model evaluation definitions are in the field of explainable AI( ref). Sinc
 
 **General** 
 
-A known failure mode of multi step generated sequences is the difficulty of ensuring coherent global structure (Jaques et. al., 2017). An evaluation criteria for the generated sequences is therefore to what extent they have a coherent global structure. 
+
+A known failure mode of single step prediction RNN´s in sequence generation is the continuous repetition of the same token(Jaques et. al., 2017). The results of the LSTM RNN  were therefore evaluated on whether this failure mode was occuring. 
+
+
+Another common failure mode of single step RNNs is the difficulty of ensuring coherent global structure (Jaques et. al., 2017). An evaluation criteria for the generated sequences is therefore to what extent they have a coherent global structure. 
 
 In a musical context this can refer to the following characteristics: 
 
@@ -339,6 +345,7 @@ https://groups.google.com/a/tensorflow.org/forum/#!topic/magenta-discuss/6ZLbzTj
 ## References (Will be expanded for proper citation)
 - Géron, A. (2017) *Hands-On Machine Learning with Scikit-Learn & Tensorflow* O´Reilly Media Inc, Sebastopol. 
 - Goodfellow, I., Bengio, Y., & Courville., A.(2016) *Deep Learning* MIT Press, London. 
+- Graves, A (2013). Generating sequences with recurrent neural networks. *arXiv preprint:1308.0850.*
 - Jaques, N., Gu,S., Turner, R E., & Eck, D. 2017.'TUNING RECURRENT NEURAL NETWORKS WITH REINFORCEMENT LEARNING'.  NIPS 2016 -Deep Reinforcement Learning Workshop. Available at: https://arxiv.org/pdf/1611.02796v2.pdf [Accessed 04.04.2019]
 - Jarrahi, M.H (2018) Artificial intelligence and the future of work: Human-AI symbiosis in organizational decision making. Business Horizons. No. 61 pp. 577-586. 
 - Google AI (2019). Magenta - Make music and Art Using Machine LEarning. https://magenta.tensorflow.org/[Accessed 19.04.2018]
