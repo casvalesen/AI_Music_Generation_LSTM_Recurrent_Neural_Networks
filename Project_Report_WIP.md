@@ -26,9 +26,9 @@ Thus, the project entails the implementation and evaluation of a neural network 
 
 (Franklin, 2006) - RNN useful in music gen. 
 
-IT 1: Examine the effectivenss of a training LSTM RNN  on a general musical dataset of 11 133 musical 
+IT 1: Examine the effectivenss of a training LSTM RNN  on a general musical dataset of 11 133 musical examples. 
 
-IT 2: Examine effeciveness of training LSTM RNN first on a larger general music dataset of () (2.1), then on a smaller selection of context specific music examples. 
+IT 2: Examine effeciveness of training LSTM RNN first on a larger general music dataset of ( ) (2.1), then on a smaller selection of context specific music examples (2.2) 
 
 IT 3: Examine using Q-learning based on general musical rules to improve the musical melodies generated. 
 
@@ -92,7 +92,11 @@ Magenta Melody RNN (reference)
 As with Language models, a music model can be first trained as a general model, then adapted to the specific application context. In Language this could entail building a general model for the language in question, then specialising the model to a certain application field using application specific data. In music, this training process could be utilised by first training the model on a general music data from which the model could learn general musical rules and conventions. The model could then be further trained on a data from specific style of music in order to specialise it to this field. 
 
 In the first iteration, the model will consist of a music generation RNN LSTM. 
-This is uses a similar basis as character level RNN´s developed for Natural Language Processing (Jaques et. al.,2017) 
+
+This is uses a similar basis as character level RNN´s developed for Natural Language Processing (Jaques et. al.,2017; Mikolov et. al.,2010) 
+
+(Explain-). 
+
 
 
 ### Style Specific Model 
@@ -114,6 +118,18 @@ This model evaluation definitions are in the field of explainable AI( ref). Sinc
 
 - Note on explainable AI. 
 
+**General** 
+
+A known failure mode of multi step generated sequences is the difficulty of ensuring coherent global structure (Jaques et. al., 2017). An evaluation criteria for the generated sequences is therefore to what extent they have a coherent global structure. 
+
+In a musical context this can refer to the following characteristics: 
+
+
+
+**With primer** 
+
+Capturing primer sequence pattern characteristics, i.e musical attributes. 
+
 
 ### General Model Evaluation
 
@@ -130,6 +146,7 @@ This examines what the AI generates when it is fed a simple major melody, with t
 - to generate melodies in the major scale
 - imitate stepwise melody movement 
 - use a leading note half step below the root note to lead back to the root note in melodic movements. 
+- capture the steady melody rhytm with (...) as main sequence step length. 
 
 *Primer: Simple Minor Melody.* 
 
@@ -141,6 +158,10 @@ This test is equivalent to the major melody, just in minor. It examines what the
 *Primer: Arpeggiated chord progression* 
 
 This tests whether the model is able to capture arpeggiated chords, aka. individual chord notes in sequence, and chord progressions. 
+
+*Primer: Bach Cello Suite Excerpt*
+
+Thi tests whether the model is able to campture the melody style represented in the start of Bach´s cello suite. The style is characterised by  16th notes, which are short sequence step lengths, a combination of stepwise motion (delta of one or two half steps) and larger interval leaps (sequence step deltas between [6-9] ]. 
 
 ## Datasets
 
@@ -323,6 +344,7 @@ https://groups.google.com/a/tensorflow.org/forum/#!topic/magenta-discuss/6ZLbzTj
 - Google AI (2019). Magenta - Make music and Art Using Machine LEarning. https://magenta.tensorflow.org/[Accessed 19.04.2018]
 - Google AI Magenta (2019a). Magenta Github Repository. https://github.com/tensorflow/magenta [Accessed 19.04.2018]
 - Google AI Magenta (2019b). The Maestro Dataset. *Tensorflow Magenta* https://magenta.tensorflow.org/datasets/maestro
+- Mikolov et al.(2010) Recurrent neural network based language model. *In Interspeech*, volume 2, pp. 3.
 - Parry, K. Cohen, M & Bhattacharya, S (2016) Rise of the Machines: A Critical Consideration of Automated Leadership Decision Making in Organisations. Group and Organisation Management. 2016 vol. Vol. 41(5) pp. 571–594
 - Pease, T. & Pulling, K. 2001 *Modern Jazz Voicings* Berklee Press, Boston MA.
 - Pease, T. 2004 *Jazz Composition: Theory and Practice* Berklee Press, Boston MA. 
