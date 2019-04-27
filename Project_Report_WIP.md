@@ -328,7 +328,7 @@ It was a modal melody, e.g. a melody following a single
 
 **2.2: Style specific dataset**
 
-*Training*
+*Training* :  
 
 Transfer Learning (Géron, 2017 p.289)
 
@@ -340,6 +340,39 @@ A rather Naive approach was used for this second stage training, in which the tr
 
 (Paper on transfer learning & Two step training for language models) 
 
+*One Note*
+
+Some more chromatics, shows jazz influence in model. 
+
+*Minor*
+stepwise melody movements, stepwise movements as small motifs transposed (min 2.2-1)
+failure mode of continuously repeated notes in  (minor 2.2-2)
+
+
+*Bach** 
+
+2.1 captured interval leaps better. 
+
+
+
+2.1 more general dataset, thus more adaptable. 
+
+Overfit? 
+
+*Modal*
+Does it perform better on this specific? 
+
+
+Generated from previous: 
+
+It would seem the model has lost a lot of its generality. It does perform well on ....  , but some more generality is needed. 
+To try to remedy this, the model trained on (...) iterations was used. 
+
+**2.2: fewer iterations**
+
+40 000 
+
+long note was added to the sequence gen. 
 
 # Tuning the RNN with Deep Q Reinforcement Learning 
 
