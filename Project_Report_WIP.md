@@ -145,7 +145,8 @@ Another common failure mode of single step RNNs is the difficulty of ensuring co
 
 In a musical context this can refer to the following characteristics: 
 
-
+**FLAGS**
+hyperparameters
 
 **With primer** 
 
