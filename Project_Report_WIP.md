@@ -13,6 +13,13 @@ Allowing for
 Selected:
 • Implement and evaluate a neural network for a sequence modelling task
 
+**refer to specific code modules, show implementation understanding**
+
+## Project Overview 
+
+
+The project models entail customized implmentations of the Google AI Magenta models for melody generating using a LSTM Recurrent Neural Network (Google AI Magenta, 2019c) and a Reinforcement Learning algorithm Tuning this network using Deep Q-Learning (Google AI Magenta, 2019d; Jaques et. al., 2017). Dataset choice, Model choice parameter options and customizations are informed by the requirements of the application context, application music practitioner literature, the authors own domain knowledge from 18 years as a music practitioner. 
+
 ## Project Goals
 
 ### Application Goals
@@ -42,6 +49,13 @@ In addition to providing a number of usecases, it is also interesting in the sen
 
 It is recognized that contemporary AI hold advantages over humans in analytical tasks such as identifying relationships and caputuring complex dynamics of large datasets. However, creativity is argued to be one of the areas in which humans still hold significant (Parry et. al, 2016 p.580; Jarrahi, 2018 p.582). Exploration of computational creativity is therefore an important step on the path to general or strong Artificial Intelligence (Russel & Norvig, 2016 p.16; Jaques et. al.,2017 ). 
 
+"Music is an interesting test-bed for sequence generation, in that musical compositions adhere to a relatively well-defined set of structural rules. Any beginning music student learns that groups of notes belong to keys, chords follow progressions, and songs have consistent structures made up of musical phrases." (Jaques et. al., 2017). (Online) 
+
+"The music theory rules implemented for the model are only a first attempt, and could easily be improved by someone with musical training."  (Jaques et. al., 2017). (Online) -  Improve music theory rule? 
+
+Music generated my artificial intelligence    (AIVA, ;(game music)).
+
+
 ## Application Context
 
 The application context of the music project is in the realm of generating melodies for real time music improvisations in a cinematic style, such as film and game music. 
@@ -66,7 +80,7 @@ The data used for the model consists of musical material from the western musica
 
 **Harmony** :
 
-*Chords*:      In monophonic (single melodies) these would often be "broken" in the sense that chord notes are played in sequence rather than simultaneously. 
+*Chords*: In monophonic (single melodies) these would often be "broken" in the sense that chord notes are played in sequence rather than simultaneously. 
 
 *Harmonic Development/ Chord progression* :  meta patterns  for how these different types of relative value difference patterns alternate depending on their absolute values (harmonic development).
 
@@ -78,15 +92,16 @@ Phrasing
 
 ## Models
 
+
 ### LSTM Recurrent Neural Networks for sequence generation 
+
+*Character RNN*  (Graves, 2013)
 
 Goodfellow, I., Bengio, Y., & Courville., A.(2016 p.397)
 
 Géron, A. (2017 p.407)
 
 Magenta Melody RNN (reference)
-
-(Graves, 2013)
 
 
 ### General Music Model
@@ -98,7 +113,6 @@ In the first iteration, the model will consist of a music generation RNN LSTM.
 This is uses a similar basis as character level RNN´s developed for Natural Language Processing (Jaques et. al.,2017; Mikolov et. al.,2010) 
 
 (Explain-). 
-
 
 
 ### Style Specific Model 
@@ -120,13 +134,14 @@ This model evaluation definitions are in the field of explainable AI( ref). Sinc
 
 - Note on explainable AI. 
 
-**General** 
 
+**General** 
 
 A known failure mode of single step prediction RNN´s in sequence generation is the continuous repetition of the same token(Jaques et. al., 2017). The results of the LSTM RNN  were therefore evaluated on whether this failure mode was occuring. 
 
 
-Another common failure mode of single step RNNs is the difficulty of ensuring coherent global structure (Jaques et. al., 2017). An evaluation criteria for the generated sequences is therefore to what extent they have a coherent global structure. 
+Another common failure mode of single step RNNs is the difficulty of ensuring coherent global structure. In music specifically, this global structure is built up by musical phrases (Jaques et. al., 2017). An evaluation criteria for the generated sequences is therefore to what extent they have a coherent global structure.
+
 
 In a musical context this can refer to the following characteristics: 
 
@@ -252,7 +267,7 @@ Duration interpreted as on/off at timestep
 - Refer to command line code for data processing 
 
 
-### Preliminary Experiment: Bach Bot - Monophonic Cello RNN 
+(### Preliminary Experiment: Bach Bot - Monophonic Cello RNN 
 
 In order to familiarize myself with the Google Magenta toolkit and create a simple baseline model for further iterations, I first trained a simple model on using data from bachs cello suites. The advantage of this data is that it is mostly monophonic, e.g one melody, and captures many aspects of classical melodic and harmonic movement such as development of a repeated theme, development of a harmonic sequence and dramatic development. In data science terms, this means the data has a includes data patterns common in western musical traditions, such as absolute value differences in the sequence (melodic intervals), relative value difference patterns that are repeated with different absolute values locally (thematic development), and meta patterns  for how these different types of relative value difference patterns alternate depending on their absolute values (harmonic development). 
 
@@ -260,7 +275,7 @@ In order to familiarize myself with the Google Magenta toolkit and create a simp
 
 The initial cello suite was downloaded from an open source midi file repository (8 Notes, 2019). 
 
-- Using default Magenta Tensorflow graphs 
+- Using default Magenta Tensorflow graphs )
 
 ## Iteration 1: Mono_rnn based on Magenta´s RNN LSTM Model 
 
@@ -300,6 +315,8 @@ harmonic development?
 
 ## Iteration 2: Mono_rnn based on Magenta´s RNN LSTM Model, complete Lakh dataset (2.1) and style specific dataset (2.2)
 
+**2.1: Complete Lakh and Maestro datasets
+
 For the second iteration, a sixth primer melody was added. This was a simple phrase which would be similar to what would be used by the musical instrument player in the improvisation application context. 
 
 Lakh dataset: 
@@ -308,7 +325,7 @@ Maestro:
 It was a modal melody, e.g. a melody following a single 
 
 
-**2.1: Style specific dataset**
+**2.2: Style specific dataset**
 
 *Training*
 
@@ -320,8 +337,45 @@ Overfitting the model on this data as opposed to keeping it balanced between the
 
 A rather Naive approach was used for this second stage training, in which the training  steps was increased by a factor 179 781/530≈ 340 to give equal weight to the context data. (?)
 
-(Two step training for language models) 
+(Paper on transfer learning & Two step training for language models) 
 
+
+# Tuning the RNN with Deep Q Reinforcement Learning 
+
+Implementation of the Magenta Deep Q Learning Music model created by Jaques et. al.(2017) using the authors own dataset (as described above) and customized musical theory rules in the reward function. 
+
+
+### Deep Q Reinforcement Learning
+
+Goodfellow et. al., 2016. 
+Géron, 2017. 
+
+## Deep Q Learning for Sequence Prediction 
+
+### Magenta DQN Rl Tuner
+
+Exploration mod: "egreedy" implementing epsilon greedy policy or boltzman to sample from its own outputs 
+Priming mode: 
+
+## 
+
+## Customized Music Theory Rewards 
+
+The reward_music_theory function defined in the RL Tuner model (Google AI, 2019d)  individual music theory subfunctions to compute a reward for desired musical outcomes. Among the default music theory rewards include playing a motif, repeating  a motif and following a certain scale. 
+
+The original RL tuner model implemented musical theory rules based on some music domain knowledge and the musical treatise "A Practical Approach to Eighteenth-Century Counterpoint” by Robert Gauldin. In their paper and associated blog posts, Jaques et. al. (2017) encourage further exploration and customization of these music theory rules. 
+
+For the present model these music theory rules were augmented to suit the specific application context of the model. 
+
+Modal classical theory: 
+Jazz theory: Pease & Pulling, 2001; Pease, 2004; Miller, 1996) 
+Film music:  LOTR musical rules for flavour 
+
+
+The original music theory rewards for the DQN RL tuner model only defined a C major scale. 
+(https://github.com/tensorflow/magenta/blob/master/magenta/models/rl_tuner/rl_tuner_ops.py) 
+
+Modal framework implementing relative scale pitches. These are based on the major modes of western music, which are used both in classical composition ( ) , Jazz Composition (Pease & Pulling, 2001; Pease, 2004; Miller, 1996) and cinematic music (Adams, 2010) 
 
 
 # Conclusion 
@@ -342,19 +396,27 @@ http://www.acroche2.com/midi_jazz.html
 
 https://groups.google.com/a/tensorflow.org/forum/#!topic/magenta-discuss/6ZLbzTjjpHM
 
-## References (Will be expanded for proper citation)
-- Géron, A. (2017) *Hands-On Machine Learning with Scikit-Learn & Tensorflow* O´Reilly Media Inc, Sebastopol. 
-- Goodfellow, I., Bengio, Y., & Courville., A.(2016) *Deep Learning* MIT Press, London. 
-- Graves, A (2013). Generating sequences with recurrent neural networks. *arXiv preprint:1308.0850.*
-- Jaques, N., Gu,S., Turner, R E., & Eck, D. 2017.'TUNING RECURRENT NEURAL NETWORKS WITH REINFORCEMENT LEARNING'.  NIPS 2016 -Deep Reinforcement Learning Workshop. Available at: https://arxiv.org/pdf/1611.02796v2.pdf [Accessed 04.04.2019]
-- Jarrahi, M.H (2018) Artificial intelligence and the future of work: Human-AI symbiosis in organizational decision making. Business Horizons. No. 61 pp. 577-586. 
+## References
+- Adams, D. (2010) *The Music of the Lord of The rings Films*
+- Géron, A. (2017) *Hands-On Machine Learning with Scikit-Learn & Tensorflow* O´Reilly Media Inc, Sebastopol.
+- Goldstein, G. (1982)  *Jazz Composer´s Companion* 
 - Google AI (2019). Magenta - Make music and Art Using Machine LEarning. https://magenta.tensorflow.org/[Accessed 19.04.2018]
 - Google AI Magenta (2019a). Magenta Github Repository. https://github.com/tensorflow/magenta [Accessed 19.04.2018]
 - Google AI Magenta (2019b). The Maestro Dataset. *Tensorflow Magenta* https://magenta.tensorflow.org/datasets/maestro
+- Google AI MAgenta (2019c). Melody RNN. *Magenta Github Repository* https://github.com/tensorflow/magenta/tree/master/magenta/models/melody_rnn 
+- Google AI Magenta (2019d). RL Tuner. *Magenta Github Repository* https://github.com/tensorflow/magenta/tree/master/magenta/models/rl_tuner 
+- Goodfellow, I., Bengio, Y., & Courville., A.(2016) *Deep Learning* MIT Press, London. 
+- Graves, A (2013). Generating sequences with recurrent neural networks. *arXiv preprint:1308.0850.*
+- Jaques, N 2016. Tuning Recurrent Neural Networks with Reinforcement Learning. *Google AI Magenta Blog* https://magenta.tensorflow.org/2016/11/09/tuning-recurrent-networks-with-reinforcement-learning  [Accessed 27.04.2019]
+- Jaques, N., Gu,S., Turner, R E., & Eck, D. 2017.'TUNING RECURRENT NEURAL NETWORKS WITH REINFORCEMENT LEARNING'.  NIPS 2016 -Deep Reinforcement Learning Workshop. Available at: https://arxiv.org/pdf/1611.02796v2.pdf [Accessed 04.04.2019]
+- Jarrahi, M.H (2018) Artificial intelligence and the future of work: Human-AI symbiosis in organizational decision making. Business Horizons. No. 61 pp. 577-586. 
+
 - Mikolov et al.(2010) Recurrent neural network based language model. *In Interspeech*, volume 2, pp. 3.
+- Miller, Ron. 1996. *Modal Jazz Composition & Harmony vol. 1.* Rottenberg: Advance Music
+- Miller, Ron. 2000. *Model Jazz Composition & Harmony vol.2* Rottenber: Advance Music
 - Parry, K. Cohen, M & Bhattacharya, S (2016) Rise of the Machines: A Critical Consideration of Automated Leadership Decision Making in Organisations. Group and Organisation Management. 2016 vol. Vol. 41(5) pp. 571–594
 - Pease, T. & Pulling, K. 2001 *Modern Jazz Voicings* Berklee Press, Boston MA.
 - Pease, T. 2004 *Jazz Composition: Theory and Practice* Berklee Press, Boston MA. 
-- Russel, S & Norvig, P. (2016) Artificial Intelligence - A Modern Approach. 3rd Edition. Pearson Education Limited, Essex. 
+- Russel, S & Norvig, P. (2016) *Artificial Intelligence - A Modern Approach*. 3rd Edition. Pearson Education Limited, Essex. 
 -  https://arxiv.org/pdf/1810.12247.pdf
 - https://arxiv.org/pdf/1803.05428.pdf
