@@ -334,7 +334,10 @@ Transfer Learning (Géron, 2017 p.289)
 
 The style specific data contained a much lower number of than the instances in the Lakh and Maestro training sets combined, 530 as opposed to 179 781 instances. The data was selected because it was closer to the instances likely encountered in the application context. 
 
+
 Overfitting the model on this data as opposed to keeping it balanced between the general and specific datasets was therefore justified. (?)
+
+Initially, the model was overfitted on this data in order to gain context specificity With 50 000 additional training iterations. However, the generated melodies had forgotten: 
 
 THIS IS CRAZY; CHECK!!!(A rather Naive approach was used for this second stage training, in which the training  steps was increased by a factor 179 781/530≈ 340 to give equal weight to the context data. (?)
 
@@ -370,9 +373,12 @@ To try to remedy this, the model trained on (...) iterations was used.
 
 **2.2: fewer iterations**
 
-40 000 
+In order to keep the generality of iteration 2.1 with some context specialisation, further melodies were generated using the saved checkpoint 22 158. This version of the model was trained on the initial 20 000 iterations with the large dataset, then 1/10 th of the iterations on the context dataset. 
 
-long note was added to the sequence gen. 
+- (discuss outcomes on models) 
+
+- Link to transfer learning paper (ref)
+
 
 # Tuning the RNN with Deep Q Reinforcement Learning 
 
