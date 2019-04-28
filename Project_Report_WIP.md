@@ -1,4 +1,4 @@
-# Project Report: Music Generation with AI and Deep Learning (WIP) 
+# Project Report: Music Generation with AI and Deep Learning (WIP) - Domain specific Sequence Modelling 
 
 ### Project Criteria: 
 
@@ -19,6 +19,16 @@ Selected:
 
 
 The project models entail customized implmentations of the Google AI Magenta models for melody generating using a LSTM Recurrent Neural Network (Google AI Magenta, 2019c) and a Reinforcement Learning algorithm Tuning this network using Deep Q-Learning (Google AI Magenta, 2019d; Jaques et. al., 2017). Dataset choice, Model choice parameter options and customizations are informed by the requirements of the application context, application music practitioner literature, the authors own domain knowledge from 18 years as a music practitioner. 
+
+*The project includes:* 
+
+- Dataset building for general sequence modelling in musical domains
+- Dataset building for sequence modelling in the specific application context. 
+- Training a RNN LSTM for general sequence prediction
+- Applying transfer learning to further train the Model  towards a context domain specific application
+- Empirical evaluations of trainig iterations in transfer learning.
+- Using Deep Q Reinforcement Learning to tune this context specific model further using customized rewards from the application domain. 
+- Design and application of context specific model evaluations mechanisms informed by application domain literature and practice. 
 
 ## Project Goals
 
@@ -54,6 +64,8 @@ It is recognized that contemporary AI hold advantages over humans in analytical 
 "The music theory rules implemented for the model are only a first attempt, and could easily be improved by someone with musical training."  (Jaques et. al., 2017). (Online) -  Improve music theory rule? 
 
 Music generated my artificial intelligence    (AIVA, ;(game music)).
+
+- Ref. on call for application of domain knowledge 
 
 
 ## Application Context
@@ -129,10 +141,18 @@ The third iteration will then tune this LSTM using the Deep Q-learning approach 
 
 ## Evalation mechanisms 
 
+*Reference on how NLP models are evaluated**
+
 As a creative RNN is in its nature not trying to predict an accurate value such as a time series or classification, 
 evaluation of creative RNN is in its nature 
 
 Although accuracy rate might give an objective measure of how well the model predicts a melody note, it is not very informative on how the model performs in context specific terms, namely in how it manages to be musically expressive and use established musical conventions. 
+
+Criteria: 
+
+Analysis: A musical analysis. Context specific. 
+
+STATS?? 
 
 - It was therefore needed to define 
 
@@ -362,11 +382,12 @@ Maestro:
 It was a modal melody, e.g. a melody following a single 
 
 
-**2.2: Style specific dataset**
+**2.2: Style specific dataset** - Combine for discussion on transfer learning and training. (!!). 
 
 *Training* :  
 
 Transfer Learning (Géron, 2017 p.289)
+Goodfellow et. al., 2016 p.
 
 The style specific data contained a much lower number of than the instances in the Lakh and Maestro training sets combined, 530 as opposed to 179 781 instances. The data was selected because it was closer to the instances likely encountered in the application context. 
 
