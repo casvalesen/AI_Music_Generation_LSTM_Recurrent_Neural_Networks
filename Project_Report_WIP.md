@@ -27,7 +27,7 @@ Supervised learning
 - Dataset building for general sequence modelling in musical domains
 - Dataset building for sequence modelling in the specific application context. 
 - Training a RNN LSTM for general sequence prediction
-- Applying transfer learning to further train the Model  towards a context domain specific application
+- Applying learning to further train the Model  towards a context domain specific application
 - Empirical evaluations of trainig iterations in transfer learning.
 - Using Deep Q Reinforcement Learning to tune this context specific model further using customized rewards from the application domain. 
 - Design and application of context specific model evaluations mechanisms informed by application domain literature and practice. 
@@ -207,7 +207,15 @@ In the RNN LSTM, the token used for prediction is known as the "primer" for the 
 
 ### Style Specific Model
 
-Transfer learning:  (Goodfellow et. al.,2016) - le
+Transfer learning:  (Goodfellow et. al.,2016) - le    
+Assumption : Many of the factors explaning variations in the first dataset hold in the second. 
+Both general music data and the context specific data are governed by the basic musical building blocks described in the Musical Data setion. These musical building blocks are analogous to the low level visual features captured in CNN visual systems, where transfer learning is frequently applied to adapt models trained on one visual category to another (Goodfellow et. al., 2016). 
+
+Different tasks, different outputs. 
+features in visual systems, where general musical characteristics captured in the general model are applicable to 
+
+This is confirmed by examination of both datasets, and th
+
 The general music data contains a distribution over all types and types of music, while the context dataset was aiming at a very specific 
 
 while the domain context was aiming at a very specific style 
@@ -397,6 +405,11 @@ Maestro:
 - (midi/ audio example)
 
 It was a modal melody, e.g. a melody following a single 
+
+
+- Training statistics:  step change in several metric on context specific dataset as this is a lot less varied than the general dataset, thus easier with precision(?)
+
+- Cloud based training terminated, and was restarted. A memory overload issue led to loss of training data between (---). However, in the metric visualisations, this provides a good visualization of the step change occuring between training model 2.1. and 2.2. 
 
 
 **2.2: Style specific dataset** - Combine for discussion on transfer learning and training. (!!). 
