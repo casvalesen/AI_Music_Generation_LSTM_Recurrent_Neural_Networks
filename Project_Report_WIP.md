@@ -20,6 +20,8 @@ Selected:
 
 The project models entail customized implmentations of the Google AI Magenta models for melody generating using a LSTM Recurrent Neural Network (Google AI Magenta, 2019c) and a Reinforcement Learning algorithm Tuning this network using Deep Q-Learning (Google AI Magenta, 2019d; Jaques et. al., 2017). Dataset choice, Model choice parameter options and customizations are informed by the requirements of the application context, application music practitioner literature, the authors own domain knowledge from 18 years as a music practitioner. 
 
+Supervised learning 
+
 *The project includes:* 
 
 - Dataset building for general sequence modelling in musical domains
@@ -103,7 +105,79 @@ The data used for the model consists of musical material from the western musica
 
 Phrasing
 
+## Datasets
+
+The data consisted of midi files and was selected with the overall application. 
+- Building custom dataset
+
+### General melody generation
+
+- General melody dataset: Lakh dataset 178 579 midi files containing  
+
+- Performance: Maestro, 1 202 midi files capturing world class performers classical musical material and performance 
+
+
+### Style Specific melody generation 
+
+Style specific dataset. 530 files combining both polyphonic and monophonic instances. 
+
+
+**Movie themes**
+
+http://www.midiworld.com/search/1/?q=movie%20themes
+
+Movie themes of a symphonic nature were emphasized, (e.g in duplication). 
+
+**Video Game themes**
+
+http://www.midiworld.com/search/?q=video%20game%20themes
+
+**TV Themes**
+
+http://www.midiworld.com/search/?q=tv%20themes
+
+**Modal Classical** 
+
+Classical music from selected composers were also included as part of the style specific dataset. This was composers who were in the 
+expressionist, impressionist and nasjonal romantic with inspiration of Scandinavian folk music (..) paradigms as this was the moderns sounding style that would suit the model context. 
+
+http://www.midiworld.com/classic.htm#d
+http://www.midiworld.com/classic.htm#m
+
+Theoretically, this is similar to training approaches used in Natural Language processing for building language context specific models (Reference needed). 
+
+- Transform to melodies from 
+- Think about target and prediction
+
+Midi files were inspected using the musical notation software Sibelius. 
+
+Style extraction? 
+
+**Jazz**
+
+The purpose of including the jazz solos was for the model to learn jazz improvisational phrasing and performance. 
+
+*Solos*
+A selection of 64 jazz solos where also included in the dataset. 
+Miles: Phrasing and clear motif statements. Both modal and fusion included for a more modern flavous(ref)
+Coltrane: Phrasing and modal work     (ref)
+Herbie Hancock: Phrasing and modal work (ref)
+Wayne Shorter:   Phrasing and modal work  (ref) 
+Kenny Wheeler: 70´s modal and ambiuous tonalities (ref)
+
+https://jazzomat.hfm-weimar.de/dbformat/dbcontent.html
+
+*Ensemble* 
+
+
 ## Models
+
+The following models were created: 
+
+- Model 1: A Note based LSTM RNN for General Music Generation trained on a subset of the General Music Dataset, only including musical composition.
+- Model 2.1 : A Note Based LSTM RNN for General Music Generaton trained on the entire General Music Daset, including both musical compositions and captured performances. 
+- Model 2.2: A Note Based LSTM RNN which applied transfer learning to adapt Model 2.1 to the application context domain by training it on the style specific dataset. 
+- Model 3.0: A Deep Q Reinforcement Learning model which tunes model 2.2 by balancing style specific music theory rewards with the LSTM based sequence model. 
 
 
 ### LSTM Recurrent Neural Networks for sequence generation 
@@ -132,6 +206,11 @@ In the RNN LSTM, the token used for prediction is known as the "primer" for the 
 (Explain-). 
 
 ### Style Specific Model
+
+Transfer learning:  (Goodfellow et. al.,2016) - le
+The general music data contains a distribution over all types and types of music, while the context dataset was aiming at a very specific 
+
+while the domain context was aiming at a very specific style 
 
 The second iteration will then be trained on a style specific dataset to approach the musical style of the application domain. 
 
@@ -212,70 +291,6 @@ This tests whether the model is able to capture arpeggiated chords, aka. individ
 
 Thi tests whether the model is able to campture the melody style represented in the start of Bach´s cello suite. The style is characterised by  16th notes, which are short sequence step lengths, a combination of stepwise motion (delta of one or two half steps) and larger interval leaps (sequence step deltas between [6-9] ]. 
 
-## Datasets
-
-The data consisted of midi files and was selected with the overall application. 
-- Building custom dataset
-
-### General melody generation
-
-- General melody dataset: Lakh dataset 178 579 midi files containing  
-
-- Performance: Maestro, 1 202 midi files capturing world class performers classical musical material and performance 
-
-
-### Style Specific melody generation 
-
-Style specific dataset. 530 files combining both polyphonic and monophonic instances. 
-
-
-**Movie themes**
-
-http://www.midiworld.com/search/1/?q=movie%20themes
-
-Movie themes of a symphonic nature were emphasized, (e.g in duplication). 
-
-**Video Game themes**
-
-http://www.midiworld.com/search/?q=video%20game%20themes
-
-**TV Themes**
-
-http://www.midiworld.com/search/?q=tv%20themes
-
-**Modal Classical** 
-
-Classical music from selected composers were also included as part of the style specific dataset. This was composers who were in the 
-expressionist, impressionist and nasjonal romantic with inspiration of Scandinavian folk music (..) paradigms as this was the moderns sounding style that would suit the model context. 
-
-http://www.midiworld.com/classic.htm#d
-http://www.midiworld.com/classic.htm#m
-
-Theoretically, this is similar to training approaches used in Natural Language processing for building language context specific models (Reference needed). 
-
-- Transform to melodies from 
-- Think about target and prediction
-
-Midi files were inspected using the musical notation software Sibelius. 
-
-Style extraction? 
-
-**Jazz**
-
-The purpose of including the jazz solos was for the model to learn jazz improvisational phrasing and performance. 
-
-*Solos*
-A selection of 64 jazz solos where also included in the dataset. 
-Miles: Phrasing and clear motif statements. Both modal and fusion included for a more modern flavous(ref)
-Coltrane: Phrasing and modal work     (ref)
-Herbie Hancock: Phrasing and modal work (ref)
-Wayne Shorter:   Phrasing and modal work  (ref) 
-Kenny Wheeler: 70´s modal and ambiuous tonalities (ref)
-
-https://jazzomat.hfm-weimar.de/dbformat/dbcontent.html
-
-*Ensemble* 
-
 
 ## Data processing 
 
@@ -315,6 +330,8 @@ The initial cello suite was downloaded from an open source midi file repository 
 
 - Mono_rnn
 - RNN lstm model, 
+
+- Lakh only?
 
 **Model Evaluation**
 
@@ -433,6 +450,8 @@ Generated from previous:
 
 It would seem the model has lost a lot of its generality. It does perform well on ....  , but some more generality is needed. 
 To try to remedy this, the model trained on (...) iterations was used. 
+ - This shows  lack of generalisation
+
 
 **2.2: fewer iterations**
 
@@ -556,7 +575,6 @@ https://groups.google.com/a/tensorflow.org/forum/#!topic/magenta-discuss/6ZLbzTj
 - Jaques, N 2016. Tuning Recurrent Neural Networks with Reinforcement Learning. *Google AI Magenta Blog* https://magenta.tensorflow.org/2016/11/09/tuning-recurrent-networks-with-reinforcement-learning  [Accessed 27.04.2019]
 - Jaques, N., Gu,S., Turner, R E., & Eck, D. 2017.'TUNING RECURRENT NEURAL NETWORKS WITH REINFORCEMENT LEARNING'.  NIPS 2016 -Deep Reinforcement Learning Workshop. Available at: https://arxiv.org/pdf/1611.02796v2.pdf [Accessed 04.04.2019]
 - Jarrahi, M.H (2018) Artificial intelligence and the future of work: Human-AI symbiosis in organizational decision making. Business Horizons. No. 61 pp. 577-586. 
-
 - Mikolov et al.(2010) Recurrent neural network based language model. *In Interspeech*, volume 2, pp. 3.
 - Miller, Ron. 1996. *Modal Jazz Composition & Harmony vol. 1.* Rottenberg: Advance Music
 - Miller, Ron. 2000. *Model Jazz Composition & Harmony vol.2* Rottenber: Advance Music
