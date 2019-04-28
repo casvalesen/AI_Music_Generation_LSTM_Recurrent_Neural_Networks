@@ -66,25 +66,26 @@ The data used for the model consists of musical material from the western musica
 
 (check out music informatics for references here)
 
-**Intervals**  : such as absolute value differences in the sequence (melodic intervals)
+**Intervals**  : such as absolute value differences in the sequence (melodic intervals)  (e.g. Persichetti, 1961: Pease & Pulling, 2001)
 
-*Scales* : 
+
+*Scales* :     (Miller, 1996)
 
 *Modal* (Pease & Pulling, 2001) (Pease, T. 2004)
 
 **Melody** : A sequence of 
 
-*Themes* : 
+*Themes* :     (Miller, 1996;Pease, 2004)
 
-*Melodic Development* : Meta pattern     :relative value difference patterns that are repeated with different absolute values locally (thematic development) 
+*Melodic Development* : Meta pattern     :relative value difference patterns that are repeated with different absolute values locally (thematic development)        (Miller, 1996; Pease, 2004) 
 
 **Harmony** :
 
-*Chords*: In monophonic (single melodies) these would often be "broken" in the sense that chord notes are played in sequence rather than simultaneously. 
+*Chords*: In monophonic (single melodies) these would often be "broken" in the sense that chord notes are played in sequence rather than simultaneously.     (e.g. Persichetti, 1961; Pease & Pulling, 2001)
 
-*Harmonic Development/ Chord progression* :  meta patterns  for how these different types of relative value difference patterns alternate depending on their absolute values (harmonic development).
+*Harmonic Development/ Chord progression* :  meta patterns  for how these different types of relative value difference patterns alternate depending on their absolute values (harmonic development).   (e.g. Persichetti, 1961; Pease & Pulling, 2001)
 
-*Rhythm*: On/off sequences in time.  
+*Rhythm*: On/off sequences in time.     
 
 **Performance** 
 
@@ -101,23 +102,30 @@ Goodfellow, I., Bengio, Y., & Courville., A.(2016 p.397)
 
 Géron, A. (2017 p.407)
 
-Magenta Melody RNN (reference)
+Magenta Melody RNN (Abolafia, 2016; Google AI Magenta, 2019c)
 
 
 ### General Music Model
 
-As with Language models, a music model can be first trained as a general model, then adapted to the specific application context. In Language this could entail building a general model for the language in question, then specialising the model to a certain application field using application specific data. In music, this training process could be utilised by first training the model on a general music data from which the model could learn general musical rules and conventions. The model could then be further trained on a data from specific style of music in order to specialise it to this field. 
+As with Language models, a music model can be first trained as a general model, then adapted to the specific application context. In Language this could entail building a general model for the language in question, then specialising the model to a certain application field using application specific data (*NLP transfer learning reference) 
+
+In music, this training process could be utilised by first training the model on a general music data from which the model could learn general musical rules and conventions. The model could then be further trained on a data from specific style of music in order to specialise it to this field. 
 
 In the first iteration, the model will consist of a music generation RNN LSTM. 
 
-This is uses a similar basis as character level RNN´s developed for Natural Language Processing (Jaques et. al.,2017; Mikolov et. al.,2010) 
+This is uses a similar basis as character level RNN´s developed for Natural Language Processing, and tries to predict the next token given a sequence of previous values  (Abolafia, 2016; Jaques et. al.,2017; Mikolov et. al.,2010) 
+
+In the RNN LSTM, the token used for prediction is known as the "primer" for the model (Abolafia, 2016; Google AI Magenta, 2019c)
 
 (Explain-). 
 
+### Style Specific Model
 
-### Style Specific Model 
+The second iteration will then be trained on a style specific dataset to approach the musical style of the application domain. 
 
-The second iteration will then tune this LSTM using the Deep Q-learning approach by Jaques et. al.(2017). 
+### DQN Reinforcement Learning 
+
+The third iteration will then tune this LSTM using the Deep Q-learning approach by Jaques et. al.(2017). 
 
 ## Evalation mechanisms 
 
@@ -133,7 +141,6 @@ Although accuracy rate might give an objective measure of how well the model pre
 This model evaluation definitions are in the field of explainable AI( ref). Since the objective measures or parameters captured by the model are not necessarily informative in the application context in the same way coefficients would be in regression, it is necessary to probe the AI model to generate outputs to get a general sense of how the model is performing and reasoning in the subject specific context (ref). 
 
 - Note on explainable AI. 
-
 
 **General** 
 
@@ -297,21 +304,24 @@ harmonic development?
 
 *Primer: One note* 
 
-
+- (midi/ audio example) 
 
 *Primer: Simple major Melody* 
 
-
+- (midi/ audio example)
 
 *Primer: Simple minor Melody*
 
-
+- (midi/ audio example)
 
 *Primer: Arpeggiated chord progression*
 
 
+- (midi/ audio example)
 
 *Primer: Bach Cello Suite 4 bars 
+
+- (midi/ audio example)
 
 
 ## Iteration 2: Mono_rnn based on Magenta´s RNN LSTM Model, complete Lakh dataset (2.1) and style specific dataset (2.2)
@@ -322,6 +332,32 @@ For the second iteration, a sixth primer melody was added. This was a simple phr
 
 Lakh dataset: 
 Maestro:
+
+*Primer: One note* 
+
+- (midi/ audio example) 
+
+*Primer: Simple major Melody* 
+
+- (midi/ audio example)
+
+*Primer: Simple minor Melody*
+
+- (midi/ audio example)
+
+*Primer: Arpeggiated chord progression*
+
+
+- (midi/ audio example)
+
+*Primer: Bach Cello Suite 4 bars 
+
+- (midi/ audio example)
+
+
+*Modal* 
+
+- (midi/ audio example)
 
 It was a modal melody, e.g. a melody following a single 
 
@@ -347,16 +383,22 @@ THIS IS CRAZY; CHECK!!!(A rather Naive approach was used for this second stage t
 
 Some more chromatics, shows jazz influence in model. 
 
+- (midi/ audio example)
+
+*Major*
+
+- (midi/ audio example)
+
 *Minor*
 stepwise melody movements, stepwise movements as small motifs transposed (min 2.2-1)
 failure mode of continuously repeated notes in  (minor 2.2-2)
 
+- (midi/ audio example)
 
 *Bach** 
 
+- (midi/ audio example)
 2.1 captured interval leaps better. 
-
-
 
 2.1 more general dataset, thus more adaptable. 
 
@@ -376,9 +418,36 @@ To try to remedy this, the model trained on (...) iterations was used.
 In order to keep the generality of iteration 2.1 with some context specialisation, further melodies were generated using the saved checkpoint 22 158. This version of the model was trained on the initial 20 000 iterations with the large dataset, then 1/10 th of the iterations on the context dataset. 
 
 - (discuss outcomes on models) 
-
 - Link to transfer learning paper (ref)
 
+
+*Primer: One note* 
+
+- (midi/ audio example) 
+
+*Primer: Simple major Melody* 
+
+- (midi/ audio example)
+
+*Primer: Simple minor Melody*
+
+- (midi/ audio example)
+
+*Primer: Arpeggiated chord progression*
+
+
+- (midi/ audio example)
+
+*Primer: Bach Cello Suite 4 bars 
+
+- (midi/ audio example)
+
+
+*Modal* 
+
+- (midi/ audio example)
+
+It was a modal melody, e.g. a melody following a single 
 
 # Tuning the RNN with Deep Q Reinforcement Learning 
 
@@ -411,18 +480,33 @@ Modal classical theory:
 Jazz theory: Pease & Pulling, 2001; Pease, 2004; Miller, 1996) 
 Film music:  LOTR musical rules for flavour 
 
-
 The original music theory rewards for the DQN RL tuner model only defined a C major scale. 
 (https://github.com/tensorflow/magenta/blob/master/magenta/models/rl_tuner/rl_tuner_ops.py) 
 
 Modal framework implementing relative scale pitches. These are based on the major modes of western music, which are used both in classical composition ( ) , Jazz Composition (Pease & Pulling, 2001; Pease, 2004; Miller, 1996) and cinematic music (Adams, 2010) 
 
 
+**Modal Keys** 
+(Picture of musical notes for scales) - from composition book. (eg. Miller, 1996)
+
+- (midi trepresentations of the scales)
+
+- details of how they were added, with relative keys. 
+
+
 # Conclusion 
 
 
+# Next Steps in Model and Application Development 
+
+**Add interactivity**
+
+- using the .js packages
+- max msp, take the system online. 
+
 # Directions for further research 
 
+- Adapting to the player. 
 
 
 ## Data sources
@@ -437,6 +521,7 @@ http://www.acroche2.com/midi_jazz.html
 https://groups.google.com/a/tensorflow.org/forum/#!topic/magenta-discuss/6ZLbzTjjpHM
 
 ## References
+- Abolafia, D. (2016). A Recurrent Neural Network Music Tutorial. *Google AI Magenta Blog.* https://magenta.tensorflow.org/2016/06/10/recurrent-neural-network-generation-tutorial [Last Accessed 28.04.2019]
 - Adams, D. (2010) *The Music of the Lord of The rings Films*
 - Géron, A. (2017) *Hands-On Machine Learning with Scikit-Learn & Tensorflow* O´Reilly Media Inc, Sebastopol.
 - Goldstein, G. (1982)  *Jazz Composer´s Companion* 
@@ -460,3 +545,4 @@ https://groups.google.com/a/tensorflow.org/forum/#!topic/magenta-discuss/6ZLbzTj
 - Russel, S & Norvig, P. (2016) *Artificial Intelligence - A Modern Approach*. 3rd Edition. Pearson Education Limited, Essex. 
 -  https://arxiv.org/pdf/1810.12247.pdf
 - https://arxiv.org/pdf/1803.05428.pdf
+- Persichetti, V. 1961. *Twentieth Century Harmony* 
