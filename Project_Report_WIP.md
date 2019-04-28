@@ -336,7 +336,7 @@ The style specific data contained a much lower number of than the instances in t
 
 Overfitting the model on this data as opposed to keeping it balanced between the general and specific datasets was therefore justified. (?)
 
-A rather Naive approach was used for this second stage training, in which the training  steps was increased by a factor 179 781/530≈ 340 to give equal weight to the context data. (?)
+THIS IS CRAZY; CHECK!!!(A rather Naive approach was used for this second stage training, in which the training  steps was increased by a factor 179 781/530≈ 340 to give equal weight to the context data. (?)
 
 (Paper on transfer learning & Two step training for language models) 
 
