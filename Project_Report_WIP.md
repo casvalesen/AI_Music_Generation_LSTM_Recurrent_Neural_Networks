@@ -99,7 +99,11 @@ The data used for the model consists of musical material from the western musica
 
 *Harmonic Development/ Chord progression* :  meta patterns  for how these different types of relative value difference patterns alternate depending on their absolute values (harmonic development).   (e.g. Persichetti, 1961; Pease & Pulling, 2001)
 
-*Rhythm*: On/off sequences in time.     
+*Rhythm*:  
+(Persichetti, 1961; Miller, 1996;2000; Pease, 2004; Pease & Pulling, 2001)
+In the context of melodies ... melodic rhythm
+
+On/off sequences in time.  
 
 **Performance** 
 
@@ -112,7 +116,7 @@ The data consisted of midi files and was selected with the overall application.
 
 ### General melody generation
 
-- General melody dataset: Lakh dataset 178 579 midi files containing  
+- General melody dataset: Lakh dataset 178 579 midi files containing    (Lakh
 
 - Performance: Maestro, 1 202 midi files capturing world class performers classical musical material and performance 
 
@@ -124,25 +128,25 @@ Style specific dataset. 530 files combining both polyphonic and monophonic insta
 
 **Movie themes**
 
-http://www.midiworld.com/search/1/?q=movie%20themes
+midiworld (2019a) 
+ 
 
 Movie themes of a symphonic nature were emphasized, (e.g in duplication). 
 
 **Video Game themes**
 
-http://www.midiworld.com/search/?q=video%20game%20themes
+midiworld(2019b) 
 
 **TV Themes**
 
-http://www.midiworld.com/search/?q=tv%20themes
+midiworld (2019c)
 
 **Modal Classical** 
 
 Classical music from selected composers were also included as part of the style specific dataset. This was composers who were in the 
 expressionist, impressionist and nasjonal romantic with inspiration of Scandinavian folk music (..) paradigms as this was the moderns sounding style that would suit the model context. 
 
-http://www.midiworld.com/classic.htm#d
-http://www.midiworld.com/classic.htm#m
+midiworld(2019d) 
 
 Theoretically, this is similar to training approaches used in Natural Language processing for building language context specific models (Reference needed). 
 
@@ -153,9 +157,9 @@ Midi files were inspected using the musical notation software Sibelius.
 
 Style extraction? 
 
-**Jazz**
+**Jazz Data**
 
-The purpose of including the jazz solos was for the model to learn jazz improvisational phrasing and performance. 
+The purpose of including the jazz solos was for the model to learn jazz phrasing and performance, with specific focus on improvsational melody construction. Most jazz material is written down only in sparse form, with practitioners given ample freedom to improvise and interpret hte material. Most practitioners therefore learn by imitating and transcribign recordings rather than playing after sheet music .  This tanscription of individual performances is a slow and incredibly time consuming task, which practitioners spend years perfectin. Books are released with transcriptions of individual performances, but these are very rarely in midi format (Giddins & Devaux, 2009). For capturing sufficient data sets to train AI models it is therefore nessecary to source transcribed midi jazz from the web, and the material for the jazz part of the dataset was sources from The Jazzomat Researhc Project (2019) and Acroche2 Studio (2019). 
 
 *Solos*
 A selection of 64 jazz solos where also included in the dataset. 
@@ -165,10 +169,10 @@ Herbie Hancock: Phrasing and modal work (ref)
 Wayne Shorter:   Phrasing and modal work  (ref) 
 Kenny Wheeler: 70´s modal and ambiuous tonalities (ref)
 
-https://jazzomat.hfm-weimar.de/dbformat/dbcontent.html
-
+The Jazzomat Research Project (2019).
 *Ensemble* 
 
+Acroche2 Studio (2019)
 
 ## Models
 
@@ -221,6 +225,7 @@ The general music data contains a distribution over all types and types of music
 while the domain context was aiming at a very specific style 
 
 The second iteration will then be trained on a style specific dataset to approach the musical style of the application domain. 
+
 
 ### DQN Reinforcement Learning 
 
@@ -575,8 +580,10 @@ https://groups.google.com/a/tensorflow.org/forum/#!topic/magenta-discuss/6ZLbzTj
 
 ## References
 - Abolafia, D. (2016). A Recurrent Neural Network Music Tutorial. *Google AI Magenta Blog.* https://magenta.tensorflow.org/2016/06/10/recurrent-neural-network-generation-tutorial [Last Accessed 28.04.2019]
+- Acroche2 Studio (2019).Jazz Midi Files. *Acroche2 Studio Online* http://www.acroche2.com/midi_jazz.html
 - Adams, D. (2010) *The Music of the Lord of The rings Films*
 - Géron, A. (2017) *Hands-On Machine Learning with Scikit-Learn & Tensorflow* O´Reilly Media Inc, Sebastopol.
+- Giddins, G & Devaux, S. (2009) *Jazz*. 
 - Goldstein, G. (1982)  *Jazz Composer´s Companion* 
 - Google AI (2019). Magenta - Make music and Art Using Machine LEarning. https://magenta.tensorflow.org/[Accessed 19.04.2018]
 - Google AI Magenta (2019a). Magenta Github Repository. https://github.com/tensorflow/magenta [Accessed 19.04.2018]
@@ -588,6 +595,10 @@ https://groups.google.com/a/tensorflow.org/forum/#!topic/magenta-discuss/6ZLbzTj
 - Jaques, N 2016. Tuning Recurrent Neural Networks with Reinforcement Learning. *Google AI Magenta Blog* https://magenta.tensorflow.org/2016/11/09/tuning-recurrent-networks-with-reinforcement-learning  [Accessed 27.04.2019]
 - Jaques, N., Gu,S., Turner, R E., & Eck, D. 2017.'TUNING RECURRENT NEURAL NETWORKS WITH REINFORCEMENT LEARNING'.  NIPS 2016 -Deep Reinforcement Learning Workshop. Available at: https://arxiv.org/pdf/1611.02796v2.pdf [Accessed 04.04.2019]
 - Jarrahi, M.H (2018) Artificial intelligence and the future of work: Human-AI symbiosis in organizational decision making. Business Horizons. No. 61 pp. 577-586. 
+- midiworld (2019a). Movie Themes. *Midiworld Online* http://www.midiworld.com/search/1/?q=movie%20themes  [Last Accessed 29.04.2019]
+ - midiworld(2019b). Video Game Themes. *Midiworld Online* http://www.midiworld.com/search/?q=video%20game%20themes [Last Accessed 29.04.2019]
+ - midiworld (2019c). TV Themes. *Midiworld Online* http://www.midiworld.com/search/?q=tv%20themes  [Last Accessed 29.04.2019]
+- midiworld. (2019d). Classic. *Midiworld Online*  http://www.midiworld.com/classic.htm#d [Last Accessed 29.04.2019]
 - Mikolov et al.(2010) Recurrent neural network based language model. *In Interspeech*, volume 2, pp. 3.
 - Miller, Ron. 1996. *Modal Jazz Composition & Harmony vol. 1.* Rottenberg: Advance Music
 - Miller, Ron. 2000. *Model Jazz Composition & Harmony vol.2* Rottenber: Advance Music
@@ -597,4 +608,6 @@ https://groups.google.com/a/tensorflow.org/forum/#!topic/magenta-discuss/6ZLbzTj
 - Russel, S & Norvig, P. (2016) *Artificial Intelligence - A Modern Approach*. 3rd Edition. Pearson Education Limited, Essex. 
 -  https://arxiv.org/pdf/1810.12247.pdf
 - https://arxiv.org/pdf/1803.05428.pdf
-- Persichetti, V. 1961. *Twentieth Century Harmony* 
+- Persichetti, V. 1961. *Twentieth Century Harmony* New York: W.W Norton & Company. 
+- The Jazzomat Research Project (2019). Data Base Content.*Jazzomat research project Online*  https://jazzomat.hfm-weimar.de/dbformat/dbcontent.html  [Last Accessed 29.04.2019]
+
