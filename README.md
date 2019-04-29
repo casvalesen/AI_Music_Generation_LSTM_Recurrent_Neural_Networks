@@ -48,7 +48,7 @@ The repository Contains:
 
 - **Custom Dataset:** The custom dataset build for the project.  (  ) 
 
-- **AI composer outputs:** Midi files from all the model generations, audio files for selected examples ( ). 
+- **Model Outputs- AI Generated Music:** Midi files from all the model generations, audio files for selected examples ( ). 
 
 
 
