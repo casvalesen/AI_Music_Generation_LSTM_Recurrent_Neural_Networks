@@ -94,7 +94,11 @@ The application context of the music project is in the realm of generating melod
 
 ## Musical Data & Patterns
 
-The data used for the model consists of musical material from the western musical traditions.  Although developing through history, the fundamental building blocks of this music have persisted from Bach (18th Century) to contemporary popular music (music history reference). A selection of these are: 
+**Midi format** 
+Similar to earlier research (Franklin, 2019), this project focuses on digital music at the pitch and duration level.
+
+
+The data used for the model consists of musical material from the western musical traditions.  Although developing through history, the fundamental building blocks of this music have persisted from Bach (18th Century) to contemporary popular music (Persichetti, 1961; Pease, 2004). A selection of these are: 
 
 (check out music informatics for references here)
 
@@ -186,24 +190,38 @@ The following models were created:
 - Model 2.2: A Note Based LSTM RNN which applied transfer learning to adapt Model 2.1 to the application context domain by training it on the style specific dataset. 
 (- Model 3.0: A Deep Q Reinforcement Learning model which tunes model 2.2 by balancing style specific music theory rewards with the LSTM based sequence model. ) 
 - Model   (Custom RNN) ) 
-
+ 
 
 ### LSTM Recurrent Neural Networks for sequence generation (Expand to show theoretical understanding!!!) 
 
-The context application and research question entailed how to generate a monophonic, aka. single voice musical melody capturing and imitating the characteristics of a given melody in general and specific music contexts. This is a sequence modelling task that involves generating a sequence of outputs given a sequence of inputs, which make Sequence2Sequence Recurrent Neural network models good candidates for the task. While Feed Forward and Convolutional Neural Networks generate a fixed size output from a fixed size input, Recurrent Neural Networks are able to generate output sequences of arbitrary length from input sequences of arbitrary length (Géron, 2017 p.407; Goodfellow, Bengio & Courville, 2016). 
 
-"The state of the musical system depends on a history of past states" (Franklin, 2019)
+The context application and research question entailed how to generate a monophonic, aka. single voice musical melody capturing and imitating the characteristics of a given melody in general and specific music contexts. In AI terms this entails generating a sequence of states which capture and immitate the characteritics of a given sequence of states. Music generation can considered a dynamic system, aka. a feedback proces, since the current state is dependent on a history of past states (Franklin, 2019). This makes music generation a sequence modelling task that involves generating a sequence of outputs given a sequence history of inputs.  Sequence2Sequence Recurrent Neural networks are therefore good model candidates (Géron, 2017 p.407; Goodfellow, Bengio & Courville, 2016). While Feed Forward and Convolutional Neural Networks generate a fixed size output from a fixed size input, Recurrent Neural Networks are able to generate output sequences of arbitrary length from input sequences of arbitrary length (Géron, 2017 p.407). This also supports the use of an RNN model for music generation, as improvised musical phrases often vary in lenght (Giddins & Deveaux, 2009).   
 
 
 RNN for music (Franklin, 2019)
 
 
+A Reccurent Neural Networks
+
+
+"The state of the musical system depends on a history of past states" (Franklin, 2019)
+
+
+**LSTM** 
+
+(Hochreiter & Schmidhuber, 1997)
+
+
 In the research literature, LSTM Recurrent Networks have been used to generate (....) and Improvisation (Eck & Schmidhuber, 2002; Franklin, 2019). Considering the end goal of the current application is also in the realm of improvisation, with a subset of the data coming from Jazz, the latter two papers make the LSTM RNN model especially relevant. 
 
 
+*LSTM for music Explained* 
 
+(Math formula) - Latex 
 
+ 
 
+(Graphic)
 
 RNN applied to music, attributes making it suitable 
 
@@ -667,6 +685,7 @@ https://groups.google.com/a/tensorflow.org/forum/#!topic/magenta-discuss/6ZLbzTj
 - Google AI Magenta (2019d). RL Tuner. *Magenta Github Repository* https://github.com/tensorflow/magenta/tree/master/magenta/models/rl_tuner 
 - Goodfellow, I., Bengio, Y., & Courville., A.(2016) *Deep Learning* MIT Press, London. 
 - Graves, A (2013). Generating sequences with recurrent neural networks. *arXiv preprint:1308.0850.*
+- Hochreiter, S. & Schmidhuber, J (1997). Long short-term Memory. *Neural Computation* 9(8), 1735-1780. 
 - Jaques, N 2016. Tuning Recurrent Neural Networks with Reinforcement Learning. *Google AI Magenta Blog* https://magenta.tensorflow.org/2016/11/09/tuning-recurrent-networks-with-reinforcement-learning  [Accessed 27.04.2019]
 - Jaques, N., Gu,S., Turner, R E., & Eck, D. 2017.'TUNING RECURRENT NEURAL NETWORKS WITH REINFORCEMENT LEARNING'.  NIPS 2016 -Deep Reinforcement Learning Workshop. Available at: https://arxiv.org/pdf/1611.02796v2.pdf [Accessed 04.04.2019]
 - Jarrahi, M.H (2018) Artificial intelligence and the future of work: Human-AI symbiosis in organizational decision making. Business Horizons. No. 61 pp. 577-586. 
