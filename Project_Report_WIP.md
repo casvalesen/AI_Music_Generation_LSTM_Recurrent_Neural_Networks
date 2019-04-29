@@ -15,10 +15,16 @@ Selected:
 
 **refer to specific code modules, show implementation understanding**
 
+# Introduction and Research Question
+
 ## Project Overview 
 
 
-The project models entail customized implmentations of the Google AI Magenta models for melody generating using a LSTM Recurrent Neural Network (Google AI Magenta, 2019c) and a Reinforcement Learning algorithm Tuning this network using Deep Q-Learning (Google AI Magenta, 2019d; Jaques et. al., 2017). Dataset choice, Model choice parameter options and customizations are informed by the requirements of the application context, application music practitioner literature, the authors own domain knowledge from 18 years as a music practitioner. 
+The project models entail customized implmentations of the Google AI Magenta models for melody generating using a LSTM Recurrent Neural Network (Google AI Magenta, 2019c) 
+
+(and a Reinforcement Learning algorithm Tuning this network using Deep Q-Learning (Google AI Magenta, 2019d; Jaques et. al., 2017). )
+
+Dataset choice, Model choice parameter options and customizations are informed by the requirements of the application context, application music practitioner literature, the authors own domain knowledge from 18 years as a music practitioner. 
 
 Supervised learning 
 
@@ -29,8 +35,10 @@ Supervised learning
 - Training a RNN LSTM for general sequence prediction
 - Applying learning to further train the Model  towards a context domain specific application
 - Empirical evaluations of trainig iterations in transfer learning.
-- Using Deep Q Reinforcement Learning to tune this context specific model further using customized rewards from the application domain. 
+(- Using Deep Q Reinforcement Learning to tune this context specific model further using customized rewards from the application domain. )
 - Design and application of context specific model evaluations mechanisms informed by application domain literature and practice. 
+
+**Summary of Results**
 
 ## Project Goals
 
@@ -39,9 +47,17 @@ Supervised learning
 The Goal is to design a music generator that is capable of generating melodies that are both musically expressive 
 and have a certain coherency. The model will generate a monophonic melody line, (which will be responsive to a real time input melody. )
 
-### Research Goals 
+### Research Goals / Question 
 
-Thus, the project entails the implementation and evaluation of a neural network for a sequence modelling task in the context of music generation. The research goals are to explore, evaluate and compare different methods using sequence based machine learning and Artificial Intelligence for creative sequence generation in the field of musical melodies. 
+**The project was based on the following research question:**  *How to effectively generate monophonic, aka. single note, music melodies that is able to capture and imitate the characteristics of a given melody sequence both in general and specific music style contexts.* 
+
+Thus, the project entails the implementation and evaluation of a neural network for a sequence modelling task in the context of music generation. 
+
+The research goals are to explore, evaluate and compare different 
+
+(?) 
+
+methods using sequence based machine learning and Artificial Intelligence for creative sequence generation in the field of musical melodies. 
 
 (Franklin, 2006) - RNN useful in music gen. 
 
@@ -49,7 +65,7 @@ IT 1: Examine the effectivenss of a training LSTM RNN  on a general musical data
 
 IT 2: Examine effeciveness of training LSTM RNN first on a larger general music dataset of ( ) (2.1), then on a smaller selection of context specific music examples (2.2) 
 
-IT 3: Examine using Q-learning based on general musical rules to improve the musical melodies generated. 
+(IT 3: Examine using Q-learning based on general musical rules to improve the musical melodies generated. )
 
 (IT 4: Examine RL approaches to making the RNN learn the style of a human musician it plays along with) 
 
@@ -73,6 +89,8 @@ Music generated my artificial intelligence    (AIVA, ;(game music)).
 ## Application Context
 
 The application context of the music project is in the realm of generating melodies for real time music improvisations in a cinematic style, such as film and game music. 
+
+# Choice and Description of Data 
 
 ## Musical Data & Patterns
 
@@ -114,22 +132,30 @@ Phrasing
 The data consisted of midi files and was selected with the overall application. 
 - Building custom dataset
 
+- Transform to melodies from 
+- Think about target and prediction
+
+Midi files were inspected using the musical notation software Sibelius. 
+midiworld(2019d) 
+
+Theoretically, this is similar to training approaches used in Natural Language processing for building language context specific models (Reference needed). 
+
+Style extraction? 
+
+
 ### General melody generation
 
 - General melody dataset: Lakh dataset 178 579 midi files containing    (Lakh
 
 - Performance: Maestro, 1 202 midi files capturing world class performers classical musical material and performance 
 
-
 ### Style Specific melody generation 
 
 Style specific dataset. 530 files combining both polyphonic and monophonic instances. 
 
-
 **Movie themes**
 
 midiworld (2019a) 
- 
 
 Movie themes of a symphonic nature were emphasized, (e.g in duplication). 
 
@@ -143,36 +169,13 @@ midiworld (2019c)
 
 **Modal Classical** 
 
-Classical music from selected composers were also included as part of the style specific dataset. This was composers who were in the 
-expressionist, impressionist and nasjonal romantic with inspiration of Scandinavian folk music (..) paradigms as this was the moderns sounding style that would suit the model context. 
-
-midiworld(2019d) 
-
-Theoretically, this is similar to training approaches used in Natural Language processing for building language context specific models (Reference needed). 
-
-- Transform to melodies from 
-- Think about target and prediction
-
-Midi files were inspected using the musical notation software Sibelius. 
-
-Style extraction? 
+Classical music from selected composers were also included as part of the style specific dataset. This was composers who were in the expressionist, impressionist and nasjonal romantic with inspiration of Scandinavian folk music (..) paradigms as this was the moderns sounding style that would suit the model context (Persichetti, 1961) 
 
 **Jazz Data**
 
-The purpose of including the jazz solos was for the model to learn jazz phrasing and performance, with specific focus on improvsational melody construction. Most jazz material is written down only in sparse form, with practitioners given ample freedom to improvise and interpret hte material. Most practitioners therefore learn by imitating and transcribign recordings rather than playing after sheet music .  This tanscription of individual performances is a slow and incredibly time consuming task, which practitioners spend years perfectin. Books are released with transcriptions of individual performances, but these are very rarely in midi format (Giddins & Devaux, 2009). For capturing sufficient data sets to train AI models it is therefore nessecary to source transcribed midi jazz from the web, and the material for the jazz part of the dataset was sources from The Jazzomat Researhc Project (2019) and Acroche2 Studio (2019). 
+The purpose of including the jazz solos was for the model to learn jazz phrasing and performance, with specific focus on improvsational melody construction. Most jazz material is written down only in sparse form, with practitioners given ample freedom to improvise and interpret hte material. Most practitioners therefore learn by imitating and transcribign recordings rather than playing after sheet music .  This tanscription of individual performances is a slow and incredibly time consuming task, which practitioners spend years perfectin. Books are released with transcriptions of individual performances, but these are very rarely in midi format (Giddins & Devaux, 2009). For capturing sufficient data sets to train AI models it is therefore nessecary to source transcribed midi jazz from the web, and the material for the jazz part of the dataset was sources from The Jazzomat Researhc Project (2019) and Acroche2 Studio (2019). A selection of 64 jazz solos and 58 ensemble pieces and where included in the the dataset based on the artists emphasis on modal melodies and modern harmonic colours. These were solos by Miles Davis, John Coltrane, Herbie Hancock, Wayne ShorterKenny Wheeler and Weather Report (Giddins & Devaux, 2009).  
 
-*Solos*
-A selection of 64 jazz solos where also included in the dataset. 
-Miles: Phrasing and clear motif statements. Both modal and fusion included for a more modern flavous(ref)
-Coltrane: Phrasing and modal work     (ref)
-Herbie Hancock: Phrasing and modal work (ref)
-Wayne Shorter:   Phrasing and modal work  (ref) 
-Kenny Wheeler: 70´s modal and ambiuous tonalities (ref)
-
-The Jazzomat Research Project (2019).
-*Ensemble* 
-
-Acroche2 Studio (2019)
+# Solution Concepts 
 
 ## Models
 
@@ -181,12 +184,38 @@ The following models were created:
 - Model 1: A Note based LSTM RNN for General Music Generation trained on a subset of the General Music Dataset, only including musical composition.
 - Model 2.1 : A Note Based LSTM RNN for General Music Generaton trained on the entire General Music Daset, including both musical compositions and captured performances. 
 - Model 2.2: A Note Based LSTM RNN which applied transfer learning to adapt Model 2.1 to the application context domain by training it on the style specific dataset. 
-- Model 3.0: A Deep Q Reinforcement Learning model which tunes model 2.2 by balancing style specific music theory rewards with the LSTM based sequence model. 
+(- Model 3.0: A Deep Q Reinforcement Learning model which tunes model 2.2 by balancing style specific music theory rewards with the LSTM based sequence model. ) 
+- Model   (Custom RNN) ) 
 
 
-### LSTM Recurrent Neural Networks for sequence generation 
+### LSTM Recurrent Neural Networks for sequence generation (Expand to show theoretical understanding!!!) 
 
-*Character RNN*  (Graves, 2013)
+The context application and research question entailed how to generate a monophonic, aka. single voice musical melody capturing and imitating the characteristics of a given melody in general and specific music contexts. This is a sequence modelling task that involves generating a sequence of outputs given a sequence of inputs, which make Sequence2Sequence Recurrent Neural network models good candidates for the task. While Feed Forward and Convolutional Neural Networks generate a fixed size output from a fixed size input, Recurrent Neural Networks are able to generate output sequences of arbitrary length from input sequences of arbitrary length (Géron, 2017 p.407; Goodfellow, Bengio & Courville, 2016). 
+
+"The state of the musical system depends on a history of past states" (Franklin, 2019)
+
+
+RNN for music (Franklin, 2019)
+
+
+In the research literature, LSTM Recurrent Networks have been used to generate (....) and Improvisation (Eck & Schmidhuber, 2002; Franklin, 2019). Considering the end goal of the current application is also in the realm of improvisation, with a subset of the data coming from Jazz, the latter two papers make the LSTM RNN model especially relevant. 
+
+
+
+
+
+
+RNN applied to music, attributes making it suitable 
+
+LSTM musical setting, how 
+
+Goodfellow, I., Bengio, Y., & Courville., A.(2016 p.397)
+
+Seq2Seq model 
+
+*Character RNN*  
+
+predict one data point at a time, with discrete values (Graves, 2013)
 
 Goodfellow, I., Bengio, Y., & Courville., A.(2016 p.397)
 
@@ -194,6 +223,9 @@ Géron, A. (2017 p.407)
 
 Magenta Melody RNN (Abolafia, 2016; Google AI Magenta, 2019c)
 
+**With primer** 
+
+Capturing primer sequence pattern characteristics, i.e musical attributes. 
 
 ### General Music Model
 
@@ -227,12 +259,58 @@ while the domain context was aiming at a very specific style
 The second iteration will then be trained on a style specific dataset to approach the musical style of the application domain. 
 
 
-### DQN Reinforcement Learning 
+# Model Implementation 
 
-The third iteration will then tune this LSTM using the Deep Q-learning approach by Jaques et. al.(2017). 
+(mirror code)
+
+### Data Preprocessing using Command Line API 
+
+- Show command line code. 
+- discuss for understanding. 
+
+### Python Implementation 
+
+**Gdrive integration**  
+
+Using Magenta´s Melody RNN model. 
+Model designed for command line interface
+
+How the model is built 
+Instead, used model functions directly
+Setting FLAGS
+
+ - 
+**FLAGS**
+hyperparameters
+
+### Custom functionality 
+
+Evaluation function 
+
+
+ - FLAGS 
+
+### TensorBoard
+
+The data was inspected using tensorboard. 
+
+- Custom function to 
+
+
+(### DQN Reinforcement Learning 
+
+The third iteration will then tune this LSTM using the Deep Q-learning approach by Jaques et. al.(2017).  ) 
+
+# Numerical Evaluation 
 
 ## Evalation mechanisms 
 
+### Stats Tables
+
+
+
+
+### Domain Evaluation 
 *Reference on how NLP models are evaluated**
 
 As a creative RNN is in its nature not trying to predict an accurate value such as a time series or classification, 
@@ -258,18 +336,9 @@ This model evaluation definitions are in the field of explainable AI( ref). Sinc
 
 A known failure mode of single step prediction RNN´s in sequence generation is the continuous repetition of the same token(Jaques et. al., 2017). The results of the LSTM RNN  were therefore evaluated on whether this failure mode was occuring. 
 
-
 Another common failure mode of single step RNNs is the difficulty of ensuring coherent global structure. In music specifically, this global structure is built up by musical phrases (Jaques et. al., 2017). An evaluation criteria for the generated sequences is therefore to what extent they have a coherent global structure.
 
-
 In a musical context this can refer to the following characteristics: 
-
-**FLAGS**
-hyperparameters
-
-**With primer** 
-
-Capturing primer sequence pattern characteristics, i.e musical attributes. 
 
 
 ### General Model Evaluation
@@ -346,7 +415,11 @@ The initial cello suite was downloaded from an open source midi file repository 
 
 - Lakh only?
 
-**Model Evaluation**
+**Model Outputs & Evaluation**
+
+**Output Naming Convention:** it_(iteration_nr)_(primer)_nr_(outputnr)_(training_ep if applicable)
+
+E.g 
 
 Key? 
 intervals? 
@@ -471,9 +544,9 @@ To try to remedy this, the model trained on (...) iterations was used.
  - This shows  lack of generalisation
 
 
-**2.2: fewer iterations**
+**2.2: fewer episodes**
 
-In order to keep the generality of iteration 2.1 with some context specialisation, further melodies were generated using the saved checkpoint 22 158. This version of the model was trained on the initial 20 000 iterations with the large dataset, then 1/10 th of the iterations on the context dataset. 
+In order to keep the generality of iteration 2.1 with some context specialisation, further melodies were generated using the saved checkpoint 22 158. This version of the model was trained on the initial 20 000 episodes with the large dataset, then 1/10 th of the iterations on the context dataset. 
 
 - (discuss outcomes on models) 
 - Link to transfer learning paper (ref)
@@ -582,6 +655,8 @@ https://groups.google.com/a/tensorflow.org/forum/#!topic/magenta-discuss/6ZLbzTj
 - Abolafia, D. (2016). A Recurrent Neural Network Music Tutorial. *Google AI Magenta Blog.* https://magenta.tensorflow.org/2016/06/10/recurrent-neural-network-generation-tutorial [Last Accessed 28.04.2019]
 - Acroche2 Studio (2019).Jazz Midi Files. *Acroche2 Studio Online* http://www.acroche2.com/midi_jazz.html
 - Adams, D. (2010) *The Music of the Lord of The rings Films*
+- Eck & Schmidhuber. Finding temporal structure in music: Blues improvisation with LSTM recur- rent networks. In *Neural Networks for Signal Processing*, pp. 747–756. IEEE, 2002
+- Franklin, J.A. 2019. Recurrent Neural Networks for Music Computation. *INFORMS Journal on Computing* 18(3):321-338. https://doi.org/10.1287/ijoc.1050.0131
 - Géron, A. (2017) *Hands-On Machine Learning with Scikit-Learn & Tensorflow* O´Reilly Media Inc, Sebastopol.
 - Giddins, G & Devaux, S. (2009) *Jazz*. 
 - Goldstein, G. (1982)  *Jazz Composer´s Companion* 
