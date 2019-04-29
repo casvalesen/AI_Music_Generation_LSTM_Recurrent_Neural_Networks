@@ -73,9 +73,7 @@ IT 2: Examine effeciveness of training LSTM RNN first on a larger general music 
 
 As with text and visual art generation, music generation falls within the space of computational creativity. 
 
-In addition to providing a number of usecases, it is also interesting in the sense that creativity is a fundamental aspect of human intelligence (Reference). 
-
-It is recognized that contemporary AI hold advantages over humans in analytical tasks such as identifying relationships and caputuring complex dynamics of large datasets. However, creativity is argued to be one of the areas in which humans still hold significant (Parry et. al, 2016 p.580; Jarrahi, 2018 p.582). Exploration of computational creativity is therefore an important step on the path to general or strong Artificial Intelligence (Russel & Norvig, 2016 p.16; Jaques et. al.,2017 ). 
+In addition to providing a number of usecases, it is also interesting in the sense that creativity is a fundamental aspect of human intelligence (Russel & Norvig, 2016). It is recognized that contemporary AI hold advantages over humans in analytical tasks such as identifying relationships and caputuring complex dynamics of large datasets. However, creativity is argued to be one of the areas in which humans still hold significant (Parry et. al, 2016 p.580; Jarrahi, 2018 p.582). Exploration of computational creativity is therefore an important step on the path to general or strong Artificial Intelligence (Russel & Norvig, 2016 p.16; Jaques et. al.,2017 ). 
 
 "Music is an interesting test-bed for sequence generation, in that musical compositions adhere to a relatively well-defined set of structural rules. Any beginning music student learns that groups of notes belong to keys, chords follow progressions, and songs have consistent structures made up of musical phrases." (Jaques et. al., 2017). (Online) 
 
@@ -84,7 +82,6 @@ It is recognized that contemporary AI hold advantages over humans in analytical 
 Music generated my artificial intelligence    (AIVA, ;(game music)).
 
 - Ref. on call for application of domain knowledge 
-
 
 ## Application Context
 
