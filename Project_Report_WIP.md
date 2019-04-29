@@ -280,6 +280,28 @@ The second iteration will then be trained on a style specific dataset to approac
 
 ### Data Preprocessing using Command Line API 
 
+The data was preprocessed using the Magenta Command Line API. This was done in two steps, first data had to be converted from midi files to notese
+
+'''
+
+INPUT_DIRECTORY=/Volumes/Christians_Drive/ai_music/context_datasets/jazz/
+SEQUENCES_TFRECORD=/Volumes/Christians_Drive/ai_music/context_datasets/jazz/notesequences.tfrecord
+convert_dir_to_note_sequences \
+--input_dir=$INPUT_DIRECTORY \
+--output_file=$SEQUENCES_TFRECORD \
+--recursive
+'''
+
+'''
+melody_rnn_create_dataset \
+--config='mono_rnn' \
+--input=/Volumes/Christians_Drive/ai_music/context_datasets/jazz/notesequences.tfrecord \
+--output_dir=/Volumes/Christians_Drive/ai_music/context_datasets/jazz/sequence_examples \
+--eval_ratio=0.10
+
+'''
+
+
 - Show command line code. 
 - discuss for understanding. 
 
