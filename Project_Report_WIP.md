@@ -195,9 +195,11 @@ The following models were created:
 
 The context application and research question entailed how to generate a monophonic, aka. single voice musical melody capturing and imitating the characteristics of a given melody in general and specific music contexts. In AI terms this entails generating a sequence of states which capture and immitate the characteritics of a given sequence of states. Music generation can considered a dynamic system, aka. a feedback proces, since the current state is dependent on a history of past states (Franklin, 2019).
 
-
+Applying the classical form of a dynamical system (Goodfellow et. al., 2016), a music system can be considered as: 
 
 <img src="http://latex.codecogs.com/svg.latex?s^t=f(s^{t-1}; \theta)" border="0"/>
+
+with <img src="http://latex.codecogs.com/svg.latex?s^t" border="0"/> being the current state of the music. In the monophonic case, this makes <img src="http://latex.codecogs.com/svg.latex?s^t" border="0"/> correspond to the current 
 
 *(music as a function)*  (Goodfellow et. al., 2016 p.364) - dynamical system equation with music explaination. 
 
