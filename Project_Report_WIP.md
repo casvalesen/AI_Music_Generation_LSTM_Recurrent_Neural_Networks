@@ -53,9 +53,13 @@ Thus, the project entails the implementation and evaluation of a neural network 
 
 *How to effectively music melodies that are able to capture and imitate the characteristics of a given melody sequence both in general and specific music style contexts.* 
 
-IT 1: Examine the effectivenss of a training LSTM RNN  on a general musical dataset of 11 133 musical examples. 
+This was examined using the following models: 
 
-IT 2: Examine effeciveness of training LSTM RNN first on a larger general music dataset of ( ) (2.1), then on a smaller selection of context specific music examples (2.2) 
+-  *Iteration 1: A LSTM RNN model trained on a general musical dataset of 11 133 musical examples.* 
+
+- *Iteration 2.1: A LSTM RNN trained on a larger general music dataset of ( ) musical examples and including captured performances* 
+
+- *Iteration 2.2: A LSTM RNN applying transfer learning by continuing training from 2.1 on a smaller selection of context specific music examples. 
 
 ## Artificial Intelligence Research Context 
 
