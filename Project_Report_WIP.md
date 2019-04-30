@@ -49,39 +49,17 @@ and have a certain coherency. The model will generate a monophonic melody line, 
 
 ### Research Goals / Question 
 
-**The project was based on the following research question:**  *How to effectively generate monophonic, aka. single note, music melodies that is able to capture and imitate the characteristics of a given melody sequence both in general and specific music style contexts.* 
+Thus, the project entails the implementation and evaluation of a neural network for a sequence modelling task in the context of music generation. IT was basedbased on the following research question:
 
-Thus, the project entails the implementation and evaluation of a neural network for a sequence modelling task in the context of music generation. 
-
-The research goals are to explore, evaluate and compare different 
-
-(?) 
-
-methods using sequence based machine learning and Artificial Intelligence for creative sequence generation in the field of musical melodies. 
-
-(Franklin, 2006) - RNN useful in music gen. 
+*How to effectively music melodies that are able to capture and imitate the characteristics of a given melody sequence both in general and specific music style contexts.* 
 
 IT 1: Examine the effectivenss of a training LSTM RNN  on a general musical dataset of 11 133 musical examples. 
 
 IT 2: Examine effeciveness of training LSTM RNN first on a larger general music dataset of ( ) (2.1), then on a smaller selection of context specific music examples (2.2) 
 
-(IT 3: Examine using Q-learning based on general musical rules to improve the musical melodies generated. )
-
-(IT 4: Examine RL approaches to making the RNN learn the style of a human musician it plays along with) 
-
 ## Artificial Intelligence Research Context 
 
-As with text and visual art generation, music generation falls within the space of computational creativity. 
-
-In addition to providing a number of usecases, it is also interesting in the sense that creativity is a fundamental aspect of human intelligence (Russel & Norvig, 2016). It is recognized that contemporary AI hold advantages over humans in analytical tasks such as identifying relationships and caputuring complex dynamics of large datasets. However, creativity is argued to be one of the areas in which humans still hold significant (Parry et. al, 2016 p.580; Jarrahi, 2018 p.582). Exploration of computational creativity is therefore an important step on the path to general or strong Artificial Intelligence (Russel & Norvig, 2016 p.16; Jaques et. al.,2017 ). 
-
-"Music is an interesting test-bed for sequence generation, in that musical compositions adhere to a relatively well-defined set of structural rules. Any beginning music student learns that groups of notes belong to keys, chords follow progressions, and songs have consistent structures made up of musical phrases." (Jaques et. al., 2017). (Online) 
-
-"The music theory rules implemented for the model are only a first attempt, and could easily be improved by someone with musical training."  (Jaques et. al., 2017). (Online) -  Improve music theory rule? 
-
-Music generated my artificial intelligence    (AIVA, ;(game music)).
-
-- Ref. on call for application of domain knowledge 
+As with text and visual art generation, music generation falls within the space of computational creativity (Eck & Schmidhuber, 2002; Franklin, 2009)   In addition to providing a number of usecases, it is also interesting in the sense that creativity is a fundamental aspect of human intelligence (Russel & Norvig, 2016). It is recognized that contemporary AI hold advantages over humans in analytical tasks such as identifying relationships and caputuring complex dynamics of large datasets. However, creativity is argued to be one of the areas in which humans still hold significant (Parry et. al, 2016 p.580; Jarrahi, 2018 p.582). Exploration of computational creativity is therefore an important step on the path to general or strong Artificial Intelligence (Russel & Norvig, 2016 p.16; Jaques et. al.,2017 ). 
 
 ## Application Context
 
@@ -92,48 +70,50 @@ The application context of the music project is in the realm of generating melod
 ## Musical Data & Patterns
 
 **Midi format** 
-Similar to earlier research (Franklin, 2019), this project focuses on digital music at the pitch and duration level.
+Similar to earlier research (Franklin, 2019), this project focuses on digital music at the pitch and duration level. 
+
+![alt text](https://github.com/lse-st449/st449-projects-casvalesen/blob/master/pictures/bach_notes.png | width=100) 
+**Figure 1: Musical Notation of Melody, Bach Cello Suite 1**
+
+![alt text](https://github.com/lse-st449/st449-projects-casvalesen/blob/master/pictures/bach_midi.png | width=100) 
+**Figure 2: Midi Notation of Melody, Bach Cello Suite 1**
 
 
 The data used for the model consists of musical material from the western musical traditions.  Although developing through history, the fundamental building blocks of this music have persisted from Bach (18th Century) to contemporary popular music (Persichetti, 1961; Pease, 2004). A selection of these are: 
 
-Monophonic, aka. one voice, 
+**Musical Note:** A pitch sounding over an arbitrary lenght of time (Persichetti, 1961; Pease, 2004). 
 
-(check out music informatics for references here)
+**Monophonic melody** Comes from "one voice" and refers to any instance where only a single note, aka. a single sequence value is present at any one time (Persichetti, 1961). This research project focuses on monohponic melody generation. 
 
-**Intervals**  : such as absolute value differences in the sequence (melodic intervals)  (e.g. Persichetti, 1961: Pease & Pulling, 2001)
+**Melody**: Common use of the term refers to an arbitrary length sequence of note values. More precise definitions are of a more philosophical nature, and of little practical importance (Persichetti, 1961; Pease, 2004). 
 
-*Scales* :     (Miller, 1996)
+**Harmony**: Two or more notes played at the same time, aka. two or more values present. Notes played in sequence can also be perceived as creating harmonic material, such as when all the notes in a chord are played after each other (Pershichetti, 1961).
 
-*Modal* (Pease & Pulling, 2001) (Pease, T. 2004)
+**Intervals**: The value difference between two notes, in harmony or in sequence. Absolute intervals refer to absolute value differences and relative intervals refer to relative value differences (e.g. Persichetti, 1961: Pease & Pulling, 2001).
 
-**Melody** : A sequence of 
+**Octave:** A note value difference of 12 half notes, or 8 notes in most common scales. These have the same letter names (Persichetti, 1961; Pease & Pulling, 2001). 
 
-*Themes* :     (Miller, 1996;Pease, 2004)  Local structure (Eck et. al., 2002) 
+**Themes/Motifs** :  A local structure consisting of a shorter sequence of note values (Eck et. al., 2002;Miller, 1996;Pease, 2004). If a note is a single character, a motif is a word. If in doubt, listen to the first four notes of Beethoven´s 5th Symphony. 
 
-*Melodic Development* : Meta pattern     :relative value difference patterns that are repeated with different absolute values locally (thematic development)        (Miller, 1996; Pease, 2004)    Global structure 
+**Phrase:** A longer local music structure often built up by several motifs (Eck & Smidhuber,2002; Pease, 2004). The musical equivalent of a sentence. 
 
-**Harmony** :
+**Thematic & Melodic Development** : Variating of a local sequence structure to form a developing global structure. Sometimes, 
+a local pattern of relative value differences are repeated in with varying absolute note values (Miller, 1996; Pease, 2004). If in doubt, listen to the first thirty seconds of Beethoven´s 5th Symphony. 
 
-*Chords*: In monophonic (single melodies) these would often be "broken" in the sense that chord notes are played in sequence rather than simultaneously.     (e.g. Persichetti, 1961; Pease & Pulling, 2001)
+**Scale:**  An arbitraty collection of unique sequence values within an octave; within 12 half note values. Most common scales in Western music and styles derived from this have 7 unique note values(Persichetti, 1961; Miller, 1996). 
 
-*Harmonic Development/ Chord progression* :  meta patterns  for how these different types of relative value difference patterns alternate depending on their absolute values (harmonic development).   (e.g. Persichetti, 1961; Pease & Pulling, 2001). 
+**Modal:** Often used to refer to musical expressions using other scales than conventional major and minor (Persichetti, 1961; Pease & Pulling, 2001; Pease, T. 2004). 
 
-*Rhythm*:  
-(Persichetti, 1961; Miller, 1996;2000; Pease, 2004; Pease & Pulling, 2001)
-In the context of melodies ... melodic rhythm
+**Chords**: A Local music structure. Three or more notes perceived to be sounding at the same time either by sounding at the same time step, or by appearing in close proximity to each other in a sequence. The latter applies in monophonic melodies (e.g. Persichetti, 1961; Pease & Pulling, 2001)
 
-On/off sequences in time.  
+**Harmonic Development/ Chord progression** :  meta patterns  for how these different types of relative value difference patterns alternate depending on their absolute values (harmonic development).   (e.g. Persichetti, 1961; Pease & Pulling, 2001). 
 
-**Performance** 
-
-Phrasing
+**Rhythm**: The relationship between the length of different pitch on instances in a sequence, and between on and off instances (Persichetti, 1961; Miller, 1996;2000; Pease, 2004; Pease & Pulling, 2001). 
 
 ## Datasets
 
 The data consisted of midi files and was selected with the overall application. 
 - Building custom dataset
-
 - Transform to melodies from 
 - Think about target and prediction
 
@@ -143,7 +123,6 @@ midiworld(2019d)
 Theoretically, this is similar to training approaches used in Natural Language processing for building language context specific models (Reference needed). 
 
 Style extraction? 
-
 
 ### General melody generation
 
@@ -198,7 +177,7 @@ The context application and research question entailed how to generate a monopho
 Applying the classical form of a dynamical system (Goodfellow et. al., 2016), a music system can be considered as: 
 
 
-<img src="http://latex.codecogs.com/svg.latex?s^t=f(s^{t-1}; \theta)" border="0"/>
+<img src="http://latex.codecogs.com/svg.latex?s^t=f(s^{t-1}; \theta)" border="4"/>
 
 with <img src="http://latex.codecogs.com/svg.latex?s^t" border="0"/> being the current state of the music. 
 
@@ -275,21 +254,12 @@ In the RNN LSTM, the token used for prediction is known as the "primer" for the 
 
 ### Style Specific Model
 
-Transfer learning:  (Goodfellow et. al.,2016) - le    
-Assumption : Many of the factors explaning variations in the first dataset hold in the second. 
-Both general music data and the context specific data are governed by the basic musical building blocks described in the Musical Data setion. These musical building blocks are analogous to the low level visual features captured in CNN visual systems, where transfer learning is frequently applied to adapt models trained on one visual category to another (Goodfellow et. al., 2016). 
+Transfer learning was applied to train the style specific model. This approach entails using a model trained on a general dataset as starting point for further training of a model on a specific dataset. This is in order to make the second model more general, and it is build on the assumption that many of the factors explaning variations in the first dataset hold in the second.  (Goodfellow et. al.,2016). Both general music data and the context specific data are governed by the basic musical building blocks described in the Musical Data setion (Persichetti, 1961; Pease & Pulling, 2001). These musical building blocks are analogous to the low level visual features captured in CNN visual systems, where transfer learning is frequently applied to adapt models trained on one visual category to another (Goodfellow et. al., 2016). 
 
-Different tasks, different outputs. 
-features in visual systems, where general musical characteristics captured in the general model are applicable to 
-This is confirmed by examination of both datasets, and th
-The general music data contains a distribution over all types and types of music, while the context dataset was aiming at a very specific 
-while the domain context was aiming at a very specific style 
-The second iteration will then be trained on a style specific dataset to approach the musical style of the application domain. 
 
+(This is confirmed by examination of both datasets, and th The general music data contains a distribution over all types and types of music, while the context dataset was aiming at a very specific syle. The second iteration was then trained on a style specific dataset to approach the musical style of the application domain. ) 
 
 # Model Implementation 
-
-(mirror code)
 
 ### Data Preprocessing using Magenta´s Command Line API 
 
@@ -815,9 +785,10 @@ https://groups.google.com/a/tensorflow.org/forum/#!topic/magenta-discuss/6ZLbzTj
 
 ## References
 - Abolafia, D. (2016). A Recurrent Neural Network Music Tutorial. *Google AI Magenta Blog.* https://magenta.tensorflow.org/2016/06/10/recurrent-neural-network-generation-tutorial [Last Accessed 28.04.2019]
-- Acroche2 Studio (2019).Jazz Midi Files. *Acroche2 Studio Online* http://www.acroche2.com/midi_jazz.html
 - Adams, D. (2010) *The Music of the Lord of The rings Films*
-- Eck & Schmidhuber. Finding temporal structure in music: Blues improvisation with LSTM recur- rent networks. In *Neural Networks for Signal Processing*, pp. 747–756. IEEE, 2002
+- Acroche2 Studio (2019).Jazz Midi Files. *Acroche2 Studio Online* http://www.acroche2.com/midi_jazz.html
+- AIVA (2019). *AIVA - The Artificial Intelligence composing emotional soundtrack music* https://www.aiva.ai/   [Last Accessed 30.04.2019]
+- Eck & Schmidhuber. (2002) Finding temporal structure in music: Blues improvisation with LSTM recur- rent networks. In *Neural Networks for Signal Processing*, pp. 747–756. IEEE, 2002
 - Franklin, J.A. 2019. Recurrent Neural Networks for Music Computation. *INFORMS Journal on Computing* 18(3):321-338. https://doi.org/10.1287/ijoc.1050.0131
 - Géron, A. (2017) *Hands-On Machine Learning with Scikit-Learn & Tensorflow* O´Reilly Media Inc, Sebastopol.
 - Giddins, G & Devaux, S. (2009) *Jazz*. 
@@ -848,4 +819,16 @@ https://groups.google.com/a/tensorflow.org/forum/#!topic/magenta-discuss/6ZLbzTj
 - https://arxiv.org/pdf/1803.05428.pdf
 - Persichetti, V. 1961. *Twentieth Century Harmony* New York: W.W Norton & Company. 
 - The Jazzomat Research Project (2019). Data Base Content.*Jazzomat research project Online*  https://jazzomat.hfm-weimar.de/dbformat/dbcontent.html  [Last Accessed 29.04.2019]
+
+Cut outs: 
+
+
+"Music is an interesting test-bed for sequence generation, in that musical compositions adhere to a relatively well-defined set of structural rules. Any beginning music student learns that groups of notes belong to keys, chords follow progressions, and songs have consistent structures made up of musical phrases." (Jaques et. al., 2017). (Online) 
+
+"The music theory rules implemented for the model are only a first attempt, and could easily be improved by someone with musical training."  (Jaques et. al., 2017). (Online) -  Improve music theory rule? 
+
+Music generated my artificial intelligence    (AIVA, ;(game music)).
+
+- Ref. on call for application of domain knowledge 
+
 
