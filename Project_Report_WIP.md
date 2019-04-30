@@ -218,6 +218,8 @@ In the research literature, LSTM Recurrent Networks have been used to generate (
 
 (Math formula) - Latex 
 
+<img src="http://latex.codecogs.com/svg.latex?f" border="0"/>
+
 (Graphic)
 
 
