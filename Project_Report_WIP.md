@@ -76,10 +76,10 @@ The application context of the music project is in the realm of generating melod
 **Midi format** 
 Similar to earlier research (Franklin, 2019), this project focuses on digital music at the pitch and duration level. 
 
-![alt text](https://github.com/lse-st449/st449-projects-casvalesen/blob/master/pictures/bach_notes.png | width=100) 
+![alt text](https://github.com/lse-st449/st449-projects-casvalesen/blob/master/pictures/bach_notes.png) 
 **Figure 1: Musical Notation of Melody, Bach Cello Suite 1**
 
-![alt text](https://github.com/lse-st449/st449-projects-casvalesen/blob/master/pictures/bach_midi.png | width=100) 
+![alt text](https://github.com/lse-st449/st449-projects-casvalesen/blob/master/pictures/bach_midi.png) 
 **Figure 2: Midi Notation of Melody, Bach Cello Suite 1**
 
 
@@ -138,27 +138,15 @@ Style extraction?
 
 Style specific dataset. 530 files combining both polyphonic and monophonic instances. 
 
-**Movie themes**
+**Movie themes:**  A subset of movie themes. Themes of a symphonic nature were emphasized (midiworld, 2019a) 
 
-midiworld (2019a) 
+**Video Game themes:** A subset of Video Game themes (midiworld, 2019b) 
 
-Movie themes of a symphonic nature were emphasized, (e.g in duplication). 
+**TV Themes:** A subset of TV themes (midiworld (2019c)
 
-**Video Game themes**
+**Modal Classical:** Classical music from selected composers were also included as part of the style specific dataset. This was composers who were in the expressionist, impressionist and nasjonal romantic with inspiration of Scandinavian folk music (..) paradigms as this was the moderns sounding style that would suit the model context (Persichetti, 1961) 
 
-midiworld(2019b) 
-
-**TV Themes**
-
-midiworld (2019c)
-
-**Modal Classical** 
-
-Classical music from selected composers were also included as part of the style specific dataset. This was composers who were in the expressionist, impressionist and nasjonal romantic with inspiration of Scandinavian folk music (..) paradigms as this was the moderns sounding style that would suit the model context (Persichetti, 1961) 
-
-**Jazz Data**
-
-The purpose of including the jazz solos was for the model to learn jazz phrasing and performance, with specific focus on improvsational melody construction. Most jazz material is written down only in sparse form, with practitioners given ample freedom to improvise and interpret hte material. Most practitioners therefore learn by imitating and transcribign recordings rather than playing after sheet music .  This tanscription of individual performances is a slow and incredibly time consuming task, which practitioners spend years perfectin. Books are released with transcriptions of individual performances, but these are very rarely in midi format (Giddins & Devaux, 2009). For capturing sufficient data sets to train AI models it is therefore nessecary to source transcribed midi jazz from the web, and the material for the jazz part of the dataset was sources from The Jazzomat Researhc Project (2019) and Acroche2 Studio (2019). A selection of 64 jazz solos and 58 ensemble pieces and where included in the the dataset based on the artists emphasis on modal melodies and modern harmonic colours. These were solos by Miles Davis, John Coltrane, Herbie Hancock, Wayne ShorterKenny Wheeler and Weather Report (Giddins & Devaux, 2009).  
+**Jazz Data:** The purpose of including the jazz solos was for the model to learn jazz phrasing and performance, with specific focus on improvsational melody construction. Most jazz material is written down only in sparse form, with practitioners given ample freedom to improvise and interpret hte material. Most practitioners therefore learn by imitating and transcribign recordings rather than playing after sheet music .  This tanscription of individual performances is a slow and incredibly time consuming task, which practitioners spend years perfectin. Books are released with transcriptions of individual performances, but these are very rarely in midi format (Giddins & Devaux, 2009). For capturing sufficient data sets to train AI models it is therefore nessecary to source transcribed midi jazz from the web, and the material for the jazz part of the dataset was sources from The Jazzomat Researhc Project (2019) and Acroche2 Studio (2019). A selection of 64 jazz solos and 58 ensemble pieces and where included in the the dataset based on the artists emphasis on modal melodies and modern harmonic colours. These were solos by Miles Davis, John Coltrane, Herbie Hancock, Wayne ShorterKenny Wheeler and Weather Report (Giddins & Devaux, 2009).  
 
 # Solution Concepts 
 
