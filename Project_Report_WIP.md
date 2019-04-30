@@ -197,11 +197,15 @@ The context application and research question entailed how to generate a monopho
 
 Applying the classical form of a dynamical system (Goodfellow et. al., 2016), a music system can be considered as: 
 
+
 <img src="http://latex.codecogs.com/svg.latex?s^t=f(s^{t-1}; \theta)" border="0"/>
 
-with <img src="http://latex.codecogs.com/svg.latex?s^t" border="0"/> being the current state of the music. In the monophonic case, this makes <img src="http://latex.codecogs.com/svg.latex?s^t" border="0"/> correspond to the current 
+with <img src="http://latex.codecogs.com/svg.latex?s^t" border="0"/> being the current state of the music. 
 
-*(music as a function)*  (Goodfellow et. al., 2016 p.364) - dynamical system equation with music explaination. 
+![alt text](https://github.com/lse-st449/st449-projects-casvalesen/blob/master/dynamical_music.png)
+
+**Figure () : Melody as dynamical system** illustrates the monophonic melody case. Here, this makes <img src="http://latex.codecogs.com/svg.latex?s^t" border="0"/> correspond to the current note while  <img src="http://latex.codecogs.com/svg.latex?s^{t-1}" border="0"/> corresponds to the preceeding note.  <img src="http://latex.codecogs.com/svg.latex? \theta" border="0"/> is applied to all time steps , incorporates information about the whole sequence. In the above example, this could be used to infer the note at  <img src="http://latex.codecogs.com/svg.latex?s^t" border="0"/>  by including information that the starting note repeats after 8 time steps. It could also capture that the melody consists of two alternating unique patters of 4 values, with the pattern beginning at <img src="http://latex.codecogs.com/svg.latex?s^t" border="0"/>  has the same start note value as the melody starting note.  
+
 
 This makes music generation a sequence modelling task that involves generating a sequence of outputs given a sequence history of inputs.  Sequence2Sequence Recurrent Neural networks are therefore good model candidates (Géron, 2017 p.407; Goodfellow, Bengio & Courville, 2016). While Feed Forward and Convolutional Neural Networks generate a fixed size output from a fixed size input, Recurrent Neural Networks are able to generate output sequences of arbitrary length from input sequences of arbitrary length (Géron, 2017 p.407). This also supports the use of an RNN model for creating a music generation model responsive to improvisation, as improvised musical phrases often vary in lenght (Giddins & Deveaux, 2009). 
 
