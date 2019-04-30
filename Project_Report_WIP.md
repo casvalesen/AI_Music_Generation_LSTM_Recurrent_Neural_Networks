@@ -197,7 +197,7 @@ The context application and research question entailed how to generate a monopho
 
 
 
-<img src="http://latex.codecogs.com/svg.latex?s^t=f(s^{t-1}; theta)" border="0"/>
+<img src="http://latex.codecogs.com/svg.latex?s^t=f(s^{t-1}; \theta)" border="0"/>
 
 *(music as a function)*  (Goodfellow et. al., 2016 p.364) - dynamical system equation with music explaination. 
 
