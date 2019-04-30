@@ -161,7 +161,7 @@ The following models were created:
 - Model   (Custom RNN) ) 
  
 
-### LSTM Recurrent Neural Networks for sequence generation (Expand to show theoretical understanding!!!) 
+### LSTM Recurrent Neural Networks for sequence generation 
 
 
 The context application and research question entailed how to generate a monophonic, aka. single voice musical melody capturing and imitating the characteristics of a given melody in general and specific music contexts. In AI terms this entails generating a sequence of states which capture and immitate the characteritics of a given sequence of states. Music generation can considered a dynamic system, aka. a feedback proces, since the current state is dependent on a history of past states (Franklin, 2019).
@@ -173,9 +173,9 @@ Applying the classical form of a dynamical system (Goodfellow et. al., 2016), a 
 
 with <img src="http://latex.codecogs.com/svg.latex?s^t" border="0"/> being the current state of the music. 
 
-![alt text](https://github.com/lse-st449/st449-projects-casvalesen/blob/master/pictures/dynamical_music_midi.png)
-**Figure 3 : Melody as dynamical system, musical notation** 
 ![alt text](https://github.com/lse-st449/st449-projects-casvalesen/blob/master/pictures/dynamical_music.png)
+**Figure 3 : Melody as dynamical system, musical notation** 
+![alt text](https://github.com/lse-st449/st449-projects-casvalesen/blob/master/pictures/dynamical_music_midi.png)
 **Figure 4 : Melody as dynamical system, midi data** 
 
 Figure 3 and 4 illustrate the monophonic melody case. <img src="http://latex.codecogs.com/svg.latex?s^t" border="0"/> correspond to the current note while  <img src="http://latex.codecogs.com/svg.latex?s^{t-1}" border="0"/> corresponds to the preceeding note.  <img src="http://latex.codecogs.com/svg.latex? \theta" border="0"/> is applied to all time steps , incorporates information about the whole sequence. In the above example, this could be used to infer the note at  <img src="http://latex.codecogs.com/svg.latex?s^t" border="0"/>  by including information that the starting note repeats after 8 time steps. It could also capture that the melody consists of two alternating unique patters of 4 values, with the pattern beginning at <img src="http://latex.codecogs.com/svg.latex?s^t" border="0"/>  has the same start note value as the melody starting note.  
