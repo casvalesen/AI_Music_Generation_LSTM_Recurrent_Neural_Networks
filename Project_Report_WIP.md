@@ -97,6 +97,8 @@ Similar to earlier research (Franklin, 2019), this project focuses on digital mu
 
 The data used for the model consists of musical material from the western musical traditions.  Although developing through history, the fundamental building blocks of this music have persisted from Bach (18th Century) to contemporary popular music (Persichetti, 1961; Pease, 2004). A selection of these are: 
 
+Monophonic, aka. one voice, 
+
 (check out music informatics for references here)
 
 **Intervals**  : such as absolute value differences in the sequence (melodic intervals)  (e.g. Persichetti, 1961: Pease & Pulling, 2001)
@@ -108,15 +110,15 @@ The data used for the model consists of musical material from the western musica
 
 **Melody** : A sequence of 
 
-*Themes* :     (Miller, 1996;Pease, 2004)
+*Themes* :     (Miller, 1996;Pease, 2004)  Local structure (Eck et. al., 2002) 
 
-*Melodic Development* : Meta pattern     :relative value difference patterns that are repeated with different absolute values locally (thematic development)        (Miller, 1996; Pease, 2004) 
+*Melodic Development* : Meta pattern     :relative value difference patterns that are repeated with different absolute values locally (thematic development)        (Miller, 1996; Pease, 2004)    Global structure 
 
 **Harmony** :
 
 *Chords*: In monophonic (single melodies) these would often be "broken" in the sense that chord notes are played in sequence rather than simultaneously.     (e.g. Persichetti, 1961; Pease & Pulling, 2001)
 
-*Harmonic Development/ Chord progression* :  meta patterns  for how these different types of relative value difference patterns alternate depending on their absolute values (harmonic development).   (e.g. Persichetti, 1961; Pease & Pulling, 2001)
+*Harmonic Development/ Chord progression* :  meta patterns  for how these different types of relative value difference patterns alternate depending on their absolute values (harmonic development).   (e.g. Persichetti, 1961; Pease & Pulling, 2001). 
 
 *Rhythm*:  
 (Persichetti, 1961; Miller, 1996;2000; Pease, 2004; Pease & Pulling, 2001)
@@ -192,55 +194,59 @@ The following models were created:
 ### LSTM Recurrent Neural Networks for sequence generation (Expand to show theoretical understanding!!!) 
 
 
-The context application and research question entailed how to generate a monophonic, aka. single voice musical melody capturing and imitating the characteristics of a given melody in general and specific music contexts. In AI terms this entails generating a sequence of states which capture and immitate the characteritics of a given sequence of states. Music generation can considered a dynamic system, aka. a feedback proces, since the current state is dependent on a history of past states (Franklin, 2019). This makes music generation a sequence modelling task that involves generating a sequence of outputs given a sequence history of inputs.  Sequence2Sequence Recurrent Neural networks are therefore good model candidates (Géron, 2017 p.407; Goodfellow, Bengio & Courville, 2016). While Feed Forward and Convolutional Neural Networks generate a fixed size output from a fixed size input, Recurrent Neural Networks are able to generate output sequences of arbitrary length from input sequences of arbitrary length (Géron, 2017 p.407). This also supports the use of an RNN model for music generation, as improvised musical phrases often vary in lenght (Giddins & Deveaux, 2009).   
+The context application and research question entailed how to generate a monophonic, aka. single voice musical melody capturing and imitating the characteristics of a given melody in general and specific music contexts. In AI terms this entails generating a sequence of states which capture and immitate the characteritics of a given sequence of states. Music generation can considered a dynamic system, aka. a feedback proces, since the current state is dependent on a history of past states (Franklin, 2019).
+
+*(music as a function)*  (Goodfellow et. al., 2016 p.364) - dynamical system equation with music explaination. 
+
+This makes music generation a sequence modelling task that involves generating a sequence of outputs given a sequence history of inputs.  Sequence2Sequence Recurrent Neural networks are therefore good model candidates (Géron, 2017 p.407; Goodfellow, Bengio & Courville, 2016). While Feed Forward and Convolutional Neural Networks generate a fixed size output from a fixed size input, Recurrent Neural Networks are able to generate output sequences of arbitrary length from input sequences of arbitrary length (Géron, 2017 p.407). This also supports the use of an RNN model for creating a music generation model responsive to improvisation, as improvised musical phrases often vary in lenght (Giddins & Deveaux, 2009). 
 
 
-RNN for music (Franklin, 2019)
+**LSTM for Music Generation** 
 
 
-A Reccurent Neural Networks
+A challenge in Recurrent Neural Networks is that the gradients tend to either vanish or explode when they are propagated over many stages. This property makes it hard for regular RNN models to learn long term dependencies (e.g. Goodfellow et. al., 2016 p. 390). An essential feature of most musical improvisations and compositions is the repetition, developments and selfreference of musical patterns over a high number of sequence steps (Giddins & Deveaux, 2009; Persichetti, 1961; Pease, 2004). In order to perform well, musical generation models must therefore address this challenge. Indeed, research has found that models composed of standard Recurrent Neural Nets fail to generate music with global coherence (Eck et. al., 2002). 
 
-
-"The state of the musical system depends on a history of past states" (Franklin, 2019)
-
-
-**LSTM** 
+Problem of long term dependencies 
+Long term dependenceis 
+LSTM solves 
 
 (Hochreiter & Schmidhuber, 1997)
+LSTM computations adapted from Géron (2017 p. 409)
 
 
 In the research literature, LSTM Recurrent Networks have been used to generate (....) and Improvisation (Eck & Schmidhuber, 2002; Franklin, 2019). Considering the end goal of the current application is also in the realm of improvisation, with a subset of the data coming from Jazz, the latter two papers make the LSTM RNN model especially relevant. 
 
-
-*LSTM for music Explained* 
-
 (Math formula) - Latex 
-
- 
 
 (Graphic)
 
-RNN applied to music, attributes making it suitable 
 
 LSTM musical setting, how 
-
 Goodfellow, I., Bengio, Y., & Courville., A.(2016 p.397)
-
 Seq2Seq model 
-
-*Character RNN*  
-
-predict one data point at a time, with discrete values (Graves, 2013)
-
+*Character RNN*  predict one data point at a time, with discrete values (Graves, 2013)
 Goodfellow, I., Bengio, Y., & Courville., A.(2016 p.397)
-
 Géron, A. (2017 p.407)
-
 Magenta Melody RNN (Abolafia, 2016; Google AI Magenta, 2019c)
 
-**With primer** 
+### Model Specifications 
 
-Capturing primer sequence pattern characteristics, i.e musical attributes. 
+**Training Input**
+
+A sequence of pitches over 128 possible midi values. For a given training melody sequence at step t, the input sequence value at time step *t* corresponds to sequence entry *n*.  
+
+**Training Labels** 
+
+A sequence of pitches over 128 possible midi values, with each sequence value corresponding to the next step sequence value of the input sequence. For a given training melody sequence , the input sequence value at time step *t*  thus corresponds to sequence entry *n+1*.   
+
+**Generation input: Primer**
+
+An arbirary length sequence of pitches over 128 possible midi values  
+
+**Generation Outputs**
+
+An arbitrary length sequence of pitches over 128 possible midi values, capturing primer sequence pattern characteristics, i.e musical attributes. The precise length is specified in the model parameters.  
+
 
 ### General Music Model
 
@@ -264,13 +270,9 @@ Both general music data and the context specific data are governed by the basic 
 
 Different tasks, different outputs. 
 features in visual systems, where general musical characteristics captured in the general model are applicable to 
-
 This is confirmed by examination of both datasets, and th
-
 The general music data contains a distribution over all types and types of music, while the context dataset was aiming at a very specific 
-
 while the domain context was aiming at a very specific style 
-
 The second iteration will then be trained on a style specific dataset to approach the musical style of the application domain. 
 
 
