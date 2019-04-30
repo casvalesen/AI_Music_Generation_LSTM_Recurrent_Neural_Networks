@@ -278,7 +278,7 @@ The second iteration will then be trained on a style specific dataset to approac
 
 (mirror code)
 
-### Data Preprocessing using Command Line API 
+### Data Preprocessing using Magenta´s Command Line API 
 
 The data was preprocessed using the Magenta Command Line API. This was done in two steps, first data had to be converted from midi files to a tfrecord file of notesequences. Notesequences are protocol buffer files enabling efficient data handling during training (Google AI MAgenta, 2019c). This process was done for all data subsets: 
 
@@ -291,7 +291,9 @@ convert_dir_to_note_sequences \
 --recursive
 ```
 
-These notesequence protocol buffers then had to be structured into SequenceExamples, a file that contains a sequence of inputs and a sequence of labels that represents a melody. This command also splits the set into a training and test dataset on the `eval_ratio` parameter. Example: 
+These notesequence protocol buffers then had to be structured into SequenceExamples, a file that contains a sequence of inputs and a sequence of labels that represents a melody. This command also splits the set into a training and test dataset on the `eval_ratio` parameter. The `config`parameter was specified to the type of model that was going to be trained. The Magenta LSTM RNN implementation includes several options. The 'mono_rnn' configuration was selected for the model as this one allows notes to take all 128 midi values, giving a wider range of musical output. 
+
+Command line code Example: 
 
 ```
 melody_rnn_create_dataset \
@@ -302,24 +304,133 @@ melody_rnn_create_dataset \
 
 ```
 
-
-- Show command line code. 
-- discuss for understanding. 
-
-### Python Implementation 
+### Model Implementation 
 
 **Gdrive integration**  
 
-Using Magenta´s Melody RNN model. 
-Model designed for command line interface
+The preprocessing was done on a local hardrive. The data was then uploaded to gdrive, with was mounted to Colab using the standard Colab mount function: 
+```
+#Mount drive to Google Colab 
+from google.colab import drive
 
-How the model is built 
-Instead, used model functions directly
-Setting FLAGS
+drive.mount('/content/gdrive', force_remount=True)   #/content/gdrive/My Drive/AI_music/ , force_remount=True
+root_path = 'gdrive/My Drive/AI_music/'
 
- - 
-**FLAGS**
-hyperparameters
+```
+This ensured files could be called directly from the colab and all processing could be cloud based. 
+
+***Model Building and Training** 
+
+The Magenta distribution (Google Magenta AI, 2019c) supports commmand line training of RNN based models. However, to build a customized model using the library was necessary to thoroughly comprehend and apply sections of the Magenta distribution source code. The Melody RNN Model  distribution consists of eight interlinked python modules: 
+
+```melody_rnn_config_flags.py``` Provides a class for model configuration, utility functions and defaults. Most importantly, it implements ```tf.app.flags.FLAGS```to set hyperparameters for the model. In order to customize trained model, these FLAGS had to be managed and configured manually in the custom implementation. When called directly, a bug create a frequent warning for misssing flag 'f', thus a dummy flag was defined in the implementation to deal with this error. 
+
+```melody_rnn_generate.py``` This module was called to generate output sequences from the trained model. It needed to be configured with a separate instance of ```FLAGS```. 
+
+```melody_rnn_model.py``` This is the module for the main class for the model itself.
+
+```melody_rnn_train.py``` 
+
+```melody_rnn_pipeline.py``` 
+
+```melody_rnn_sequence_generator.py```
+
+```melody_rnn_create_dataset.py``` This was the module called during preprocessing with the command line API. Not necessary to deal with further in implementation. 
+
+```melody_rnn_create_dataset_test.py``` Provides tests for the above, largely irrelevant for model customization. 
+ 
+The Melody RNN Model distribution also calls modules shared accross models, namely: 
+
+```from magenta.models.shared``` 
+
+``` events_rnn_graph```  
+
+```events_rnn_train``` This module runs contains a ```run_training```function that runs the training of the LSTM RNN graph. In the custom implementation this function was called directly with specified arguments. 
+
+
+Several of the subfunctions take ```unused_argv```as inputs. After a visit to stackoverflow, it was apparent this is internal code practice at Google, and the variable can be set to     ``` unused_argv= ' '``` to avoid any issues. 
+
+
+***Custom generate_test_melodies() function*** 
+
+An ``` generate_test_melodies(checkpoint_file,run_dir,output_dir) ``` was defined to generate all the outputs necessary for model evaluation (for specific evaluation metrics see below). It takes a the following arguments: A ```checkpoint_file``` which is the checkpoint for a specific model iteration to be used and a ```output_dir``` which is the directory to the mounted GDrive where the output melodies should be saved. 
+
+In the distribution function ``` melody_rnn_generate.main(unused_argv) ```, ``` FLAGS.run_dir``` contains specifies a directory from which the model will load the latest checkpoint for use in sequence generation. By default, ```run_dir```is set to ``` None ``` to avoid conflict with the ```checkpoint_file``` flag. However, if one should wish to load the latest checkpoint in a directory instead of a specific checkpoint file, one can set ```checkpoint_file``` to ```None``` and specify a ```run_dir``` instead. 
+
+The function first specifies ```FLAGS```that are shared among the differnt primers, then specifies ```FLAGS ```for each of the evaluation primer melodies. The primer name is added to the ```output_dir``` to generate different subfolders for the data and a message is printed so show runtime success at each step. ```melody_rnn_generate``` takes either a midi file directory in ```primer_midi``` or a  notesequence in ```primer_melody``` as inputs. As the first four output examples where defined using notesequences to ```primer_melody```, ```primer_midi``` was initialised to ```None```. This was reversed and overwritten when the model takes a bach midi file as input. 
+
+Full function below: 
+
+```
+#Function to generate Evaluation test melodies from trained models
+def generate_test_melodies(checkpoint_file,output_dir, run_dir=None):
+
+   
+  #Shared flags 
+  FLAGS.config='mono_rnn'
+  FLAGS.checkpoint_file=checkpoint_file
+  FLAGS.melody_encoder_decoder=None
+  FLAGS.run_dir=run_dir 
+  FLAGS.num_outputs=5 
+  FLAGS.num_steps=128 
+  FLAGS.hparams="batch_size=64,rnn_layer_sizes=[128,128]"
+  #Primer midi set to None, get overridden in Bach cello step 
+  FLAGS.primer_midi=None 
+  unused_argv='_' 
+
+  #Generate from one note  
+  FLAGS.primer_melody="[60]"  
+  FLAGS.output_dir=output_dir+'onenote/'
+  melody_rnn_generate.main(unused_argv)
+  print("Melodies generated from One note primer")
+  
+  #Generate from half note  
+  FLAGS.primer_melody=None
+  FLAGS.primer_midi='/content/gdrive/My Drive/AI_music/primer/half_note_primer.mid'
+  FLAGS.output_dir=output_dir+'half_note/'
+  melody_rnn_generate.main(unused_argv)
+  print("Melodies generated from half note primer")
+   
+  #Generate from simple major melody 
+  
+  FLAGS.output_dir=output_dir+'simple_major/'
+  FLAGS.primer_melody="[60, -2, 62, -2, 64, -2, 59, -2,60,-2]" 
+  
+  melody_rnn_generate.main(unused_argv)
+  print("Melodies generated from Simple major Melody primer")
+  
+  #Generate from simple minor melody
+  FLAGS.output_dir=output_dir+'simple_minor/'
+  FLAGS.primer_melody="[60, -2, 62, -2, 63, -2, 58, -2,60,-2]"
+  melody_rnn_generate.main(unused_argv)
+  print("Melodies generated from Simple Minor Melody primer")
+  
+  #Generate from arpeggiated chord sequence
+
+  FLAGS.output_dir=output_dir+'arpeggiated'  #/content/gdrive/
+  FLAGS.primer_melody="[62, -2, 65, -2, 69, -2, 72, -2,71,-2,67,-2,65,-2,62,-2,60]"
+  melody_rnn_generate.main(unused_argv)
+  print("Melodies generated from Arpeggiated Chord sequence primer")
+
+  #Generate from bach cello 
+  FLAGS.output_dir=output_dir+'bach/'
+  FLAGS.primer_midi='/content/gdrive/My Drive/AI_music/bach_gen/cs1-1pre_4bars.mid'
+  FLAGS.primer_melody=None
+  melody_rnn_generate.main(unused_argv)
+  print("Melodies generated from Bach Cello primer")
+  
+  #Generate from context specific modal motive
+  FLAGS.output_dir=output_dir+'modal/'
+  FLAGS.primer_midi='/content/gdrive/My Drive/AI_music/primer/modal.mid'
+  FLAGS.primer_melody=None
+  melody_rnn_generate.main(unused_argv)
+  print("Melodies generated from Modal context primer")
+  
+  
+  return None
+```
+
+
 
 ### Custom functionality 
 
