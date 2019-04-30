@@ -196,6 +196,10 @@ The following models were created:
 
 The context application and research question entailed how to generate a monophonic, aka. single voice musical melody capturing and imitating the characteristics of a given melody in general and specific music contexts. In AI terms this entails generating a sequence of states which capture and immitate the characteritics of a given sequence of states. Music generation can considered a dynamic system, aka. a feedback proces, since the current state is dependent on a history of past states (Franklin, 2019).
 
+
+
+<img src="http://latex.codecogs.com/svg.latex?s^t=f(s^(t-1); theta)" border="0"/>
+
 *(music as a function)*  (Goodfellow et. al., 2016 p.364) - dynamical system equation with music explaination. 
 
 This makes music generation a sequence modelling task that involves generating a sequence of outputs given a sequence history of inputs.  Sequence2Sequence Recurrent Neural networks are therefore good model candidates (Géron, 2017 p.407; Goodfellow, Bengio & Courville, 2016). While Feed Forward and Convolutional Neural Networks generate a fixed size output from a fixed size input, Recurrent Neural Networks are able to generate output sequences of arbitrary length from input sequences of arbitrary length (Géron, 2017 p.407). This also supports the use of an RNN model for creating a music generation model responsive to improvisation, as improvised musical phrases often vary in lenght (Giddins & Deveaux, 2009). 
