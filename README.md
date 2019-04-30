@@ -42,11 +42,13 @@ The repository Contains:
 
 - **Project Report :** A research report including research goals, dataset selection, model design, implementation consideration and evaluations. 
 
-- **Implementation Code in Jypyter Notebook format:**  The Model implementation code.  ( ) 
-
 - **Data Preprocessing Code:** Command Line code used for data preprocessing ( ) 
 
 - **Custom Dataset:** The custom dataset build for the project.  (  ) 
+
+- **Implementation Code in Jypyter Notebook format:**  The Model implementation code.  ( ) 
+
+- **Checkpoint files for model restoration**  The checkpoints of the trained model which can be used to resore the model and duplicate results. 
 
 - **Model Outputs- AI Generated Music:** Midi files from all the model generations, audio files for selected examples ( ). 
 
