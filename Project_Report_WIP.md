@@ -432,6 +432,27 @@ The third iteration will then tune this LSTM using the Deep Q-learning approach 
 
 ## Evalation mechanisms 
 
+Standard neural network performance metrics were used to evaluate the models: 
+
+**Accuracy** The ratio of correctly predicted values  (Géron, 2017). 
+
+**loss_per_step** The amount of loss for each training step. The melody rnn model defines this as the Mean Softmax cross-entropy loss, implementing the loss function ```tf.nn.sparse_softmax_cross_entropy_with_logits```. This loss function trains model to estimate high probabilities for the target class by penalizing low target class probabilities (Géron, 2017 p.143). 
+
+- (function)- Mean - Softmax - Cross entropy with logits     (Goodfellow et. al.,2016 p. 73; Géron, 2017 p.143) 
+
+**no_event_accuracy** The ```MELODY_NO_EVENT``` indicator is implemented in the Magenta library to mark when a sustained state is held over several values, which means the current status of ```NOTE_OFF``` or ```NOTE_ON``` is kept. In the library source code, ```No_event_accuracy``` is defined as the sum of the products of correct_predicitions and no_events, divided by the sum of no events. 
+
+```
+   no_event_accuracy = (
+            tf.reduce_sum(correct_predictions * no_event_positions) /
+            tf.reduce_sum(no_event_positions))
+```
+(Google AI MAgenta, 2019c)
+
+This is therefore a music specific numerical evaluation which gives a measure of how accurate the value durations, aka. rhytms, sequences are compared compared to the target sequences. 
+
+
+
 ### Stats Tables
 
 
@@ -529,6 +550,8 @@ The initial cello suite was downloaded from an open source midi file repository 
 
 - Using default Magenta Tensorflow graphs )
 
+**Output Naming Convention:** it_(iteration_nr)_(primer)_nr_(outputnr)_(training_ep if applicable)
+
 ## Iteration 1: Mono_rnn based on Magenta´s RNN LSTM Model 
 
 - First part of Lakh dataset used, ... entries. 
@@ -544,7 +567,12 @@ The initial cello suite was downloaded from an open source midi file repository 
 
 **Model Outputs & Evaluation**
 
-**Output Naming Convention:** it_(iteration_nr)_(primer)_nr_(outputnr)_(training_ep if applicable)
+
+***Accuracy***
+
+***Loss_per_step***
+
+***no_event_accuracy***
 
 E.g 
 
@@ -577,6 +605,17 @@ harmonic development?
 ## Iteration 2: Mono_rnn based on Magenta´s RNN LSTM Model, complete Lakh dataset (2.1) and style specific dataset (2.2)
 
 **2.1: Complete Lakh and Maestro datasets
+
+**Model Outputs and Evaluation***
+
+***Accuracy***
+
+***Loss_per_step***
+
+***no_event_accuracy***
+
+Diverging results. 
+
 
 For the second iteration, a sixth primer melody was added. This was a simple phrase which would be similar to what would be used by the musical instrument player in the improvisation application context. 
 
@@ -632,6 +671,16 @@ Overfitting the model on this data as opposed to keeping it balanced between the
 Initially, the model was overfitted on this data in order to gain context specificity With 50 000 additional training iterations. However, the generated melodies had forgotten: 
 
 THIS IS CRAZY; CHECK!!!(A rather Naive approach was used for this second stage training, in which the training  steps was increased by a factor 179 781/530≈ 340 to give equal weight to the context data. (?)
+
+
+**Model Outputs & Evaluation**
+
+***Accuracy***
+
+***Loss_per_step***
+
+***no_event_accuracy***
+
 
 (Paper on transfer learning & Two step training for language models) 
 
