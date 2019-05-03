@@ -241,11 +241,8 @@ In music, this training process could be utilised by first training the model on
 
 In the first iteration, the model will consist of a music generation RNN LSTM. 
 
-This is uses a similar basis as character level RNN´s developed for Natural Language Processing, and tries to predict the next token given a sequence of previous values  (Abolafia, 2016; Jaques et. al.,2017; Mikolov et. al.,2010) 
+This is uses a similar basis as character level RNN´s developed for Natural Language Processing, and tries to predict the next token given a sequence of previous values  (Abolafia, 2016; Jaques et. al.,2017; Mikolov et. al.,2010) In the RNN LSTM, the token used for prediction is known as the "primer" for the model (Abolafia, 2016; Google AI Magenta, 2019c)
 
-In the RNN LSTM, the token used for prediction is known as the "primer" for the model (Abolafia, 2016; Google AI Magenta, 2019c)
-
-(Explain-). 
 
 ### Style Specific Model
 
@@ -307,11 +304,11 @@ The Magenta distribution (Google Magenta AI, 2019c) supports commmand line train
 
 ```melody_rnn_model.py``` This is the module for the main class for the model itself.
 
-```melody_rnn_train.py``` 
+```melody_rnn_train.py``` This module specifies specific training operations for the model. 
 
-```melody_rnn_pipeline.py``` 
+```melody_rnn_sequence_generator.py``` This model generates output sequences from the model once trained. 
 
-```melody_rnn_sequence_generator.py```
+```melody_rnn_pipeline.py``` This model allows for implementation for custom data pipelines. As data was preprocessed using the command line API, the module was not used. 
 
 ```melody_rnn_create_dataset.py``` This was the module called during preprocessing with the command line API. Not necessary to deal with further in implementation. 
 
@@ -319,12 +316,11 @@ The Magenta distribution (Google Magenta AI, 2019c) supports commmand line train
  
 The Melody RNN Model distribution also calls modules shared accross models, namely: 
 
-```from magenta.models.shared``` 
+```from magenta.models.shared``` : 
 
-``` events_rnn_graph```  
+``` events_rnn_graph```  Defines the low level tensorflow graph for the model, includign softmax cross-entropy loss and Adam Optimiser.  The function ```get_build_graph_fn()``` is called directly in the project implementation. 
 
-```events_rnn_train``` This module runs contains a ```run_training```function that runs the training of the LSTM RNN graph. In the custom implementation this function was called directly with specified arguments. 
-
+```events_rnn_train``` This module runs contains the ```run_training```function that runs the training of the LSTM RNN graph. In the custom implementation this function was called directly with specified arguments. 
 
 Several of the subfunctions take ```unused_argv```as inputs. After a visit to stackoverflow, it was apparent this is internal code practice at Google, and the variable can be set to     ``` unused_argv= ' '``` to avoid any issues. 
 
@@ -407,8 +403,6 @@ def generate_test_melodies(checkpoint_file,output_dir, run_dir=None):
   
   return None
 ```
-
-
 
 ### Custom functionality 
 
@@ -552,7 +546,7 @@ The initial cello suite was downloaded from an open source midi file repository 
 
 **Output Naming Convention:** it_(iteration_nr)_(primer)_nr_(outputnr)_(training_ep if applicable)
 
-## Iteration 1: Mono_rnn based on Magenta´s RNN LSTM Model 
+## Model Iteration 1: Mono_rnn based on Magenta´s RNN LSTM Model 
 
 - First part of Lakh dataset used, ... entries. 
 
@@ -656,7 +650,7 @@ It was a modal melody, e.g. a melody following a single
 - Cloud based training terminated, and was restarted. A memory overload issue led to loss of training data between (---). However, in the metric visualisations, this provides a good visualization of the step change occuring between training model 2.1. and 2.2. 
 
 
-**2.2: Style specific dataset** - Combine for discussion on transfer learning and training. (!!). 
+**Iteration 2.2: LSTM RNN Context Specific Model** - Combine for discussion on transfer learning and training. (!!). 
 
 *Training* :  
 
