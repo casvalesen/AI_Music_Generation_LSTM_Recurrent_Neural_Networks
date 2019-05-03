@@ -59,7 +59,7 @@ This was examined using the following models:
 
 - *Iteration 2.1: A LSTM RNN trained on a larger general music dataset of ( ) musical examples and including captured performances* 
 
-- *Iteration 2.2: A LSTM RNN applying transfer learning by continuing training from 2.1 on a smaller selection of context specific music examples. 
+- *Iteration 2.2: A LSTM RNN applying transfer learning by continuing training from 2.1 on a smaller selection of context specific music examples.*
 
 ## Artificial Intelligence Research Context 
 
