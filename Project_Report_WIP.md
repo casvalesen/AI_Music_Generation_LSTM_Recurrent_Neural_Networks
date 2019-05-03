@@ -45,7 +45,7 @@ Supervised learning
 ### Application Goals
 
 The Goal is to design a music generator that is capable of generating melodies that are both musically expressive 
-and have a certain coherency. The model will generate a monophonic melody line, (which will be responsive to a real time input melody. )
+and have a certain coherency. The model will generate a monophonic melody line. 
 
 ### Research Goals / Question 
 
@@ -77,9 +77,11 @@ The application context of the music project is in the realm of generating melod
 Similar to earlier research (Franklin, 2019), this project focuses on digital music at the pitch and duration level. 
 
 ![alt text](https://github.com/lse-st449/st449-projects-casvalesen/blob/master/pictures/bach_notes.png) 
+
 **Figure 1: Musical Notation of Melody, Bach Cello Suite 1**
 
 ![alt text](https://github.com/lse-st449/st449-projects-casvalesen/blob/master/pictures/bach_midi.png) 
+
 **Figure 2: Midi Notation of Melody, Bach Cello Suite 1**
 
 
@@ -116,25 +118,16 @@ a local pattern of relative value differences are repeated in with varying absol
 
 ## Datasets
 
-The data consisted of midi files and was selected with the overall application. 
-- Building custom dataset
-- Transform to melodies from 
-- Think about target and prediction
+The data consisted of midi files and was selected with the overall application goal in mind, including both general music data ans style specific. Midi files were inspected using the musical notation software Sibelius, and output melodies were inspected with the Digital Audio Workstation Ableton Live. 
 
-Midi files were inspected using the musical notation software Sibelius. 
-midiworld(2019d) 
 
-Theoretically, this is similar to training approaches used in Natural Language processing for building language context specific models (Reference needed). 
+### General music data
 
-Style extraction? 
+The General music set consisted of two part. 
+- The Lakh Midi Dataset dataset, which was collected for by Raffel(2016) for Phd work on Audio-to-midi.  It is made up of 178 579 midi files scraped from publicly available web sources (Raffel, 2019). 
+- The Maestro Dataset , contructed by Google AI Magenta. It contains 1 202 midi files capturing world class performers classical musical material and performance (Google AI, Magenta 2019b) 
 
-### General melody generation
-
-- General melody dataset: Lakh dataset 178 579 midi files containing    (Lakh
-
-- Performance: Maestro, 1 202 midi files capturing world class performers classical musical material and performance 
-
-### Style Specific melody generation 
+### Style Specific music data
 
 Style specific dataset. 530 files combining both polyphonic and monophonic instances. 
 
@@ -144,7 +137,7 @@ Style specific dataset. 530 files combining both polyphonic and monophonic insta
 
 **TV Themes:** A subset of TV themes (midiworld (2019c)
 
-**Modal Classical:** Classical music from selected composers were also included as part of the style specific dataset. This was composers who were in the expressionist, impressionist and nasjonal romantic with inspiration of Scandinavian folk music (..) paradigms as this was the moderns sounding style that would suit the model context (Persichetti, 1961) 
+**Modal Classical:** Classical music from selected composers were also included as part of the style specific dataset. This was composers who were in the expressionist, impressionist and nasjonal romantic with inspiration of Scandinavian folk music  paradigms as this was the moderns sounding style that would suit the model context (Persichetti, 1961) 
 
 **Jazz Data:** The purpose of including the jazz solos was for the model to learn jazz phrasing and performance, with specific focus on improvsational melody construction. Most jazz material is written down only in sparse form, with practitioners given ample freedom to improvise and interpret hte material. Most practitioners therefore learn by imitating and transcribign recordings rather than playing after sheet music .  This tanscription of individual performances is a slow and incredibly time consuming task, which practitioners spend years perfectin. Books are released with transcriptions of individual performances, but these are very rarely in midi format (Giddins & Devaux, 2009). For capturing sufficient data sets to train AI models it is therefore nessecary to source transcribed midi jazz from the web, and the material for the jazz part of the dataset was sources from The Jazzomat Researhc Project (2019) and Acroche2 Studio (2019). A selection of 64 jazz solos and 58 ensemble pieces and where included in the the dataset based on the artists emphasis on modal melodies and modern harmonic colours. These were solos by Miles Davis, John Coltrane, Herbie Hancock, Wayne ShorterKenny Wheeler and Weather Report (Giddins & Devaux, 2009).  
 
@@ -156,9 +149,11 @@ The following models were created:
 
 - Model 1: A Note based LSTM RNN for General Music Generation trained on a subset of the General Music Dataset, only including musical composition.
 - Model 2.1 : A Note Based LSTM RNN for General Music Generaton trained on the entire General Music Daset, including both musical compositions and captured performances. 
-- Model 2.2: A Note Based LSTM RNN which applied transfer learning to adapt Model 2.1 to the application context domain by training it on the style specific dataset. 
+- Model 2.2: A Note Based LSTM RNN which applied transfer learning to adapt Model 2.1 to the application context domain by training it on the style specific dataset.
+
+(
 (- Model 3.0: A Deep Q Reinforcement Learning model which tunes model 2.2 by balancing style specific music theory rewards with the LSTM based sequence model. ) 
-- Model   (Custom RNN) ) 
+- Model   (Custom RNN) ) ) 
  
 
 ### LSTM Recurrent Neural Networks for sequence generation 
@@ -248,6 +243,9 @@ This is uses a similar basis as character level RNN´s developed for Natural Lan
 
 Transfer learning was applied to train the style specific model. This approach entails using a model trained on a general dataset as starting point for further training of a model on a specific dataset. This is in order to make the second model more general, and it is build on the assumption that many of the factors explaning variations in the first dataset hold in the second.  (Goodfellow et. al.,2016). Both general music data and the context specific data are governed by the basic musical building blocks described in the Musical Data setion (Persichetti, 1961; Pease & Pulling, 2001). These musical building blocks are analogous to the low level visual features captured in CNN visual systems, where transfer learning is frequently applied to adapt models trained on one visual category to another (Goodfellow et. al., 2016). 
 
+
+
+(Theoretically, this is similar to training approaches used in Natural Language processing for building language context specific models (Reference needed). 
 
 (This is confirmed by examination of both datasets, and th The general music data contains a distribution over all types and types of music, while the context dataset was aiming at a very specific syle. The second iteration was then trained on a style specific dataset to approach the musical style of the application domain. ) 
 
@@ -444,8 +442,6 @@ Standard neural network performance metrics were used to evaluate the models:
 (Google AI MAgenta, 2019c)
 
 This is therefore a music specific numerical evaluation which gives a measure of how accurate the value durations, aka. rhytms, sequences are compared compared to the target sequences. 
-
-
 
 ### Stats Tables
 
@@ -811,7 +807,8 @@ Modal framework implementing relative scale pitches. These are based on the majo
 
 
 ## Data sources
-8 notes (2019).Bach - Cello Suite No.1 in G major, BWV 1007 (complete) midi file for Cello (midi). 8 Notes.  https://www.8notes.com/scores/14093.asp?ftype=midi [Accessed 18.04.2018]
+
+
 
 http://www.midiworld.com/classic.htm#d
 
@@ -822,6 +819,7 @@ http://www.acroche2.com/midi_jazz.html
 https://groups.google.com/a/tensorflow.org/forum/#!topic/magenta-discuss/6ZLbzTjjpHM
 
 ## References
+- 8 notes (2019).Bach - Cello Suite No.1 in G major, BWV 1007 (complete) midi file for Cello (midi). 8 Notes.  https://www.8notes.com/scores/14093.asp?ftype=midi [Accessed 18.04.2018]
 - Abolafia, D. (2016). A Recurrent Neural Network Music Tutorial. *Google AI Magenta Blog.* https://magenta.tensorflow.org/2016/06/10/recurrent-neural-network-generation-tutorial [Last Accessed 28.04.2019]
 - Adams, D. (2010) *The Music of the Lord of The rings Films*
 - Acroche2 Studio (2019).Jazz Midi Files. *Acroche2 Studio Online* http://www.acroche2.com/midi_jazz.html
@@ -852,6 +850,8 @@ https://groups.google.com/a/tensorflow.org/forum/#!topic/magenta-discuss/6ZLbzTj
 - Parry, K. Cohen, M & Bhattacharya, S (2016) Rise of the Machines: A Critical Consideration of Automated Leadership Decision Making in Organisations. Group and Organisation Management. 2016 vol. Vol. 41(5) pp. 571–594
 - Pease, T. & Pulling, K. 2001 *Modern Jazz Voicings* Berklee Press, Boston MA.
 - Pease, T. 2004 *Jazz Composition: Theory and Practice* Berklee Press, Boston MA. 
+- Raffel, Colin. (2019). *Lakh Midi Dataset v0.1*. https://colinraffel.com/projects/lmd/ [Accessed 19.04.2019]
+- Raffel, Colin.2016 "Learning-Based Methods for Comparing Sequences, with Applications to Audio-to-MIDI Alignment and Matching". *PhD Thesis*. 
 - Russel, S & Norvig, P. (2016) *Artificial Intelligence - A Modern Approach*. 3rd Edition. Pearson Education Limited, Essex. 
 -  https://arxiv.org/pdf/1810.12247.pdf
 - https://arxiv.org/pdf/1803.05428.pdf
