@@ -600,19 +600,19 @@ harmonic development?
 
 ***Figure (): Iteration 2.1 Accuracy***
 
-![alt text] (https://github.com/lse-st449/st449-projects-casvalesen/blob/master/pictures/it_2.1_accuracy.png)
+![alt text](https://github.com/lse-st449/st449-projects-casvalesen/blob/master/pictures/it_2.1_accuracy.png)
 
 ***Figure (): Iteration 2.1 Loss**
 
-![alt text] (https://github.com/lse-st449/st449-projects-casvalesen/blob/master/pictures/it_2.1_loss.png)
+![alt text](https://github.com/lse-st449/st449-projects-casvalesen/blob/master/pictures/it_2.1_loss.png)
 
 ***Figure (): Iteration 2.1 Loss_per_step***
 
-![alt text] (https://github.com/lse-st449/st449-projects-casvalesen/blob/master/pictures/it_2.1_loss_per_step.png)
+![alt text](https://github.com/lse-st449/st449-projects-casvalesen/blob/master/pictures/it_2.1_loss_per_step.png)
 
 ***Figure (): Iteration 2.1  no_event_accuracy***
 
-![alt text] (https://github.com/lse-st449/st449-projects-casvalesen/blob/master/pictures/it_2.1_no_event_accuracy.png)
+![alt text](https://github.com/lse-st449/st449-projects-casvalesen/blob/master/pictures/it_2.1_no_event_accuracy.png)
 
 Diverging results. 
 
@@ -677,34 +677,35 @@ THIS IS CRAZY; CHECK!!!(A rather Naive approach was used for this second stage t
 
 ***Figure (): Iteration 2.2 Accuracy***
 
-![alt text] (https://github.com/lse-st449/st449-projects-casvalesen/blob/master/pictures/it_2.2_accuracy.png)
+![alt text](https://github.com/lse-st449/st449-projects-casvalesen/blob/master/pictures/it_2.2_accuracy.png)
 
 ***Figure (): Iteration 2.1 and 2.2 Accuracy comparison***
 
-![alt text] (https://github.com/lse-st449/st449-projects-casvalesen/blob/master/pictures/it_2_accuracy_comp.png)
+![alt text](https://github.com/lse-st449/st449-projects-casvalesen/blob/master/pictures/it_2_accuracy_comp.png)
 
 ***Figure (): Iteration 2.2 Loss***
 
-![alt text] (https://github.com/lse-st449/st449-projects-casvalesen/blob/master/pictures/it_2.2_loss.png)
+![alt text](https://github.com/lse-st449/st449-projects-casvalesen/blob/master/pictures/it_2.2_loss.png)
 
 ***Figure (): Iteration 2.1 and 2.2 Loss comparison***
 
-![alt text] (https://github.com/lse-st449/st449-projects-casvalesen/blob/master/pictures/it_2_loss_comp.png)
+![alt text](https://github.com/lse-st449/st449-projects-casvalesen/blob/master/pictures/it_2_loss_comp.png)
 
 ***Figure (): Iteration 2.2 Loss_per_step***
 
-![alt text] (https://github.com/lse-st449/st449-projects-casvalesen/blob/master/pictures/it_2.2_loss_per_step.png)
+![alt text](https://github.com/lse-st449/st449-projects-casvalesen/blob/master/pictures/it_2.2_loss_per_step.png)
 
 ***Figure (): Iteration 2.1 and 2.2 Loss_per_step comparison***
 
-![alt text] (https://github.com/lse-st449/st449-projects-casvalesen/blob/master/pictures/it_2_loss_per_step.png)
+![alt text](https://github.com/lse-st449/st449-projects-casvalesen/blob/master/pictures/it_2_loss_per_step.png)
 
 ***Figure (): Iteration 2.2 no_event_accuracy***
 
-![alt text] (https://github.com/lse-st449/st449-projects-casvalesen/blob/master/pictures/it_2.2_no_event_accuracy.png)
+![alt text](https://github.com/lse-st449/st449-projects-casvalesen/blob/master/pictures/it_2.2_no_event_accuracy.png)
 
 ***Figure (): Iteration 2.1 and 2.2 no_event_accuracy comparison***
 
+![alt text](https://github.com/lse-st449/st449-projects-casvalesen/blob/master/pictures/it_2_no_event_accuracy_comp.png)
 
 (Paper on transfer learning & Two step training for language models) 
 
