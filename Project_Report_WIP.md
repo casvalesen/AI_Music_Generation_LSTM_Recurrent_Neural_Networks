@@ -598,11 +598,21 @@ harmonic development?
 
 **Model Outputs and Evaluation***
 
-***Accuracy***
+***Figure (): Iteration 2.1 Accuracy***
 
-***Loss_per_step***
+![alt text] (https://github.com/lse-st449/st449-projects-casvalesen/blob/master/pictures/it_2.1_accuracy.png)
 
-***no_event_accuracy***
+***Figure (): Iteration 2.1 Loss**
+
+![alt text] (https://github.com/lse-st449/st449-projects-casvalesen/blob/master/pictures/it_2.1_loss.png)
+
+***Figure (): Iteration 2.1 Loss_per_step***
+
+![alt text] (https://github.com/lse-st449/st449-projects-casvalesen/blob/master/pictures/it_2.1_loss_per_step.png)
+
+***Figure (): Iteration 2.1  no_event_accuracy***
+
+![alt text] (https://github.com/lse-st449/st449-projects-casvalesen/blob/master/pictures/it_2.1_no_event_accuracy.png)
 
 Diverging results. 
 
@@ -665,11 +675,35 @@ THIS IS CRAZY; CHECK!!!(A rather Naive approach was used for this second stage t
 
 **Model Outputs & Evaluation**
 
-***Accuracy***
+***Figure (): Iteration 2.2 Accuracy***
 
-***Loss_per_step***
+![alt text] (https://github.com/lse-st449/st449-projects-casvalesen/blob/master/pictures/it_2.2_accuracy.png)
 
-***no_event_accuracy***
+***Figure (): Iteration 2.1 and 2.2 Accuracy comparison***
+
+![alt text] (https://github.com/lse-st449/st449-projects-casvalesen/blob/master/pictures/it_2_accuracy_comp.png)
+
+***Figure (): Iteration 2.2 Loss***
+
+![alt text] (https://github.com/lse-st449/st449-projects-casvalesen/blob/master/pictures/it_2.2_loss.png)
+
+***Figure (): Iteration 2.1 and 2.2 Loss comparison***
+
+![alt text] (https://github.com/lse-st449/st449-projects-casvalesen/blob/master/pictures/it_2_loss_comp.png)
+
+***Figure (): Iteration 2.2 Loss_per_step***
+
+![alt text] (https://github.com/lse-st449/st449-projects-casvalesen/blob/master/pictures/it_2.2_loss_per_step.png)
+
+***Figure (): Iteration 2.1 and 2.2 Loss_per_step comparison***
+
+![alt text] (https://github.com/lse-st449/st449-projects-casvalesen/blob/master/pictures/it_2_loss_per_step.png)
+
+***Figure (): Iteration 2.2 no_event_accuracy***
+
+![alt text] (https://github.com/lse-st449/st449-projects-casvalesen/blob/master/pictures/it_2.2_no_event_accuracy.png)
+
+***Figure (): Iteration 2.1 and 2.2 no_event_accuracy comparison***
 
 
 (Paper on transfer learning & Two step training for language models) 
@@ -746,7 +780,7 @@ In order to keep the generality of iteration 2.1 with some context specialisatio
 
 It was a modal melody, e.g. a melody following a single 
 
-# Tuning the RNN with Deep Q Reinforcement Learning 
+# Next Steps: Tuning the RNN with Deep Q Reinforcement Learning 
 
 Implementation of the Magenta Deep Q Learning Music model created by Jaques et. al.(2017) using the authors own dataset (as described above) and customized musical theory rules in the reward function. 
 
