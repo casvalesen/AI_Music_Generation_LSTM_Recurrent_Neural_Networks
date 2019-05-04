@@ -685,11 +685,11 @@ THIS IS CRAZY; CHECK!!!(A rather Naive approach was used for this second stage t
 
 ***Figure (): Iteration 2.2 Loss***
 
-![alt text](https://github.com/lse-st449/st449-projects-casvalesen/blob/master/pictures/it_2.2_loss.png)
+![alt text](https://github.com/lse-st449/st449-projects-casvalesen/blob/master/pictures/it.2.2_loss.png)
 
 ***Figure (): Iteration 2.1 and 2.2 Loss comparison***
 
-![alt text](https://github.com/lse-st449/st449-projects-casvalesen/blob/master/pictures/it_2_loss_comp.png)
+![alt text](https://github.com/lse-st449/st449-projects-casvalesen/blob/master/pictures/it_2.loss_comp.png)
 
 ***Figure (): Iteration 2.2 Loss_per_step***
 
