@@ -707,7 +707,24 @@ In order to keep the generality of iteration 2.1 with some context specialisatio
 
 It was a modal melody, e.g. a melody following a single 
 
-# Next Steps: Tuning the RNN with Deep Q Reinforcement Learning 
+# Conclusion 
+
+**Final Numerical Results**
+
+| **Model** | **Step** |***Accuracy*** |***Loss***| ***Loss_per_step***| ***no_event_accuracy*** |
+| --- |--- | --- | --- | --- | --- |
+| Iteration 1| 20k |  0.7347|  0.8976 | 0.8976 | 0.9678 |
+| Iteration 2.1 | 19.99k |0.7275 | 0.9203 |0.9203  | 0.9663 |
+| Iteration 2.2 | 72.05k | 0.9012| 0.3132 | 0.3132 |0.9901|
+
+The project successfully met its goals of 
+
+
+
+
+# Next Steps in Model and Application Development 
+
+## Tuning the RNN with Deep Q Reinforcement Learning 
 
 Implementation of the Magenta Deep Q Learning Music model created by Jaques et. al.(2017) using the authors own dataset (as described above) and customized musical theory rules in the reward function. 
 
@@ -724,8 +741,6 @@ Géron, 2017.
 Exploration mod: "egreedy" implementing epsilon greedy policy or boltzman to sample from its own outputs 
 Priming mode: 
 
-## 
-
 ## Customized Music Theory Rewards 
 
 The reward_music_theory function defined in the RL Tuner model (Google AI, 2019d)  individual music theory subfunctions to compute a reward for desired musical outcomes. Among the default music theory rewards include playing a motif, repeating  a motif and following a certain scale. 
@@ -741,7 +756,7 @@ Film music:  LOTR musical rules for flavour
 The original music theory rewards for the DQN RL tuner model only defined a C major scale. 
 (https://github.com/tensorflow/magenta/blob/master/magenta/models/rl_tuner/rl_tuner_ops.py) 
 
-Modal framework implementing relative scale pitches. These are based on the major modes of western music, which are used both in classical composition ( ) , Jazz Composition (Pease & Pulling, 2001; Pease, 2004; Miller, 1996) and cinematic music (Adams, 2010) 
+Modal framework implementing relative scale pitches. These are based on the major modes of western music, which are used both in classical composition (Persichetti, 1061 ), Jazz Composition (Pease & Pulling, 2001; Pease, 2004; Miller, 1996) and cinematic music (Adams, 2010) 
 
 
 **Modal Keys** 
@@ -750,24 +765,6 @@ Modal framework implementing relative scale pitches. These are based on the majo
 - (midi trepresentations of the scales)
 
 - details of how they were added, with relative keys. 
-
-
-# Conclusion 
-
-**Final Numerical Results**
-
-| **Model** | **Step** |***Accuracy*** |***Loss***| ***Loss_per_step***| ***no_event_accuracy*** |
-| --- |--- | --- | --- | --- | --- |
-| Iteration 1| 20k |  0.7347|  0.8976 | 0.8976 | 0.9678 |
-| Iteration 2.1 | 19.99k |0.7275 | 0.9203 |0.9203  | 0.9663 |
-| Iteration 2.2 | 72.05k | 0.9012| 0.3132 | 0.3132 |0.9901|
-
-
-
-
-The project successfully met its goals of 
-
-# Next Steps in Model and Application Development 
 
 
 
