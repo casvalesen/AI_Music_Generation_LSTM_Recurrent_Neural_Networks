@@ -371,12 +371,12 @@ def generate_test_melodies(checkpoint_file,output_dir, run_dir=None):
 
 The data was inspected using tensorboard. Standard neural network performance metrics were used to evaluate the models: 
 
-**Accuracy** The ratio of correctly predicted values  (Géron, 2017). 
+**Accuracy:** The ratio of correctly predicted values  (Géron, 2017). 
 
-**loss_per_step** The amount of loss for each training step. The melody rnn model defines this as the Mean Softmax cross-entropy loss, implementing the loss function ```tf.nn.sparse_softmax_cross_entropy_with_logits```. This loss function trains model to estimate high probabilities for the target class by penalizing low target class probabilities (Géron, 2017 p.143). 
+**loss_per_step:** The amount of loss for each training step. The melody rnn model defines this as the Mean Softmax cross-entropy loss, implementing the loss function ```tf.nn.sparse_softmax_cross_entropy_with_logits```. This loss function trains model to estimate high probabilities for the target class by penalizing low target class probabilities (Géron, 2017 p.143). 
  
 
-**no_event_accuracy** The ```MELODY_NO_EVENT``` indicator is implemented in the Magenta library to mark when a sustained state is held over several values, which means the current status of ```NOTE_OFF``` or ```NOTE_ON``` is kept. In the library source code, ```No_event_accuracy``` is defined as the sum of the products of correct_predicitions and no_events, divided by the sum of no events. 
+**no_event_accuracy:** The ```MELODY_NO_EVENT``` indicator is implemented in the Magenta library to mark when a sustained state is held over several values, which means the current status of ```NOTE_OFF``` or ```NOTE_ON``` is kept. In the library source code, ```No_event_accuracy``` is defined as the sum of the products of correct_predicitions and no_events, divided by the sum of no events. 
 
 ```
    no_event_accuracy = (
