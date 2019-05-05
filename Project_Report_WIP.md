@@ -172,43 +172,30 @@ This makes music generation a sequence modelling task that involves generating a
 
 **LSTM for Music Generation** 
 
+A challenge in Recurrent Neural Networks is that the gradients tend to either vanish or explode when they are propagated over many stages. This property makes it hard for regular RNN models to learn long term dependencies (e.g. Goodfellow et. al., 2016 p. 390). An essential feature of most musical improvisations and compositions is the repetition, developments and self reference of musical patterns over a high number of sequence steps (Giddins & Deveaux, 2009; Persichetti, 1961; Pease, 2004). In order to perform well, musical generation models must therefore address this challenge. Indeed, research has found that models composed of standard Recurrent Neural Nets fail to generate music with global coherence (Eck et. al., 2002). 
 
-A challenge in Recurrent Neural Networks is that the gradients tend to either vanish or explode when they are propagated over many stages. This property makes it hard for regular RNN models to learn long term dependencies (e.g. Goodfellow et. al., 2016 p. 390). An essential feature of most musical improvisations and compositions is the repetition, developments and selfreference of musical patterns over a high number of sequence steps (Giddins & Deveaux, 2009; Persichetti, 1961; Pease, 2004). In order to perform well, musical generation models must therefore address this challenge. Indeed, research has found that models composed of standard Recurrent Neural Nets fail to generate music with global coherence (Eck et. al., 2002). 
+The Long Short-Term Memory Recurrent Neural Network uses gated self-loops to solve the challenge of long term dependencies in RNN´s. The self loops allow gradients to flow through many time steps and the gates are controlled by state context, allowing information to flow through many time steps  (Géron, 2017p.407-409; Goodfellow et. al., 2016 p.397-99; Hochreiter & Schmidhuber, 1997). In the research literature, LSTM Recurrent Networks have been used to generate monophonic melodies (Fernández & Vico, 2013), including Improvisational patterns (Eck & Schmidhuber, 2002; Franklin, 2019). Considering the end goal of the current application is also in the realm of improvisation, with a subset of the data coming from Jazz, the latter two papers make the LSTM RNN model especially relevant.  Similar to character level RNN´s (Graves, 2013), the AI music generator model trained in iteration 1, 2.1 and 2.2 uses a LSTM RNN predicting the next data point from a series of input values. It is built upon the Melody RNN model by Google Magenta, which implements the basic tensorflow LSTM cell ``` tf.contrib.rnn.BasicLSTMCell()```(Abolafia, 2016; Google AI Magenta, 2019c). 
 
-Problem of long term dependencies 
-Long term dependenceis 
-LSTM solves 
+![alt text](https://github.com/lse-st449/st449-projects-casvalesen/blob/master/pictures/LSTM_cel.png)
 
-(Hochreiter & Schmidhuber, 1997)
-LSTM computations adapted from Géron (2017 p. 409)
+**Figure 4: LSTM RNN Cell (Géron, 2019)
 
 
-In the research literature, LSTM Recurrent Networks have been used to generate (....) and Improvisation (Eck & Schmidhuber, 2002; Franklin, 2019). Considering the end goal of the current application is also in the realm of improvisation, with a subset of the data coming from Jazz, the latter two papers make the LSTM RNN model especially relevant. 
-
-(Math formula) - Latex 
-
-<img src="http://latex.codecogs.com/svg.latex?f" border="0"/>
-
-(Graphic)
+Figure 4 illustrates the workings of the LSTM Cell. The cell uses two distinct states, the short term state <img src="http://latex.codecogs.com/svg.latex?h)" border="0"/> and the long term state 
+<img src="http://latex.codecogs.com/svg.latex?c" border="0"/>. The long term state traverses the cell first through a forget gate , where some memories are forgotten, then through an input gate which adds some new memories. In music, these gates could for instance trigger the long term state to forget a certain rhytm pattern or probablitity of some note values when the rhytm and scale of the music changes during a new section. After tanh filtering, this long term state is also passed along as the next short term state <img src="http://latex.codecogs.com/svg.latex?h_(t)" border="0"/>. Both the short term state <img src="http://latex.codecogs.com/svg.latex?h_(t-1)" border="0"/> and the input vector <img src="http://latex.codecogs.com/svg.latex?x_(1)" border="0"/> act on the four fully connected layers the main layer <img src="http://latex.codecogs.com/svg.latex?g_(t)" border="0"/>,forget gate controller  <img src="http://latex.codecogs.com/svg.latex?f_(t)" ,the input gate controller  <img src="http://latex.codecogs.com/svg.latex?i_(t)" and the output gate controller  <img src="http://latex.codecogs.com/svg.latex?o_(t)". The Main layer  <img src="http://latex.codecogs.com/svg.latex?g_(t)" border="0"/> analyzes the current inputs  <img src="http://latex.codecogs.com/svg.latex?x_(t)" border="0"/> and short term state  <img src="http://latex.codecogs.com/svg.latex?h_(t-1)" border="0"/> and passes this partially to hte long term state. The forget gate controller  <img src="http://latex.codecogs.com/svg.latex?f_(t)" border="0"/> controls the forget gate, while the input gate controller  <img src="http://latex.codecogs.com/svg.latex?i_(t)" border="0"/> controls what parts of the main layer output from  <img src="http://latex.codecogs.com/svg.latex?g_(t)" border="0"/> will be added to the long term state. The output gate  <img src="http://latex.codecogs.com/svg.latex?g_(t)" border="0"/> controls what parts of  <img src="http://latex.codecogs.com/svg.latex?c_(t-1)" border="0"/> gets output to  <img src="http://latex.codecogs.com/svg.latex?y_(t)" border="0"/> and  <img src="http://latex.codecogs.com/svg.latex?h_(t)" border="0"/>. Through this process, LSTM learns to recognize and store an important input such as the starting or root note in the long term state, and read it when needed (Géron, 2017). 
 
 
-LSTM musical setting, how 
-Goodfellow, I., Bengio, Y., & Courville., A.(2016 p.397)
-Seq2Seq model 
-*Character RNN*  predict one data point at a time, with discrete values (Graves, 2013)
-Goodfellow, I., Bengio, Y., & Courville., A.(2016 p.397)
-Géron, A. (2017 p.407)
-Magenta Melody RNN (Abolafia, 2016; Google AI Magenta, 2019c)
+### Other Model Specifications 
 
-### Model Specifications 
+The remaning model specifications include: 
 
 **Training Input**
 
-A sequence of pitches over 128 possible midi values. For a given training melody sequence at step t, the input sequence value at time step *t* corresponds to sequence entry *n*.  
+A sequence of pitches over 128 possible midi values with a given lenght. For a given training melody sequence at step t, the input sequence value at time step *t* corresponds to sequence entry *n*.  
 
 **Training Labels** 
 
-A sequence of pitches over 128 possible midi values, with each sequence value corresponding to the next step sequence value of the input sequence. For a given training melody sequence , the input sequence value at time step *t*  thus corresponds to sequence entry *n+1*.   
+A sequence of pitches over 128 possible midi values with a given lenght, with each sequence value corresponding to the next step sequence value of the input sequence. For a given training melody sequence , the input sequence value at time step *t*  thus corresponds to sequence entry *n+1*.   
 
 **Generation input: Primer**
 
@@ -854,6 +841,7 @@ https://groups.google.com/a/tensorflow.org/forum/#!topic/magenta-discuss/6ZLbzTj
 - Fernández, J.D & Vico, F. 2013. AI Methods in Algorithmic Composition: A Comprehensive Survey. *Journal of Artificial Intelligence Research* 48 (2013) 513-582
 - Franklin, J.A. 2019. Recurrent Neural Networks for Music Computation. *INFORMS Journal on Computing* 18(3):321-338. https://doi.org/10.1287/ijoc.1050.0131
 - Géron, A. (2017) *Hands-On Machine Learning with Scikit-Learn & Tensorflow* O´Reilly Media Inc, Sebastopol.
+- Géron, 2019. Chapter 4: Recurrent Neural Networks. *O´Reilly Library* https://www.oreilly.com/library/view/neural-networks-and/9781492037354/ch04.html [Accessed 05.05.2019]
 - Giddins, G & Devaux, S. (2009) *Jazz*. 
 - Goldstein, G. (1982)  *Jazz Composer´s Companion* 
 - Google AI (2019). Magenta - Make music and Art Using Machine LEarning. https://magenta.tensorflow.org/[Accessed 19.04.2018]
