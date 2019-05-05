@@ -121,9 +121,9 @@ The data consisted of midi files and was selected with the overall application g
 
 ### General music data
 
-The General music set consisted of two part. 
-- The Lakh Midi Dataset dataset, which was collected for by Raffel(2016) for Phd work on Audio-to-midi processing.  It is made up of 178 579 midi files scraped from publicly available web sources (Raffel, 2019). 
-- The Maestro Dataset , contructed by Google AI Magenta. It contains 1 202 midi files capturing performances of classical piano pieces from world class performers  (Google AI, Magenta 2019b) 
+The General music set consisted of two parts. 
+- *The Lakh Midi Dataset dataset*, which was collected for by Raffel(2016) for Phd work on Audio-to-midi processing.  It is made up of 178 579 midi files scraped from publicly available web sources (Raffel, 2019). 
+- *The Maestro Dataset* , contructed by Google AI Magenta. It contains 1 202 midi files capturing performances of classical piano pieces from world class performers  (Google AI, Magenta 2019b) 
 
 ### Style Specific music data
 
@@ -174,7 +174,7 @@ This makes music generation a sequence modelling task that involves generating a
 
 A challenge in Recurrent Neural Networks is that the gradients tend to either vanish or explode when they are propagated over many stages. This property makes it hard for regular RNN models to learn long term dependencies (e.g. Goodfellow et. al., 2016 p. 390). An essential feature of most musical improvisations and compositions is the repetition, developments and self reference of musical patterns over a high number of sequence steps (Giddins & Deveaux, 2009; Persichetti, 1961; Pease, 2004). In order to perform well, musical generation models must therefore address this challenge. Indeed, research has found that models composed of standard Recurrent Neural Nets fail to generate music with global coherence (Eck et. al., 2002). 
 
-The Long Short-Term Memory Recurrent Neural Network uses gated self-loops to solve the challenge of long term dependencies in RNN´s. The self loops allow gradients to flow through many time steps and the gates are controlled by state context, allowing information to flow through many time steps  (Géron, 2017p.407-409; Goodfellow et. al., 2016 p.397-99; Hochreiter & Schmidhuber, 1997). In the research literature, LSTM Recurrent Networks have been used to generate monophonic melodies (Fernández & Vico, 2013), including Improvisational patterns (Eck & Schmidhuber, 2002; Franklin, 2019). Considering the end goal of the current application is also in the realm of improvisation, with a subset of the data coming from Jazz, the latter two papers make the LSTM RNN model especially relevant.  Similar to character level RNN´s (Graves, 2013), the AI music generator model trained in iteration 1, 2.1 and 2.2 uses a LSTM RNN predicting the next data point from a series of input values. It is built upon the Melody RNN model by Google Magenta, which implements the basic tensorflow LSTM cell ``` tf.contrib.rnn.BasicLSTMCell()```(Abolafia, 2016; Google AI Magenta, 2019c). 
+The Long Short-Term Memory Recurrent Neural Network uses gated self-loops to solve the challenge of long term dependencies in RNN´s. The self loops allow gradients to flow through many time steps and the gates are controlled by state context, allowing information to flow through many time steps  (Géron, 2017p.407-409; Goodfellow et. al., 2016 p.397-99; Hochreiter & Schmidhuber, 1997). In the research literature, LSTM Recurrent Networks have been used to generate monophonic melodies (Fernández & Vico, 2013), including Improvisational patterns (Eck & Schmidhuber, 2002; Franklin, 2019). Considering the end goal of the current application is also in the realm of improvisation, with a subset of the data coming from Jazz, the latter two papers make the LSTM RNN model especially relevant.  Similar to character level RNN´s (Graves, 2013), the AI music generator model trained in iteration 1, 2.1 and 2.2 uses a LSTM RNN predicting the next data point from a series of input values (Abolafia, 2016; Jaques et. al.,2017; Mikolov et. al.,2010) In the RNN LSTM, the token used for prediction is known as the "primer" for the model (Abolafia, 2016; Google AI Magenta, 2019c). The model is built upon the Melody RNN model by Google Magenta, which implements the basic tensorflow LSTM cell ``` tf.contrib.rnn.BasicLSTMCell()```(Abolafia, 2016; Google AI Magenta, 2019c). 
 
 ![alt text](https://github.com/lse-st449/st449-projects-casvalesen/blob/master/pictures/LSTM_cell.png)
 
@@ -191,41 +191,27 @@ The remaning model specifications include:
 
 **Training Input**
 
-A sequence of pitches over 128 possible midi values with a given lenght. For a given training melody sequence at step t, the input sequence value at time step *t* corresponds to sequence entry *n*.  
+A sequence of pitches over 128 possible midi values with a given lenght. For a given training melody sequence at step <img src="http://latex.codecogs.com/svg.latex?t" border="0"/>, the input sequence value at time step <img src="http://latex.codecogs.com/svg.latex?t" border="0"/> corresponds to sequence entry <img src="http://latex.codecogs.com/svg.latex?n" border="0"/>.  
 
 **Training Labels** 
 
-A sequence of pitches over 128 possible midi values with a given lenght, with each sequence value corresponding to the next step sequence value of the input sequence. For a given training melody sequence , the input sequence value at time step *t*  thus corresponds to sequence entry *n+1*.   
+A sequence of pitches over 128 possible midi values with a given lenght, with each sequence value corresponding to the next step sequence value of the input sequence. For a given training melody sequence , the input sequence value at time step <img src="http://latex.codecogs.com/svg.latex?t" border="0"/>  thus corresponds to sequence entry <img src="http://latex.codecogs.com/svg.latex?n+1" border="0"/>.   
 
 **Generation input: Primer**
 
-An arbirary length sequence of pitches over 128 possible midi values  
+An arbirary length sequence of pitches over 128 possible midi values 
 
 **Generation Outputs**
 
 An arbitrary length sequence of pitches over 128 possible midi values, capturing primer sequence pattern characteristics, i.e musical attributes. The precise length is specified in the model parameters.  
 
 
-### General Music Model
+### General Music and specific models with Transfer Learning
 
-As with Language models, a music model can be first trained as a general model, then adapted to the specific application context. In Language this could entail building a general model for the language in question, then specialising the model to a certain application field using application specific data (*NLP transfer learning reference) 
+The music model was be first trained as a general model, then adapted to the specific application using transfer learning.  
+This approach entails using a model trained on a general dataset as starting point for further training of a model on a specific dataset. This is in order to make the second model more general, and it is build on the assumption that many of the factors explaning variations in the first dataset hold in the second.  (Goodfellow et. al.,2016). In Language this could entail building a general model for the language in question, then specialising the model to a certain application field using application specific data (Conneau, Kiela, Douwe, Barrault, Loic, Schwenk, & Bordes, 2016 ;Zoph,Yuret,  May, & Knight, 2016). In music, this training process could be utilised by first training the model on a general music data from which the model could learn general musical rules and conventions. The model could then be further trained on a data from specific style of music in order to specialise it to this field. 
 
-In music, this training process could be utilised by first training the model on a general music data from which the model could learn general musical rules and conventions. The model could then be further trained on a data from specific style of music in order to specialise it to this field. 
-
-In the first iteration, the model will consist of a music generation RNN LSTM. 
-
-This is uses a similar basis as character level RNN´s developed for Natural Language Processing, and tries to predict the next token given a sequence of previous values  (Abolafia, 2016; Jaques et. al.,2017; Mikolov et. al.,2010) In the RNN LSTM, the token used for prediction is known as the "primer" for the model (Abolafia, 2016; Google AI Magenta, 2019c)
-
-
-### Style Specific Model
-
-Transfer learning was applied to train the style specific model. This approach entails using a model trained on a general dataset as starting point for further training of a model on a specific dataset. This is in order to make the second model more general, and it is build on the assumption that many of the factors explaning variations in the first dataset hold in the second.  (Goodfellow et. al.,2016). Both general music data and the context specific data are governed by the basic musical building blocks described in the Musical Data setion (Persichetti, 1961; Pease & Pulling, 2001). These musical building blocks are analogous to the low level visual features captured in CNN visual systems, where transfer learning is frequently applied to adapt models trained on one visual category to another (Goodfellow et. al., 2016). 
-
-
-
-(Theoretically, this is similar to training approaches used in Natural Language processing for building language context specific models (Reference needed). 
-
-(This is confirmed by examination of both datasets, and th The general music data contains a distribution over all types and types of music, while the context dataset was aiming at a very specific syle. The second iteration was then trained on a style specific dataset to approach the musical style of the application domain. ) 
+Both general music data and the context specific data are governed by the basic musical building blocks described in the Musical Data setion (Persichetti, 1961; Pease & Pulling, 2001). These musical building blocks are analogous to the low level visual features captured in CNN visual systems, where transfer learning is frequently applied to adapt models trained on one visual category to another (Goodfellow et. al., 2016). 
 
 # Model Implementation 
 
@@ -837,6 +823,7 @@ https://groups.google.com/a/tensorflow.org/forum/#!topic/magenta-discuss/6ZLbzTj
 - Adams, D. (2010) *The Music of the Lord of The rings Films*
 - Acroche2 Studio (2019).Jazz Midi Files. *Acroche2 Studio Online* http://www.acroche2.com/midi_jazz.html
 - AIVA (2019). *AIVA - The Artificial Intelligence composing emotional soundtrack music* https://www.aiva.ai/   [Last Accessed 30.04.2019]
+- Conneau, A., Kiela, Douwe, Barrault, Loic, Schwenk, H., & Bordes, A. 2016  Supervised Learning of Universal Sentence Representations from Natural Language Inference Data. *arXiv Online* https://arxiv.org/pdf/1705.02364.pdf  [Accessed 29.04.2019]
 - Eck & Schmidhuber. (2002) Finding temporal structure in music: Blues improvisation with LSTM recur- rent networks. In *Neural Networks for Signal Processing*, pp. 747–756. IEEE, 2002
 - Fernández, J.D & Vico, F. 2013. AI Methods in Algorithmic Composition: A Comprehensive Survey. *Journal of Artificial Intelligence Research* 48 (2013) 513-582
 - Franklin, J.A. 2019. Recurrent Neural Networks for Music Computation. *INFORMS Journal on Computing* 18(3):321-338. https://doi.org/10.1287/ijoc.1050.0131
@@ -873,6 +860,7 @@ https://groups.google.com/a/tensorflow.org/forum/#!topic/magenta-discuss/6ZLbzTj
 - Persichetti, V. 1961. *Twentieth Century Harmony* New York: W.W Norton & Company. 
 - The Jazzomat Research Project (2019). Data Base Content.*Jazzomat research project Online*  https://jazzomat.hfm-weimar.de/dbformat/dbcontent.html  [Last Accessed 29.04.2019]
 - The MIDI Association, 2019. The Complete MIDI 1.0 Detailed Specification. *The MIDI association Online* https://www.midi.org/specifications-old/item/the-midi-1-0-specification [Lasr Accessed 29.04.2019]
+- Zoph, B., Yuret, D., May, J & Knight., K . 2016. Transfer Learning for Low-Resource Neural Machine Translation. arXiv Online. https://arxiv.org/pdf/1604.02201.pdf [Accessed 29.04.2019]
 
 Cut outs: 
 
@@ -881,8 +869,9 @@ Cut outs:
 ((- Model 3.0: A Deep Q Reinforcement Learning model which tunes model 2.2 by balancing style specific music theory rewards with the LSTM based sequence model. ) 
 - Model   (Custom RNN) ) ) 
 
+(Theoretically, this is similar to training approaches used in Natural Language processing for building language context specific models (Reference needed). 
 
-
+(This is confirmed by examination of both datasets, and th The general music data contains a distribution over all types and types of music, while the context dataset was aiming at a very specific syle. The second iteration was then trained on a style specific dataset to approach the musical style of the application domain. ) 
 
 "Music is an interesting test-bed for sequence generation, in that musical compositions adhere to a relatively well-defined set of structural rules. Any beginning music student learns that groups of notes belong to keys, chords follow progressions, and songs have consistent structures made up of musical phrases." (Jaques et. al., 2017). (Online) 
 
