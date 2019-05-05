@@ -30,6 +30,14 @@ Supervised learning
 
 **Summary of Results**
 
+
+| **Model** | **Step** |***Accuracy*** |***Loss***| ***Loss_per_step***| ***no_event_accuracy*** |
+| --- |--- | --- | --- | --- | --- |
+| Iteration 1| 20k |  0.7347|  0.8976 | 0.8976 | 0.9678 |
+| Iteration 2.1 | 19.99k |0.7275 | 0.9203 |0.9203  | 0.9663 |
+| Iteration 2.2 | 72.05k | 0.9012| 0.3132 | 0.3132 |0.9901|
+
+
 ## Project Goals & Context
 
 ### Application Goals
