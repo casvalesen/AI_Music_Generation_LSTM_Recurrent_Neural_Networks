@@ -1,21 +1,7 @@
-# Music Generation with Artificial Intelligence - *An application of LSTM Recurrent Neural Networks for creative domain specific sequence generation*   
+# Music Generation with Artificial Intelligence - *An application of LSTM Recurrent Neural Networks to creative sequence generation*   
 
-## ST449 Research Project Report: 
+## ST449 Research Project Report
 
-### Project Criteria: 
-
-Individual project on a topic falling in the scope of the course
-• Focus on methodological aspects, principles, and implementation
-
-Allowing for
-• Accounting for individual preferences
-• Allowing to explore a given topic in more depth
-• Allowing to gain hands-on experience in coding a solution
-
-Selected:
-• Implement and evaluate a neural network for a sequence modelling task
-
-**refer to specific code modules, show implementation understanding**
 
 # Introduction and Research Question
 
@@ -519,7 +505,6 @@ harmonic development?
 | **Model** | **Step** |***Accuracy*** |***Loss***| ***Loss_per_step***| ***no_event_accuracy*** |
 | --- |--- | --- | --- | --- | --- |
 | Iteration 2.1 | 19.99k |0.7275 | 0.9203 |0.9203  | 0.9663 |
-
 
 
 ![alt text](https://github.com/lse-st449/st449-projects-casvalesen/blob/master/pictures/it_2.1_accuracy.png)
