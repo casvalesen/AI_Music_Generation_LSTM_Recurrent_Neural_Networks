@@ -176,9 +176,9 @@ A challenge in Recurrent Neural Networks is that the gradients tend to either va
 
 The Long Short-Term Memory Recurrent Neural Network uses gated self-loops to solve the challenge of long term dependencies in RNN´s. The self loops allow gradients to flow through many time steps and the gates are controlled by state context, allowing information to flow through many time steps  (Géron, 2017p.407-409; Goodfellow et. al., 2016 p.397-99; Hochreiter & Schmidhuber, 1997). In the research literature, LSTM Recurrent Networks have been used to generate monophonic melodies (Fernández & Vico, 2013), including Improvisational patterns (Eck & Schmidhuber, 2002; Franklin, 2019). Considering the end goal of the current application is also in the realm of improvisation, with a subset of the data coming from Jazz, the latter two papers make the LSTM RNN model especially relevant.  Similar to character level RNN´s (Graves, 2013), the AI music generator model trained in iteration 1, 2.1 and 2.2 uses a LSTM RNN predicting the next data point from a series of input values. It is built upon the Melody RNN model by Google Magenta, which implements the basic tensorflow LSTM cell ``` tf.contrib.rnn.BasicLSTMCell()```(Abolafia, 2016; Google AI Magenta, 2019c). 
 
-![alt text](https://github.com/lse-st449/st449-projects-casvalesen/blob/master/pictures/LSTM_cel.png)
+![alt text](https://github.com/lse-st449/st449-projects-casvalesen/blob/master/pictures/LSTM_cell.png)
 
-**Figure 4: LSTM RNN Cell (Géron, 2019)
+**Figure 4: LSTM RNN Cell (Géron, 2019)**
 
 
 Figure 4 illustrates the workings of the LSTM Cell. The cell uses two distinct states, the short term state <img src="http://latex.codecogs.com/svg.latex?h)" border="0"/> and the long term state 
