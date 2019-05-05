@@ -5,7 +5,7 @@
 
 
 
-# Introduction and Research Question
+# 1. Introduction and Research Question
 
 ## Project Overview 
 
@@ -58,15 +58,15 @@ This was examined using the following models:
 
 -  *Iteration 1: A LSTM RNN model trained on a general musical dataset of 11 133 musical examples.* 
 
-- *Iteration 2.1: A LSTM RNN trained on a larger general music dataset of ( ) musical examples and including captured performances* 
+- *Iteration 2.1: A LSTM RNN trained on a larger general music dataset of 179 781 musical examples and including captured performances* 
 
-- *Iteration 2.2: A LSTM RNN applying transfer learning by continuing training from 2.1 on a smaller selection of context specific music examples.*
+- *Iteration 2.2: A LSTM RNN applying transfer learning by continuing training from 2.1 on a small selection of context 530, specific music examples.*
 
 ### Artificial Intelligence Research Context 
 
 As with text and visual art generation, music generation falls within the space of computational creativity (Eck & Schmidhuber, 2002; Fernández & Vico, 2013; Franklin, 2009)   In addition to providing a number of usecases, it is also interesting in the sense that creativity is a fundamental aspect of human intelligence (Russel & Norvig, 2016). It is recognized that contemporary AI hold advantages over humans in analytical tasks such as identifying relationships and caputuring complex dynamics of large datasets. However, creativity is argued to be one of the areas in which humans still hold significant (Parry et. al, 2016 p.580; Jarrahi, 2018 p.582). Exploration of computational creativity is therefore an important step on the path to general or strong Artificial Intelligence (Russel & Norvig, 2016 p.16; Jaques et. al.,2017). Music generation with Artificial Intelligence is situated in a subfield of computational creativity called "Algorithmic Composition", which since the 1950´s have applied a range of AI techniques. In recent years, approaches built on artificial neural networks have gained significant importance and advances in the field could see AI systems enhance the creative output of human composers similar to how expert systems aid many modern day professionals (Fernández & Vico, 2013).  
 
-# Choice and Description of Data 
+# 2.0 Choice and Description of Data 
 
 ## Musical Data & Patterns
 
@@ -75,11 +75,11 @@ Similar to earlier research (Franklin, 2019), this project focuses on digital mu
 
 ![alt text](https://github.com/lse-st449/st449-projects-casvalesen/blob/master/pictures/bach_notes.png) 
 
-**Figure 1: Musical Notation of Melody, Bach Cello Suite 1**
+**Figure 2.1: Musical Notation of Melody, Bach Cello Suite 1**
 
 ![alt text](https://github.com/lse-st449/st449-projects-casvalesen/blob/master/pictures/bach_midi.png) 
 
-**Figure 2: Midi Notation of Melody, Bach Cello Suite 1**
+**Figure 2.2: Midi Notation of Melody, Bach Cello Suite 1**
 
 Figure 1 and 2 show the start of Bach´s Cello Suite nr.1 as both standard musical notation and midi notation. As we can see, midi notation is essentially a graph with pitch on the y-axis and time on the x axis. Music can therefore represented as some function  <img src="http://latex.codecogs.com/svg.latex?f" border="4"/> which caputure a value state <img src="http://latex.codecogs.com/svg.latex?s" border="4"/> at time <img src="http://latex.codecogs.com/svg.latex?t" border="4"/>. 
 
@@ -141,7 +141,7 @@ The style specific dataset was selected as specific influences for the context s
 
 **Jazz Data:** The purpose of including the jazz solos was for the model to learn jazz phrasing and performance, with specific focus on improvsational melody construction. Most jazz material is written down only in sparse form, with practitioners given ample freedom to improvise and interpret hte material. Most practitioners therefore learn by imitating and transcribign recordings rather than playing after sheet music .  This tanscription of individual performances is a slow and incredibly time consuming task, which practitioners spend years perfectin. Books are released with transcriptions of individual performances, but these are very rarely in midi format (Giddins & Devaux, 2009). For capturing sufficient data sets to train AI models it is therefore nessecary to source transcribed midi jazz from the web, and the material for the jazz part of the dataset was sources from The Jazzomat Researhc Project (2019) and Acroche2 Studio (2019). A selection of 64 jazz solos and 58 ensemble pieces and where included in the the dataset based on the artists emphasis on modal melodies and modern harmonic colours. These were solos by Miles Davis, John Coltrane, Herbie Hancock, Wayne ShorterKenny Wheeler and Weather Report (Giddins & Devaux, 2009).  
 
-# Solution Concepts 
+# 3. Solution Concepts 
 
 ## Models
 
@@ -162,9 +162,9 @@ Applying the classical form of a dynamical system (Goodfellow et. al., 2016), a 
 with <img src="http://latex.codecogs.com/svg.latex?s^t" border="0"/> being the current state of the music, <img src="http://latex.codecogs.com/svg.latex?s^{t-1}" border="0"/> being the state at the previous time step and  <img src="http://latex.codecogs.com/svg.latex?\theta" border="0"/> capturing the system parameters from the whole sequence of states. 
 
 ![alt text](https://github.com/lse-st449/st449-projects-casvalesen/blob/master/pictures/dynamical_music.png)
-**Figure 3 : Melody as dynamical system, musical notation** 
+**Figure 3.1 : Melody as dynamical system, musical notation** 
 ![alt text](https://github.com/lse-st449/st449-projects-casvalesen/blob/master/pictures/dynamical_music_midi.png)
-**Figure 4 : Melody as dynamical system, midi data** 
+**Figure 3.2 : Melody as dynamical system, midi data** 
 
 Figure 3 and 4 illustrate the monophonic melody case. <img src="http://latex.codecogs.com/svg.latex?s^t" border="0"/> correspond to the current note while  <img src="http://latex.codecogs.com/svg.latex?s^{t-1}" border="0"/> corresponds to the preceeding note.  <img src="http://latex.codecogs.com/svg.latex? \theta" border="0"/> is applied to all time steps , incorporates information about the whole sequence (blue). In the above example, this could be used to infer the note at  <img src="http://latex.codecogs.com/svg.latex?s^t" border="0"/>  by including information that the starting note repeats after 8 time steps(red line). It could also capture that the melody consists of two alternating unique patters of 4 values (purple and yellow lines), with the pattern beginning at <img src="http://latex.codecogs.com/svg.latex?s^t" border="0"/>  has the same start note value as the melody starting note.  
 
@@ -180,10 +180,10 @@ The Long Short-Term Memory Recurrent Neural Network uses gated self-loops to sol
 
 ![alt text](https://github.com/lse-st449/st449-projects-casvalesen/blob/master/pictures/LSTM_cell.png)
 
-**Figure 4: LSTM RNN Cell (Géron, 2019)**
+**Figure 3.3: LSTM RNN Cell (Géron, 2019)**
 
 
-Figure 4 illustrates the workings of the LSTM Cell. The cell uses two distinct states, the short term state <img src="http://latex.codecogs.com/svg.latex?h" border="0"/> and the long term state 
+Figure 5 illustrates the workings of the LSTM Cell. The cell uses two distinct states, the short term state <img src="http://latex.codecogs.com/svg.latex?h" border="0"/> and the long term state 
 <img src="http://latex.codecogs.com/svg.latex?c" border="0"/>. The long term state traverses the cell first through a forget gate , where some memories are forgotten, then through an input gate which adds some new memories. In music, these gates could for instance trigger the long term state to forget a certain rhytm pattern or probablitity of some note values when the rhytm and scale of the music changes during a new section. After tanh filtering, this long term state is also passed along as the next short term state <img src="http://latex.codecogs.com/svg.latex?h_{(t)}" border="0"/>. Both the short term state <img src="http://latex.codecogs.com/svg.latex?h_{(t-1)}" border="0"/> and the input vector <img src="http://latex.codecogs.com/svg.latex?x_{(1)}" border="0"/> act on the four fully connected layers the main layer <img src="http://latex.codecogs.com/svg.latex?g_{(t)}" border="0"/>,forget gate controller  <img src="http://latex.codecogs.com/svg.latex?f_{(t)}" border="0"/>,the input gate controller  <img src="http://latex.codecogs.com/svg.latex?i_{(t)}" border="0"/> and the output gate controller  <img src="http://latex.codecogs.com/svg.latex?o_{(t)}" border="0"/>. The Main layer  <img src="http://latex.codecogs.com/svg.latex?g_(t)" border="0"/> analyzes the current inputs  <img src="http://latex.codecogs.com/svg.latex?x_{(t)}" border="0"/> and short term state  <img src="http://latex.codecogs.com/svg.latex?h_{(t-1)}" border="0"/> and passes this partially to hte long term state. The forget gate controller  <img src="http://latex.codecogs.com/svg.latex?f_{(t)}" border="0"/> controls the forget gate, while the input gate controller  <img src="http://latex.codecogs.com/svg.latex?i_{(t)}" border="0"/> controls what parts of the main layer output from  <img src="http://latex.codecogs.com/svg.latex?g_{(t)}" border="0"/> will be added to the long term state. The output gate  <img src="http://latex.codecogs.com/svg.latex?g_{(t)}" border="0"/> controls what parts of  <img src="http://latex.codecogs.com/svg.latex?c_{(t-1)}" border="0"/> gets output to  <img src="http://latex.codecogs.com/svg.latex?y_{(t)}" border="0"/> and  <img src="http://latex.codecogs.com/svg.latex?h_{(t)}" border="0"/>. Through this process, LSTM learns to recognize and store an important input such as the starting or root note in the long term state, and read it when needed (Géron, 2017). 
 
 
@@ -215,7 +215,7 @@ This approach entails using a model trained on a general dataset as starting poi
 
 Both general music data and the context specific data are governed by the basic musical building blocks described in the Musical Data setion (Persichetti, 1961; Pease & Pulling, 2001). These musical building blocks are analogous to the low level visual features captured in CNN visual systems, where transfer learning is frequently applied to adapt models trained on one visual category to another (Goodfellow et. al., 2016). 
 
-# Model Implementation 
+# 4. Model Implementation 
 
 ### Data Preprocessing using Magenta´s Command Line API 
 
@@ -369,9 +369,9 @@ def generate_test_melodies(checkpoint_file,output_dir, run_dir=None):
 ```
 
 
-# Numerical Evaluation 
+# 5. Evaluation 
 
-## Evalation mechanisms 
+## Numerical Evalation mechanisms 
 
 The data was inspected using tensorboard. Standard neural network performance metrics were used to evaluate the models: 
 
@@ -446,41 +446,33 @@ Thi tests whether the model is able to campture the melody style represented in 
 
 ## Model Iteration 1: Mono_rnn based on Magenta´s RNN LSTM Model 
 
-- First part of Lakh dataset used, ... entries. 
-
-- input data: 130 , 128 pitches on/off, 2 values for ....?
-
-- Polyphonic midi files, aka. multiple simultaneous. Preprocessing extracted individual melodies / melody segments. 
-
-- Mono_rnn
-- RNN lstm model, 
-
-- Lakh only?
+Model Iteration was trained on the first 11 136 midi files from the Lakh dataset, using 20k training steps. 
 
 **Model Outputs & Evaluation**
 
-| **Model** | **Step** |***Accuracy*** |***Loss***| ***Loss_per_step***| ***no_event_accuracy*** |
+| **Model** | **Step** |***Accuracy*** |***loss***| ***loss_per_step***| ***no_event_accuracy*** |
 | --- |--- | --- | --- | --- | --- |
 | Iteration 1| 20k |  0.7347|  0.8976 | 0.8976 | 0.9678 |
 
+Accuracy (Figure 5.1), Loss (Figure 5.2) and Loss Per step  (5.3)improved during training, with value graphs showing the typical decelerating improvement as is typical in Neural Network training (Géron, 2017). Of all the measures, we can observe that the no_event_accuracy (Figure 5.4) shows the highest result variance. This graph also appears to first sharply increase, then descrease before either reaching a plateau or increasing again.
 
 ![alt text](https://github.com/lse-st449/st449-projects-casvalesen/blob/master/pictures/it_1_accuracy.png)
 
 
-***Figure (): Iteration 1 Accuracy***
+***Figure 5.1: Iteration 1 Accuracy***
 
 ![alt text](https://github.com/lse-st449/st449-projects-casvalesen/blob/master/pictures/it_1_loss.png)
 
-***Figure (): Iteration 1 Loss ***
+***Figure 5.2: Iteration 1 Loss ***
 
 
 ![alt text](https://github.com/lse-st449/st449-projects-casvalesen/blob/master/pictures/it_1_loss_per_step.png)
 
-***Figure (): Iteration 1 Loss_per_step***
+***Figure 5.3: Iteration 1 Loss_per_step***
 
 ![alt text](https://github.com/lse-st449/st449-projects-casvalesen/blob/master/pictures/it_1_no_event_accuracy.png)
 
-***Figure (): Iteration 1 no_event_accuracy***
+***Figure 5.4: Iteration 1 no_event_accuracy***
 
 E.g 
 
@@ -521,22 +513,24 @@ harmonic development?
 | Iteration 2.1 | 19.99k |0.7275 | 0.9203 |0.9203  | 0.9663 |
 
 
+
+
 ![alt text](https://github.com/lse-st449/st449-projects-casvalesen/blob/master/pictures/it_2.1_accuracy.png)
 
-***Figure (): Iteration 2.1 Accuracy***
+***Figure 5.5: Iteration 2.1 Accuracy***
 
 ![alt text](https://github.com/lse-st449/st449-projects-casvalesen/blob/master/pictures/it_2.1_loss.png)
 
-***Figure (): Iteration 2.1 Loss**
+***Figure 5.6: Iteration 2.1 Loss**
 
 ![alt text](https://github.com/lse-st449/st449-projects-casvalesen/blob/master/pictures/it_2.1_loss_per_step.png)
 
-***Figure (): Iteration 2.1 Loss_per_step***
+***Figure 5.7: Iteration 2.1 Loss_per_step***
 
 
 ![alt text](https://github.com/lse-st449/st449-projects-casvalesen/blob/master/pictures/it_2.1_no_event_accuracy.png)
 
-***Figure (): Iteration 2.1  no_event_accuracy***
+***Figure 5.8: Iteration 2.1  no_event_accuracy***
 
 
 Diverging results. 
@@ -605,35 +599,35 @@ THIS IS CRAZY; CHECK!!!(A rather Naive approach was used for this second stage t
 | Iteration 2.2 | 72.05k | 0.9012| 0.3132 | 0.3132 |0.9901|
 
 
-***Figure (): Iteration 2.2 Accuracy***
+***Figure 5.9: Iteration 2.2 Accuracy***
 
 ![alt text](https://github.com/lse-st449/st449-projects-casvalesen/blob/master/pictures/it_2.2_accuracy.png)
 
-***Figure (): Iteration 2.1 and 2.2 Accuracy comparison***
+***Figure 5.10: Iteration 2.1 and 2.2 Accuracy comparison***
 
 ![alt text](https://github.com/lse-st449/st449-projects-casvalesen/blob/master/pictures/it_2_accuracy_comp.png)
 
-***Figure (): Iteration 2.2 Loss***
+***Figure 5.11: Iteration 2.2 Loss***
 
 ![alt text](https://github.com/lse-st449/st449-projects-casvalesen/blob/master/pictures/it.2.2_loss.png)
 
-***Figure (): Iteration 2.1 and 2.2 Loss comparison***
+***Figure 5.12: Iteration 2.1 and 2.2 Loss comparison***
 
 ![alt text](https://github.com/lse-st449/st449-projects-casvalesen/blob/master/pictures/it_2.loss_comp.png)
 
-***Figure (): Iteration 2.2 Loss_per_step***
+***Figure 5.13: Iteration 2.2 Loss_per_step***
 
 ![alt text](https://github.com/lse-st449/st449-projects-casvalesen/blob/master/pictures/it_2.2_loss_per_step.png)
 
-***Figure (): Iteration 2.1 and 2.2 Loss_per_step comparison***
+***Figure 5.14: Iteration 2.1 and 2.2 Loss_per_step comparison***
 
 ![alt text](https://github.com/lse-st449/st449-projects-casvalesen/blob/master/pictures/it_2_loss_per_step.png)
 
-***Figure (): Iteration 2.2 no_event_accuracy***
+***Figure 5.15: Iteration 2.2 no_event_accuracy***
 
 ![alt text](https://github.com/lse-st449/st449-projects-casvalesen/blob/master/pictures/it_2.2_no_event_accuracy.png)
 
-***Figure (): Iteration 2.1 and 2.2 no_event_accuracy comparison***
+***Figure 5.16: Iteration 2.1 and 2.2 no_event_accuracy comparison***
 
 ![alt text](https://github.com/lse-st449/st449-projects-casvalesen/blob/master/pictures/it_2_no_event_accuracy_comp.png)
 
@@ -679,9 +673,6 @@ To try to remedy this, the model trained on (...) iterations was used.
 
 In order to keep the generality of iteration 2.1 with some context specialisation, further melodies were generated using the saved checkpoint 22 158. This version of the model was trained on the initial 20 000 episodes with the large dataset, then 1/10 th of the iterations on the context dataset. 
 
-- (discuss outcomes on models) 
-- Link to transfer learning paper (ref)
-
 
 *Primer: One note* 
 
@@ -712,6 +703,7 @@ In order to keep the generality of iteration 2.1 with some context specialisatio
 It was a modal melody, e.g. a melody following a single 
 
 # Conclusion 
+
 
 **Final Numerical Results**
 
