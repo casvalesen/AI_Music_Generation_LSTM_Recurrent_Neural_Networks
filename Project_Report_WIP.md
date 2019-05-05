@@ -256,7 +256,7 @@ root_path = 'gdrive/My Drive/AI_music/'
 ```
 This ensured files could be called directly from the colab and all processing could be cloud based. 
 
-***Model Building and Training** 
+**Model Building and Training** 
 
 The Magenta distribution (Google Magenta AI, 2019c) supports commmand line training of RNN based models. However, to build a customized model using the library was necessary to thoroughly comprehend and apply sections of the Magenta distribution source code. The Melody RNN Model  distribution consists of eight interlinked python modules: 
 
@@ -284,7 +284,7 @@ The Melody RNN Model distribution also calls modules shared accross models, name
 
 ```events_rnn_train``` This module runs contains the ```run_training```function that runs the training of the LSTM RNN graph. In the custom implementation this function was called directly with specified arguments. 
 
-Several of the subfunctions take ```unused_argv```as inputs. After a visit to stackoverflow, it was apparent this is internal code practice at Google, and the variable can be set to     ``` unused_argv= ' '``` to avoid any issues. 
+Several of the subfunctions take ```unused_argv```as inputs. After a visit to stackoverflow, it was apparent this is internal code practice at Google, and the variable can be set to   ``` unused_argv= ' '``` to avoid any issues. 
 
 
 ***Custom generate_test_melodies() function*** 
@@ -366,35 +366,17 @@ def generate_test_melodies(checkpoint_file,output_dir, run_dir=None):
   return None
 ```
 
-### Custom functionality 
-
-Evaluation function 
-
-
- - FLAGS 
-
-### TensorBoard
-
-The data was inspected using tensorboard. 
-
-- Custom function to 
-
-
-(### DQN Reinforcement Learning 
-
-The third iteration will then tune this LSTM using the Deep Q-learning approach by Jaques et. al.(2017).  ) 
 
 # Numerical Evaluation 
 
 ## Evalation mechanisms 
 
-Standard neural network performance metrics were used to evaluate the models: 
+The data was inspected using tensorboard. Standard neural network performance metrics were used to evaluate the models: 
 
 **Accuracy** The ratio of correctly predicted values  (Géron, 2017). 
 
 **loss_per_step** The amount of loss for each training step. The melody rnn model defines this as the Mean Softmax cross-entropy loss, implementing the loss function ```tf.nn.sparse_softmax_cross_entropy_with_logits```. This loss function trains model to estimate high probabilities for the target class by penalizing low target class probabilities (Géron, 2017 p.143). 
-
-- (function)- Mean - Softmax - Cross entropy with logits     (Goodfellow et. al.,2016 p. 73; Géron, 2017 p.143) 
+ 
 
 **no_event_accuracy** The ```MELODY_NO_EVENT``` indicator is implemented in the Magenta library to mark when a sustained state is held over several values, which means the current status of ```NOTE_OFF``` or ```NOTE_ON``` is kept. In the library source code, ```No_event_accuracy``` is defined as the sum of the products of correct_predicitions and no_events, divided by the sum of no events. 
 
@@ -407,44 +389,26 @@ Standard neural network performance metrics were used to evaluate the models:
 
 This is therefore a music specific numerical evaluation which gives a measure of how accurate the value durations, aka. rhytms, sequences are compared compared to the target sequences. 
 
-### Stats Tables
+
+### Domain Specific Evaluation 
+
+As a creative RNN is in its nature not trying to predict an accurate value such as a time series or classification, output
+evaluation of creative RNN is in its nature somewhat subjective.  Although accuracy rate might give an objective measure of how well the model predicts a melody note, it is not necessarily informative on how the model performs in context specific terms, namely in how it manages to be musically expressive and use established musical conventions.  To overcome this challenge, researchers have used human evaluators both to train and to to judge the outputs of Artificial intelligence music systems both through crowdsourcing to get domain specific evaluation statistics (Jaques et. al.,2016) and through individual evaluators (Fernández & Vico, 2013).  
 
 
+**Evaluation Criteria**
 
-
-### Domain Evaluation 
-*Reference on how NLP models are evaluated**
-
-As a creative RNN is in its nature not trying to predict an accurate value such as a time series or classification, 
-evaluation of creative RNN is in its nature 
-
-Although accuracy rate might give an objective measure of how well the model predicts a melody note, it is not very informative on how the model performs in context specific terms, namely in how it manages to be musically expressive and use established musical conventions. 
-
-Criteria: 
-
-Analysis: A musical analysis. Context specific. 
-
-STATS?? 
-
-- It was therefore needed to define 
-
-- Approaches to evaluation taken in papers, with refs (.....). Magenta refs, Jaques et. al., other papers for magenta.
-
-This model evaluation definitions are in the field of explainable AI( ref). Since the objective measures or parameters captured by the model are not necessarily informative in the application context in the same way coefficients would be in regression, it is necessary to probe the AI model to generate outputs to get a general sense of how the model is performing and reasoning in the subject specific context (ref). 
-
-- Note on explainable AI. 
-
-**General** 
 
 A known failure mode of single step prediction RNN´s in sequence generation is the continuous repetition of the same token(Jaques et. al., 2017). The results of the LSTM RNN  were therefore evaluated on whether this failure mode was occuring. 
 
 Another common failure mode of single step RNNs is the difficulty of ensuring coherent global structure. In music specifically, this global structure is built up by musical phrases (Jaques et. al., 2017). An evaluation criteria for the generated sequences is therefore to what extent they have a coherent global structure.
 
-In a musical context this can refer to the following characteristics: 
-
-
-### General Model Evaluation
-
+In a musical context this can refer to the presence of the following characteristics (Persichetti, 1961; Pease, 2004): 
+- *Motives & themes*
+- *Motific & thematic development*
+- *Melodic development*
+- *Harmonic development*
+- *Consistent scale/key* 
 
 For the purely generative models, evaluation is based on how well the RNN LSTM model has been able to learn general musical parameters. Note sequences were generated based on several different primers, which aimed at 
 
@@ -476,34 +440,6 @@ This tests whether the model is able to capture arpeggiated chords, aka. individ
 Thi tests whether the model is able to campture the melody style represented in the start of Bach´s cello suite. The style is characterised by  16th notes, which are short sequence step lengths, a combination of stepwise motion (delta of one or two half steps) and larger interval leaps (sequence step deltas between [6-9] ]. 
 
 
-## Data processing 
-
-### Handling of Musical Data
-
-- Midi format: Basic properties of musical data
-Like text data, musical data in fundamentally sequential. 
-Pitch at timestep 
-Duration interpreted as on/off at timestep 
-
-- The midi data was converted to the NoteSequence protocol developed by Google Magenta (Reference).   
-
-(Graph of bach cello suite). 
-
-###  Working with tf Records
-
-- Refer to command line code for data processing 
-
-
-(### Preliminary Experiment: Bach Bot - Monophonic Cello RNN 
-
-In order to familiarize myself with the Google Magenta toolkit and create a simple baseline model for further iterations, I first trained a simple model on using data from bachs cello suites. The advantage of this data is that it is mostly monophonic, e.g one melody, and captures many aspects of classical melodic and harmonic movement such as development of a repeated theme, development of a harmonic sequence and dramatic development. In data science terms, this means the data has a includes data patterns common in western musical traditions, such as absolute value differences in the sequence (melodic intervals), relative value difference patterns that are repeated with different absolute values locally (thematic development), and meta patterns  for how these different types of relative value difference patterns alternate depending on their absolute values (harmonic development). 
-
-- Musical Analysis of bach cello suite in data science language
-
-The initial cello suite was downloaded from an open source midi file repository (8 Notes, 2019). 
-
-- Using default Magenta Tensorflow graphs )
-
 **Output Naming Convention:** it_(iteration_nr)_(primer)_nr_(outputnr)_(training_ep if applicable)
 
 ## Model Iteration 1: Mono_rnn based on Magenta´s RNN LSTM Model 
@@ -521,8 +457,16 @@ The initial cello suite was downloaded from an open source midi file repository 
 
 **Model Outputs & Evaluation**
 
+| **Model** | **Step** |**Accuracy** |***Loss***| ***Loss_per_step***| ***no_event_accuracy*** |
+| --- |--- | --- | --- | --- | --- | --- | 
+| Iteration 1| List all new or modified files |  |   | 
+
+
 
 ***Accuracy***
+
+
+***Loss***
 
 ***Loss_per_step***
 
@@ -793,7 +737,15 @@ Modal framework implementing relative scale pitches. These are based on the majo
 # Conclusion 
 
 
+**Results**
+
+- *(final stats table)* 
+
+The project successfully met its goals of 
+
 # Next Steps in Model and Application Development 
+
+
 
 **Add interactivity**
 
@@ -805,17 +757,7 @@ Modal framework implementing relative scale pitches. These are based on the majo
 - Adapting to the player. 
 
 
-## Data sources
 
-
-
-http://www.midiworld.com/classic.htm#d
-
-https://jazzomat.hfm-weimar.de/dbformat/dbcontent.html
-
-http://www.acroche2.com/midi_jazz.html
-
-https://groups.google.com/a/tensorflow.org/forum/#!topic/magenta-discuss/6ZLbzTjjpHM
 
 ## References
 - 8 notes (2019).Bach - Cello Suite No.1 in G major, BWV 1007 (complete) midi file for Cello (midi). 8 Notes.  https://www.8notes.com/scores/14093.asp?ftype=midi [Accessed 18.04.2018]
@@ -873,6 +815,10 @@ Cut outs:
 
 (This is confirmed by examination of both datasets, and th The general music data contains a distribution over all types and types of music, while the context dataset was aiming at a very specific syle. The second iteration was then trained on a style specific dataset to approach the musical style of the application domain. ) 
 
+(### DQN Reinforcement Learning 
+
+The third iteration will then tune this LSTM using the Deep Q-learning approach by Jaques et. al.(2017).  ) 
+
 "Music is an interesting test-bed for sequence generation, in that musical compositions adhere to a relatively well-defined set of structural rules. Any beginning music student learns that groups of notes belong to keys, chords follow progressions, and songs have consistent structures made up of musical phrases." (Jaques et. al., 2017). (Online) 
 
 "The music theory rules implemented for the model are only a first attempt, and could easily be improved by someone with musical training."  (Jaques et. al., 2017). (Online) -  Improve music theory rule? 
@@ -881,4 +827,41 @@ Music generated my artificial intelligence    (AIVA, ;(game music)).
 
 - Ref. on call for application of domain knowledge 
 
+- It was therefore needed to define 
+
+- Approaches to evaluation taken in papers, with refs (.....). Magenta refs, Jaques et. al., other papers for magenta.
+
+This model evaluation definitions are in the field of explainable AI( ref). Since the objective measures or parameters captured by the model are not necessarily informative in the application context in the same way coefficients would be in regression, it is necessary to probe the AI model to generate outputs to get a general sense of how the model is performing and reasoning in the subject specific context (ref). 
+
+
+
+- (function)- Mean - Softmax - Cross entropy with logits     (Goodfellow et. al.,2016 p. 73; Géron, 2017 p.143)
+
+## Data processing 
+
+### Handling of Musical Data
+
+- Midi format: Basic properties of musical data
+Like text data, musical data in fundamentally sequential. 
+Pitch at timestep 
+Duration interpreted as on/off at timestep 
+
+- The midi data was converted to the NoteSequence protocol developed by Google Magenta (Reference).   
+
+(Graph of bach cello suite). 
+
+###  Working with tf Records
+
+- Refer to command line code for data processing 
+
+
+(### Preliminary Experiment: Bach Bot - Monophonic Cello RNN 
+
+In order to familiarize myself with the Google Magenta toolkit and create a simple baseline model for further iterations, I first trained a simple model on using data from bachs cello suites. The advantage of this data is that it is mostly monophonic, e.g one melody, and captures many aspects of classical melodic and harmonic movement such as development of a repeated theme, development of a harmonic sequence and dramatic development. In data science terms, this means the data has a includes data patterns common in western musical traditions, such as absolute value differences in the sequence (melodic intervals), relative value difference patterns that are repeated with different absolute values locally (thematic development), and meta patterns  for how these different types of relative value difference patterns alternate depending on their absolute values (harmonic development). 
+
+- Musical Analysis of bach cello suite in data science language
+
+The initial cello suite was downloaded from an open source midi file repository (8 Notes, 2019). 
+
+- Using default Magenta Tensorflow graphs )
 
