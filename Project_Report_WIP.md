@@ -464,21 +464,23 @@ Thi tests whether the model is able to campture the melody style represented in 
 | Iteration 1| 20k |  0.7347|  0.8976 | 0.8976 | 0.9678 |
 
 
-***Accuracy***
-
 ![alt text](https://github.com/lse-st449/st449-projects-casvalesen/blob/master/pictures/it_1_accuracy.png)
 
-***Loss***
+
+***Figure (): Iteration 1 Accuracy***
 
 ![alt text](https://github.com/lse-st449/st449-projects-casvalesen/blob/master/pictures/it_1_loss.png)
 
-***Loss_per_step***
+***Figure (): Iteration 1 Loss ***
+
 
 ![alt text](https://github.com/lse-st449/st449-projects-casvalesen/blob/master/pictures/it_1_loss_per_step.png)
 
-***no_event_accuracy***
+***Figure (): Iteration 1 Loss_per_step***
 
 ![alt text](https://github.com/lse-st449/st449-projects-casvalesen/blob/master/pictures/it_1_no_event_accuracy.png)
+
+***Figure (): Iteration 1 no_event_accuracy***
 
 E.g 
 
