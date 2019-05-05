@@ -40,12 +40,11 @@ Supervised learning
 
 **Summary of Results**
 
-## Project Goals
+## Project Goals & Context
 
 ### Application Goals
 
-The Goal is to design a music generator that is capable of generating melodies that are both musically expressive 
-and have a certain coherency. The model will generate a monophonic melody line. 
+The application context of the music project is in the realm of generating melodies for real time music improvisations in a cinematic style, such as film and game music. The Goal is to design a music generator that is capable of generating melodies that are both musically expressive and have a certain coherency. The model will generate a one voice, aka. monophonic, melody line. 
 
 ### Research Goals / Question 
 
@@ -61,20 +60,16 @@ This was examined using the following models:
 
 - *Iteration 2.2: A LSTM RNN applying transfer learning by continuing training from 2.1 on a smaller selection of context specific music examples.*
 
-## Artificial Intelligence Research Context 
+### Artificial Intelligence Research Context 
 
-As with text and visual art generation, music generation falls within the space of computational creativity (Eck & Schmidhuber, 2002; Franklin, 2009)   In addition to providing a number of usecases, it is also interesting in the sense that creativity is a fundamental aspect of human intelligence (Russel & Norvig, 2016). It is recognized that contemporary AI hold advantages over humans in analytical tasks such as identifying relationships and caputuring complex dynamics of large datasets. However, creativity is argued to be one of the areas in which humans still hold significant (Parry et. al, 2016 p.580; Jarrahi, 2018 p.582). Exploration of computational creativity is therefore an important step on the path to general or strong Artificial Intelligence (Russel & Norvig, 2016 p.16; Jaques et. al.,2017 ). 
-
-## Application Context
-
-The application context of the music project is in the realm of generating melodies for real time music improvisations in a cinematic style, such as film and game music. 
+As with text and visual art generation, music generation falls within the space of computational creativity (Eck & Schmidhuber, 2002; Fernández & Vico, 2013; Franklin, 2009)   In addition to providing a number of usecases, it is also interesting in the sense that creativity is a fundamental aspect of human intelligence (Russel & Norvig, 2016). It is recognized that contemporary AI hold advantages over humans in analytical tasks such as identifying relationships and caputuring complex dynamics of large datasets. However, creativity is argued to be one of the areas in which humans still hold significant (Parry et. al, 2016 p.580; Jarrahi, 2018 p.582). Exploration of computational creativity is therefore an important step on the path to general or strong Artificial Intelligence (Russel & Norvig, 2016 p.16; Jaques et. al.,2017). Music generation with Artificial Intelligence is situated in a subfield of computational creativity called "Algorithmic Composition", which since the 1950´s have applied a range of AI techniques. In recent years, approaches built on artificial neural networks have gained significant importance and advances in the field could see AI systems enhance the creative output of human composers similar to how expert systems aid many modern day professionals (Fernández & Vico, 2013).  
 
 # Choice and Description of Data 
 
 ## Musical Data & Patterns
 
 **Midi format** 
-Similar to earlier research (Franklin, 2019), this project focuses on digital music at the pitch and duration level. 
+Similar to earlier research (Franklin, 2019), this project focuses on digital music at the pitch and duration level. This data is represented in the standard MIDI file format, which among other features allow 128 different pitches to be represented with along with their duration and velocity (The MIDI Association, 2019). 
 
 ![alt text](https://github.com/lse-st449/st449-projects-casvalesen/blob/master/pictures/bach_notes.png) 
 
@@ -84,6 +79,9 @@ Similar to earlier research (Franklin, 2019), this project focuses on digital mu
 
 **Figure 2: Midi Notation of Melody, Bach Cello Suite 1**
 
+Figure 1 and 2 show the start of Bach´s Cello Suite nr.1 as both standard musical notation and midi notation. As we can see, midi notation is essentially a graph with pitch on the y-axis and time on the x axis. Music can therefore represented as some function  <img src="http://latex.codecogs.com/svg.latex?f" border="4"/> which caputure a value state <img src="http://latex.codecogs.com/svg.latex?s" border="4"/> at time <img src="http://latex.codecogs.com/svg.latex?t" border="4"/>. 
+
+### Musical Expressions
 
 The data used for the model consists of musical material from the western musical traditions.  Although developing through history, the fundamental building blocks of this music have persisted from Bach (18th Century) to contemporary popular music (Persichetti, 1961; Pease, 2004). A selection of these are: 
 
@@ -124,18 +122,18 @@ The data consisted of midi files and was selected with the overall application g
 ### General music data
 
 The General music set consisted of two part. 
-- The Lakh Midi Dataset dataset, which was collected for by Raffel(2016) for Phd work on Audio-to-midi.  It is made up of 178 579 midi files scraped from publicly available web sources (Raffel, 2019). 
-- The Maestro Dataset , contructed by Google AI Magenta. It contains 1 202 midi files capturing world class performers classical musical material and performance (Google AI, Magenta 2019b) 
+- The Lakh Midi Dataset dataset, which was collected for by Raffel(2016) for Phd work on Audio-to-midi processing.  It is made up of 178 579 midi files scraped from publicly available web sources (Raffel, 2019). 
+- The Maestro Dataset , contructed by Google AI Magenta. It contains 1 202 midi files capturing performances of classical piano pieces from world class performers  (Google AI, Magenta 2019b) 
 
 ### Style Specific music data
 
-Style specific dataset. 530 files combining both polyphonic and monophonic instances. 
+The style specific dataset was selected as specific influences for the context specific music application of the AI. It consists of 530 files combining both polyphonic and monophonic instances, covering movie, video game and TV themes, as well as a selection of Classical and Jazz pieces. 
 
-**Movie themes:**  A subset of movie themes. Themes of a symphonic nature were emphasized (midiworld, 2019a) 
+**Movie themes:**  A subset of movie themes with themes of a symphonic nature were emphasized (midiworld, 2019a) 
 
-**Video Game themes:** A subset of Video Game themes (midiworld, 2019b) 
+**Video Game themes:** A subset of Video Game theme, with themes of a symphonic nature were emphasized (midiworld, 2019b) 
 
-**TV Themes:** A subset of TV themes (midiworld (2019c)
+**TV Themes:** A subset of TV themes (midiworld, 2019c)
 
 **Modal Classical:** Classical music from selected composers were also included as part of the style specific dataset. This was composers who were in the expressionist, impressionist and nasjonal romantic with inspiration of Scandinavian folk music  paradigms as this was the moderns sounding style that would suit the model context (Persichetti, 1961) 
 
@@ -151,18 +149,11 @@ The following models were created:
 - Model 2.1 : A Note Based LSTM RNN for General Music Generaton trained on the entire General Music Daset, including both musical compositions and captured performances. 
 - Model 2.2: A Note Based LSTM RNN which applied transfer learning to adapt Model 2.1 to the application context domain by training it on the style specific dataset.
 
-(
-(- Model 3.0: A Deep Q Reinforcement Learning model which tunes model 2.2 by balancing style specific music theory rewards with the LSTM based sequence model. ) 
-- Model   (Custom RNN) ) ) 
- 
-
 ### LSTM Recurrent Neural Networks for sequence generation 
-
 
 The context application and research question entailed how to generate a monophonic, aka. single voice musical melody capturing and imitating the characteristics of a given melody in general and specific music contexts. In AI terms this entails generating a sequence of states which capture and immitate the characteritics of a given sequence of states. Music generation can considered a dynamic system, aka. a feedback proces, since the current state is dependent on a history of past states (Franklin, 2019).
 
-Applying the classical form of a dynamical system (Goodfellow et. al., 2016), a music system can be considered as: 
-
+Applying the classical form of a dynamical system (Goodfellow et. al., 2016), a music system can therefore be written as 
 
 <img src="http://latex.codecogs.com/svg.latex?s^t=f(s^{t-1}; \theta)" border="4"/>
 
@@ -860,6 +851,7 @@ https://groups.google.com/a/tensorflow.org/forum/#!topic/magenta-discuss/6ZLbzTj
 - Acroche2 Studio (2019).Jazz Midi Files. *Acroche2 Studio Online* http://www.acroche2.com/midi_jazz.html
 - AIVA (2019). *AIVA - The Artificial Intelligence composing emotional soundtrack music* https://www.aiva.ai/   [Last Accessed 30.04.2019]
 - Eck & Schmidhuber. (2002) Finding temporal structure in music: Blues improvisation with LSTM recur- rent networks. In *Neural Networks for Signal Processing*, pp. 747–756. IEEE, 2002
+- Fernández, J.D & Vico, F. 2013. AI Methods in Algorithmic Composition: A Comprehensive Survey. *Journal of Artificial Intelligence Research* 48 (2013) 513-582
 - Franklin, J.A. 2019. Recurrent Neural Networks for Music Computation. *INFORMS Journal on Computing* 18(3):321-338. https://doi.org/10.1287/ijoc.1050.0131
 - Géron, A. (2017) *Hands-On Machine Learning with Scikit-Learn & Tensorflow* O´Reilly Media Inc, Sebastopol.
 - Giddins, G & Devaux, S. (2009) *Jazz*. 
@@ -892,8 +884,16 @@ https://groups.google.com/a/tensorflow.org/forum/#!topic/magenta-discuss/6ZLbzTj
 - https://arxiv.org/pdf/1803.05428.pdf
 - Persichetti, V. 1961. *Twentieth Century Harmony* New York: W.W Norton & Company. 
 - The Jazzomat Research Project (2019). Data Base Content.*Jazzomat research project Online*  https://jazzomat.hfm-weimar.de/dbformat/dbcontent.html  [Last Accessed 29.04.2019]
+- The MIDI Association, 2019. The Complete MIDI 1.0 Detailed Specification. *The MIDI association Online* https://www.midi.org/specifications-old/item/the-midi-1-0-specification [Lasr Accessed 29.04.2019]
 
 Cut outs: 
+
+**DQN Concept**
+
+((- Model 3.0: A Deep Q Reinforcement Learning model which tunes model 2.2 by balancing style specific music theory rewards with the LSTM based sequence model. ) 
+- Model   (Custom RNN) ) ) 
+
+
 
 
 "Music is an interesting test-bed for sequence generation, in that musical compositions adhere to a relatively well-defined set of structural rules. Any beginning music student learns that groups of notes belong to keys, chords follow progressions, and songs have consistent structures made up of musical phrases." (Jaques et. al., 2017). (Online) 
