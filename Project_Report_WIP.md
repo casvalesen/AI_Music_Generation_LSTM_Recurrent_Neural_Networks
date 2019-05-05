@@ -1,4 +1,4 @@
-# Project Report: Music Generation with AI and Deep Learning (WIP) - Domain specific Sequence Modelling 
+# ST449 Research Project Report: Music Generation with Artificial Intelligence - *An application of LSTM Recurrent Neural Networks for creative domain specific sequence generation*
 
 ### Project Criteria: 
 
@@ -145,9 +145,9 @@ The style specific dataset was selected as specific influences for the context s
 
 The following models were created: 
 
-- Model 1: A Note based LSTM RNN for General Music Generation trained on a subset of the General Music Dataset, only including musical composition.
-- Model 2.1 : A Note Based LSTM RNN for General Music Generaton trained on the entire General Music Daset, including both musical compositions and captured performances. 
-- Model 2.2: A Note Based LSTM RNN which applied transfer learning to adapt Model 2.1 to the application context domain by training it on the style specific dataset.
+- **Iteration 1:** A Note based LSTM RNN for General Music Generation trained on a subset of the General Music Dataset, only including musical composition.
+- **Iteration 2.1:** A Note Based LSTM RNN for General Music Generaton trained on the entire General Music Daset, including both musical compositions and captured performances. 
+- **Iteration 2.2:** A Note Based LSTM RNN which applied transfer learning to adapt Model 2.1 to the application context domain by training it on the style specific dataset.
 
 ### LSTM Recurrent Neural Networks for sequence generation 
 
@@ -258,7 +258,7 @@ This ensured files could be called directly from the colab and all processing co
 
 **Model Building and Training** 
 
-The Magenta distribution (Google Magenta AI, 2019c) supports commmand line training of RNN based models. However, to build a customized model using the library was necessary to thoroughly comprehend and apply sections of the Magenta distribution source code. The Melody RNN Model  distribution consists of eight interlinked python modules: 
+The Magenta distribution (Google Magenta AI, 2019c) supports commmand line training of RNN based models. However, to build a customized model using the library it was necessary to thoroughly comprehend and apply sections of the Magenta distribution source code. The Melody RNN Model  distribution consists of eight interlinked python modules: 
 
 ```melody_rnn_config_flags.py``` Provides a class for model configuration, utility functions and defaults. Most importantly, it implements ```tf.app.flags.FLAGS```to set hyperparameters for the model. In order to customize trained model, these FLAGS had to be managed and configured manually in the custom implementation. When called directly, a bug create a frequent warning for misssing flag 'f', thus a dummy flag was defined in the implementation to deal with this error. 
 
@@ -287,7 +287,7 @@ The Melody RNN Model distribution also calls modules shared accross models, name
 Several of the subfunctions take ```unused_argv```as inputs. After a visit to stackoverflow, it was apparent this is internal code practice at Google, and the variable can be set to   ``` unused_argv= ' '``` to avoid any issues. 
 
 
-***Custom generate_test_melodies() function*** 
+***Custom function: generate_test_melodies() *** 
 
 An ``` generate_test_melodies(checkpoint_file,run_dir,output_dir) ``` was defined to generate all the outputs necessary for model evaluation (for specific evaluation metrics see below). It takes a the following arguments: A ```checkpoint_file``` which is the checkpoint for a specific model iteration to be used and a ```output_dir``` which is the directory to the mounted GDrive where the output melodies should be saved. 
 
@@ -343,7 +343,7 @@ def generate_test_melodies(checkpoint_file,output_dir, run_dir=None):
   
   #Generate from arpeggiated chord sequence
 
-  FLAGS.output_dir=output_dir+'arpeggiated'  #/content/gdrive/
+  FLAGS.output_dir=output_dir+'arpeggiated'  
   FLAGS.primer_melody="[62, -2, 65, -2, 69, -2, 72, -2,71,-2,67,-2,65,-2,62,-2,60]"
   melody_rnn_generate.main(unused_argv)
   print("Melodies generated from Arpeggiated Chord sequence primer")
@@ -457,20 +457,26 @@ Thi tests whether the model is able to campture the melody style represented in 
 
 **Model Outputs & Evaluation**
 
-| **Model** | **Step** |**Accuracy** |***Loss***| ***Loss_per_step***| ***no_event_accuracy*** |
-| --- |--- | --- | --- | --- | --- | --- | 
-| Iteration 1| List all new or modified files |  |   | 
-
+| **Model** | **Step** |***Accuracy*** |***Loss***| ***Loss_per_step***| ***no_event_accuracy*** |
+| --- |--- | --- | --- | --- | --- |
+| Iteration 1| 20k |  0.7347|  0.8976 | 0.8976 | 0.9678 |
 
 
 ***Accuracy***
 
+![alt text](https://github.com/lse-st449/st449-projects-casvalesen/blob/master/pictures/it_1_accuracy.png)
 
 ***Loss***
 
+![alt text](https://github.com/lse-st449/st449-projects-casvalesen/blob/master/pictures/it_1_loss.png)
+
 ***Loss_per_step***
 
+![alt text](https://github.com/lse-st449/st449-projects-casvalesen/blob/master/pictures/it_1_loss_per_step.png)
+
 ***no_event_accuracy***
+
+![alt text](https://github.com/lse-st449/st449-projects-casvalesen/blob/master/pictures/it_1_no_event_accuracy.png)
 
 E.g 
 
@@ -500,27 +506,35 @@ harmonic development?
 - (midi/ audio example)
 
 
-## Iteration 2: Mono_rnn based on Magenta´s RNN LSTM Model, complete Lakh dataset (2.1) and style specific dataset (2.2)
+## Iteration 2: Mono_rnn based on Magenta´s RNN LSTM Model, complete general dataset (2.1) and style specific dataset (2.2)
 
-**2.1: Complete Lakh and Maestro datasets
+**2.1: Complete General Dataset
 
 **Model Outputs and Evaluation***
 
-***Figure (): Iteration 2.1 Accuracy***
+| **Model** | **Step** |***Accuracy*** |***Loss***| ***Loss_per_step***| ***no_event_accuracy*** |
+| --- |--- | --- | --- | --- | --- |
+| Iteration 2.1 | 19.99k |0.7275 | 0.9203 |0.9203  | 0.9663 |
+
+
 
 ![alt text](https://github.com/lse-st449/st449-projects-casvalesen/blob/master/pictures/it_2.1_accuracy.png)
 
-***Figure (): Iteration 2.1 Loss**
+***Figure (): Iteration 2.1 Accuracy***
 
 ![alt text](https://github.com/lse-st449/st449-projects-casvalesen/blob/master/pictures/it_2.1_loss.png)
 
-***Figure (): Iteration 2.1 Loss_per_step***
+***Figure (): Iteration 2.1 Loss**
 
 ![alt text](https://github.com/lse-st449/st449-projects-casvalesen/blob/master/pictures/it_2.1_loss_per_step.png)
 
-***Figure (): Iteration 2.1  no_event_accuracy***
+***Figure (): Iteration 2.1 Loss_per_step***
+
 
 ![alt text](https://github.com/lse-st449/st449-projects-casvalesen/blob/master/pictures/it_2.1_no_event_accuracy.png)
+
+***Figure (): Iteration 2.1  no_event_accuracy***
+
 
 Diverging results. 
 
@@ -582,6 +596,11 @@ THIS IS CRAZY; CHECK!!!(A rather Naive approach was used for this second stage t
 
 
 **Model Outputs & Evaluation**
+
+| **Model** | **Step** |***Accuracy*** |***Loss***| ***Loss_per_step***| ***no_event_accuracy*** |
+| --- |--- | --- | --- | --- | --- |
+| Iteration 2.2 | 72.05k | 0.9012| 0.3132 | 0.3132 |0.9901|
+
 
 ***Figure (): Iteration 2.2 Accuracy***
 
@@ -736,10 +755,16 @@ Modal framework implementing relative scale pitches. These are based on the majo
 
 # Conclusion 
 
+**Final Numerical Results**
 
-**Results**
+| **Model** | **Step** |***Accuracy*** |***Loss***| ***Loss_per_step***| ***no_event_accuracy*** |
+| --- |--- | --- | --- | --- | --- |
+| Iteration 1| 20k |  0.7347|  0.8976 | 0.8976 | 0.9678 |
+| Iteration 2.1 | 19.99k |0.7275 | 0.9203 |0.9203  | 0.9663 |
+| Iteration 2.2 | 72.05k | 0.9012| 0.3132 | 0.3132 |0.9901|
 
-- *(final stats table)* 
+
+
 
 The project successfully met its goals of 
 
