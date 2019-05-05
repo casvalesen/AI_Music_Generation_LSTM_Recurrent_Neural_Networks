@@ -1,6 +1,8 @@
+## ST449 Research Project Report
+
 # Music Generation with Artificial Intelligence - *An application of LSTM Recurrent Neural Networks to creative sequence generation*   
 
-## ST449 Research Project Report
+
 
 
 # Introduction and Research Question
