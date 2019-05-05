@@ -25,8 +25,12 @@ Supervised learning
 - Training a RNN LSTM for general sequence prediction
 - Applying learning to further train the Model  towards a context domain specific application
 - Empirical evaluations of trainig iterations in transfer learning.
-(- Using Deep Q Reinforcement Learning to tune this context specific model further using customized rewards from the application domain. )
 - Design and application of context specific model evaluations mechanisms informed by application domain literature and practice. 
+
+*Appendix 1: directions for further research includes**
+
+- Theorized and explored how the Magenta RL tuner could be adapted to use Deep Q Reinforcement Learning to tune this context specific model further using customized rewards from the application domain.
+- Theorized how this system could be trained to adapt to a performer in real time, using Online Reinforcement Learning and custom rewards aimed at musical collaboration.  
 
 **Summary of Results**
 
@@ -720,26 +724,11 @@ It was a modal melody, e.g. a melody following a single
 The project successfully met its goals of 
 
 
-
-
-# Next Steps in Model and Application Development 
+# Directions for further research: Next Steps in Model and Application Development 
 
 ## Tuning the RNN with Deep Q Reinforcement Learning 
 
-Implementation of the Magenta Deep Q Learning Music model created by Jaques et. al.(2017) using the authors own dataset (as described above) and customized musical theory rules in the reward function. 
-
-
-### Deep Q Reinforcement Learning
-
-Goodfellow et. al., 2016. 
-Géron, 2017. 
-
-## Deep Q Learning for Sequence Prediction 
-
-### Magenta DQN Rl Tuner
-
-Exploration mod: "egreedy" implementing epsilon greedy policy or boltzman to sample from its own outputs 
-Priming mode: 
+Next steps involve an Implementation of the Magenta Deep Q Learning Music model created by Jaques et. al.(2017) using the authors own dataset as described above and customized musical theory rules in the reward function. This would implement the following customized music theory rewards: 
 
 ## Customized Music Theory Rewards 
 
@@ -747,7 +736,7 @@ The reward_music_theory function defined in the RL Tuner model (Google AI, 2019d
 
 The original RL tuner model implemented musical theory rules based on some music domain knowledge and the musical treatise "A Practical Approach to Eighteenth-Century Counterpoint” by Robert Gauldin. In their paper and associated blog posts, Jaques et. al. (2017) encourage further exploration and customization of these music theory rules. 
 
-For the present model these music theory rules were augmented to suit the specific application context of the model. 
+For the present model these music theory rules can be augmented to suit the specific application context of the model. 
 
 Modal classical theory: 
 Jazz theory: Pease & Pulling, 2001; Pease, 2004; Miller, 1996) 
@@ -758,7 +747,6 @@ The original music theory rewards for the DQN RL tuner model only defined a C ma
 
 Modal framework implementing relative scale pitches. These are based on the major modes of western music, which are used both in classical composition (Persichetti, 1061 ), Jazz Composition (Pease & Pulling, 2001; Pease, 2004; Miller, 1996) and cinematic music (Adams, 2010) 
 
-
 **Modal Keys** 
 (Picture of musical notes for scales) - from composition book. (eg. Miller, 1996)
 
@@ -766,17 +754,34 @@ Modal framework implementing relative scale pitches. These are based on the majo
 
 - details of how they were added, with relative keys. 
 
-
-
 **Add interactivity**
 
 - using the .js packages
 - max msp, take the system online. 
 
-# Directions for further research 
+### Online Adaptivity
 
-- Adapting to the player. 
+The next iteration could include the system learning to adapt to a certain performers style using online reinforcement learning. Using an online implementation of the RL tuner, custom rewards could be defined as follows: 
 
+
+**Rule**: 	Reward when desirable musical outcomes happen
+**Desirable musical outcomes**
+
+*Following the melody of the performer*
+
+paralell movements approximate delta(Pt-1, Pt)=  delta (At-1,At) 	
+countermelodies approx delta(Pt-1, Pt) = - delta(At-1, At)	
+paralell following approx delta(Pt-1, Pt) = delta(At, At+1 --> lead to mimick?  	
+paralell counter approx delta(Pt-1, Pt) = - delta(At, At+1 --> lead to mimick?  	
+	
+ 
+*Harmonizing with the performer**
+
+harmony: third below A = P-3rd  -(oct)	
+harmony: third above A = P + 3rd  -(oct)	
+harmony: fourth below  A = P + 3rd  -(oct)	
+harmony: fith below A = P - 5th -(oct)	
+harmony: 9th below A = P - 9th (-oct)	
 
 
 
