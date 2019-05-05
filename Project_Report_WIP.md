@@ -157,7 +157,7 @@ Applying the classical form of a dynamical system (Goodfellow et. al., 2016), a 
 
 <img src="http://latex.codecogs.com/svg.latex?s^t=f(s^{t-1}; \theta)" border="4"/>
 
-with <img src="http://latex.codecogs.com/svg.latex?s^t" border="0"/> being the current state of the music. 
+with <img src="http://latex.codecogs.com/svg.latex?s^t" border="0"/> being the current state of the music, <img src="http://latex.codecogs.com/svg.latex?s^{t-1}" border="0"/> being the state at the previous time step and  <img src="http://latex.codecogs.com/svg.latex?\theta" border="0"/> capturing the system parameters from the whole sequence of states. 
 
 ![alt text](https://github.com/lse-st449/st449-projects-casvalesen/blob/master/pictures/dynamical_music.png)
 **Figure 3 : Melody as dynamical system, musical notation** 
