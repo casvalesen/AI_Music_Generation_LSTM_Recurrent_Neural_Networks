@@ -1,6 +1,6 @@
 
 
-# ST449 Course Project: Music Generation with Artificial Intelligence - Creative sequence modelling using LSTM Recurrent Neural Networks
+# ST449 Course Project: Music Generation with Artificial Intelligence - *Creative sequence modelling using LSTM Recurrent Neural Networks*
 
 ## Repository Contents 
 
