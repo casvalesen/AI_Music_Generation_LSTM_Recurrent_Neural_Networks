@@ -43,9 +43,9 @@ The application context of the music project is in the realm of generating melod
 
 ### Research Goals / Question 
 
-Thus, the project entails the implementation and evaluation of a neural network for a sequence modelling task in the context of music generation. IT was basedbased on the following research question:
+Thus, the project entails the implementation and evaluation of a neural network for a sequence modelling task in the context of music generation. This was based on the following research question:
 
-*How to effectively music melodies that are able to capture and imitate the characteristics of a given melody sequence both in general and specific music style contexts.* 
+*How to effectively generate music melodies that are able to capture and imitate the characteristics of a given melody sequence both in general and specific music style contexts* 
 
 This was examined using the following models: 
 
