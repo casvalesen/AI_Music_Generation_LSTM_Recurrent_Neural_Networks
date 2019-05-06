@@ -589,43 +589,44 @@ It was a modal melody, e.g. a melody following a single
 | Iteration 2.2 | 72.05k | 0.9012| 0.3132 | 0.3132 |0.9901|
 
 
-
-
-- Training statistics:  step change in several metric on context specific dataset as this is a lot less varied than the general dataset, thus easier with precision(?)
-
-
-
-***Figure 5.9: Iteration 2.2 Accuracy***
+As specified above, iteration 2.2 was trained on the style specific dataset of 530 midi files, continuing training from Iterations 2.1. A memory error during training caused the metrics data between step 19.99k and 25.37k to be lost. However, we can still infer the relevant key insights from the saved data. The final values of, Accuracy (0.9012), Loss (0.3132), Loss_per_step (0.3132) and no_event_accuracy (0.9901) were significantly better at the end of training than than in iteration 2.1. Comparing the training graphs of 2.1 and 2.2 we can observe a step change in these, with model 2.1 training trajectories flattening towards the end of training, and model 2.2 metrics flattening on a relative step change improvement from these (Figure 5.10, Figure 5.12, Figure 5.14). This is likely caused by the fact that iteration 2.2 uses a smaller sample, and that the model was already trained on general music characteristics from iteration 2.1, making it easier to predict the melodies in the context specific dataset. 
 
 ![alt text](https://github.com/lse-st449/st449-projects-casvalesen/blob/master/pictures/it_2.2_accuracy.png)
 
-***Figure 5.10: Iteration 2.1 and 2.2 Accuracy comparison***
+***Figure 5.9: Iteration 2.2 Accuracy***
 
 ![alt text](https://github.com/lse-st449/st449-projects-casvalesen/blob/master/pictures/it_2_accuracy_comp.png)
 
-***Figure 5.11: Iteration 2.2 Loss***
+
+***Figure 5.10: Iteration 2.1 and 2.2 Accuracy comparison***
 
 ![alt text](https://github.com/lse-st449/st449-projects-casvalesen/blob/master/pictures/it.2.2_loss.png)
 
-***Figure 5.12: Iteration 2.1 and 2.2 Loss comparison***
+***Figure 5.11: Iteration 2.2 Loss***
 
 ![alt text](https://github.com/lse-st449/st449-projects-casvalesen/blob/master/pictures/it_2.loss_comp.png)
 
-***Figure 5.13: Iteration 2.2 Loss_per_step***
 
+***Figure 5.12: Iteration 2.1 and 2.2 Loss comparison***
 ![alt text](https://github.com/lse-st449/st449-projects-casvalesen/blob/master/pictures/it_2.2_loss_per_step.png)
 
-***Figure 5.14: Iteration 2.1 and 2.2 Loss_per_step comparison***
+***Figure 5.13: Iteration 2.2 Loss_per_step***
+
 
 ![alt text](https://github.com/lse-st449/st449-projects-casvalesen/blob/master/pictures/it_2_loss_per_step.png)
 
-***Figure 5.15: Iteration 2.2 no_event_accuracy***
+***Figure 5.14: Iteration 2.1 and 2.2 Loss_per_step comparison***
 
 ![alt text](https://github.com/lse-st449/st449-projects-casvalesen/blob/master/pictures/it_2.2_no_event_accuracy.png)
+***Figure 5.15: Iteration 2.2 no_event_accuracy***
+
+![alt text](https://github.com/lse-st449/st449-projects-casvalesen/blob/master/pictures/it_2_no_event_accuracy_comp.png)
 
 ***Figure 5.16: Iteration 2.1 and 2.2 no_event_accuracy comparison***
 
-![alt text](https://github.com/lse-st449/st449-projects-casvalesen/blob/master/pictures/it_2_no_event_accuracy_comp.png)
+The no_event_accuracy metric shows an interesting development. Appearing to converge around 0.966 for iteration 2.1, it also both improves by a step change and appears to reach a higher level of accuracy, ending at 0.9901 (Figure 5.16). This is likely due both to the pretraining done during iteration 2.1, and to the fact that the style specific sample of 530 is dramatically smaller than the general dataset of 170k. This makes it easier for the model to correctly predict the rhytmic aspects of the music. 
+
+***Output evaluations**
 
 (Paper on transfer learning & Two step training for language models) 
 
