@@ -454,7 +454,7 @@ Thi tests whether the model is able to campture the melody style represented in 
 
 **Output Naming Convention:** it_(iteration_nr)_(primer)_nr_(outputnr)_(training_ep if applicable)
 
-## Model Iteration 1: Mono_rnn based on Magenta´s RNN LSTM Model 
+### Model Iteration 1: Mono_rnn based on Magenta´s RNN LSTM Model 
 
 Model Iteration was trained on the first 11 136 midi files from the Lakh dataset, using 20k training steps. 
 
@@ -512,7 +512,7 @@ harmonic development?
 - (midi/ audio example)
 
 
-## Iteration 2: Mono_rnn based on Magenta´s RNN LSTM Model, complete general dataset (2.1) and style specific dataset (2.2)
+### Iteration 2: Mono_rnn based on Magenta´s RNN LSTM Model, complete general dataset (2.1) and style specific dataset (2.2)
 
 **2.1: Complete General Dataset
 
@@ -579,7 +579,7 @@ It was a modal melody, e.g. a melody following a single
 - Cloud based training terminated, and was restarted. A memory overload issue led to loss of training data between (---). However, in the metric visualisations, this provides a good visualization of the step change occuring between training model 2.1. and 2.2. 
 
 
-**Iteration 2.2: LSTM RNN Context Specific Model** 
+### Iteration 2.2: LSTM RNN Context Specific Model** 
 
 
 **Model Outputs & Evaluation**
