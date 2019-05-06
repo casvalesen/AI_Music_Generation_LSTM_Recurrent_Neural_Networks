@@ -47,7 +47,7 @@ https://magenta.tensorflow.org/maestro-wave2midi2wave
 
 
 ## References
-Jaques, N., Gu,S., Turner, R E., & Eck, D. 2017.'TUNING RECURRENT NEURAL NETWORKS WITH REINFORCEMENT LEARNING'.  NIPS 2016 Deep Reinforcement Learning Workshop. Available at: https://arxiv.org/pdf/1611.02796v2.pdf [Accessed 04.04.2019]
-Google AI Magenta (2019a). Magenta Github Repository. https://github.com/tensorflow/magenta [Accessed 19.04.2018]
-Google AI Magenta (2019b). The Maestro Dataset. Tensorflow Magenta https://magenta.tensorflow.org/datasets/maestro
+- Jaques, N., Gu,S., Turner, R E., & Eck, D. 2017.'TUNING RECURRENT NEURAL NETWORKS WITH REINFORCEMENT LEARNING'.  NIPS 2016 Deep Reinforcement Learning Workshop. Available at: https://arxiv.org/pdf/1611.02796v2.pdf [Accessed 04.04.2019]
+- Google AI Magenta (2019a). Magenta Github Repository. https://github.com/tensorflow/magenta [Accessed 19.04.2018]
+- Google AI Magenta (2019b). The Maestro Dataset. Tensorflow Magenta https://magenta.tensorflow.org/datasets/maestro
 
