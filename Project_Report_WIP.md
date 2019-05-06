@@ -60,7 +60,7 @@ This was examined using the following models:
 
 - *Iteration 2.1: A LSTM RNN trained on a larger general music dataset of 179 781 musical examples and including captured performances* 
 
-- *Iteration 2.2: A LSTM RNN applying transfer learning by continuing training from 2.1 on a small selection of context 530, specific music examples.*
+- *Iteration 2.2: A LSTM RNN applying transfer learning by continuing training from 2.1 on a small selection of 530 context specific music examples.*
 
 ### Artificial Intelligence Research Context 
 
@@ -170,7 +170,6 @@ Figure 3 and 4 illustrate the monophonic melody case. <img src="http://latex.cod
 
 
 This makes music generation a sequence modelling task that involves generating a sequence of outputs given a sequence history of inputs.  Sequence2Sequence Recurrent Neural networks are therefore good model candidates (Géron, 2017 p.407; Goodfellow, Bengio & Courville, 2016). While Feed Forward and Convolutional Neural Networks generate a fixed size output from a fixed size input, Recurrent Neural Networks are able to generate output sequences of arbitrary length from input sequences of arbitrary length (Géron, 2017 p.407). This also supports the use of an RNN model for creating a music generation model responsive to improvisation, as improvised musical phrases often vary in lenght (Giddins & Deveaux, 2009). 
-
 
 **LSTM for Music Generation** 
 
@@ -377,7 +376,7 @@ The data was inspected using tensorboard. Standard neural network performance me
 
 **Accuracy:** The ratio of correctly predicted values  (Géron, 2017). 
 
-**loss_per_step:** The amount of loss for each training step. The melody rnn model defines this as the Mean Softmax cross-entropy loss, implementing the loss function ```tf.nn.sparse_softmax_cross_entropy_with_logits```. This loss function trains model to estimate high probabilities for the target class by penalizing low target class probabilities (Géron, 2017 p.143). 
+**loss_per_step:** The amount of loss for each training step. The melody rnn model defines this as the Mean Softmax cross-entropy loss, implementing the loss function ```tf.nn.sparse_softmax_cross_entropy_with_logits```. This loss function trains model to estimate high probabilities for the target class by penalizing low target class probabilities (Géron, 2017 p.143). This loss function suitable for the task of modelling musical sequences as it captures whether the right note was predicted rather the absolute value difference of the prediction. In a musical context, absolute value difference is not a meaningful measure, as being half step wrong can often be sound musically worse than being three or four half steps wrong (Persichetti, 1961).  
  
 
 **no_event_accuracy:** The ```MELODY_NO_EVENT``` indicator is implemented in the Magenta library to mark when a sustained state is held over several values, which means the current status of ```NOTE_OFF``` or ```NOTE_ON``` is kept. In the library source code, ```No_event_accuracy``` is defined as the sum of the products of correct_predicitions and no_events, divided by the sum of no events. 
