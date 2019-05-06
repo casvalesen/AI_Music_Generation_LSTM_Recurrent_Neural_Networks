@@ -477,32 +477,49 @@ Accuracy (Figure 5.1), Loss (Figure 5.2) and Loss Per step  (5.3) improved durin
 
 ***Figure 5.4: Iteration 1 no_event_accuracy***
 
-E.g 
-
-Key? 
-intervals? 
-harmonic development? 
+**Output Evaluation** 
 
 *Primer: One note* 
 
-- (midi/ audio example) 
+For Iteration 1 the outputs generated from the one note primer largely follow one scale at a time and show occasional local patterns which could be start of motifs. However, they lack most forms of both local and global structure.  
 
-*Primer: Simple major Melody* 
+![alt text](https://github.com/lse-st449/st449-projects-casvalesen/blob/master/pictures/it_1_onenote_example.png)
 
-- (midi/ audio example)
+***MIDI 1: It 1 Onenote example***
+
+*Primer: Simple major Melody*  
+
+The model performs better on the major melody primer. It is able to capture the major key, the major rhytmic building blocks, and mimic some of the local melody patterns. However, it does suffer from surplus repetition, and occasionally goes out of key. It also no global structure patterns. 
+
+
+![alt text](https://github.com/lse-st449/st449-projects-casvalesen/blob/master/pictures/it_1_major_example.png)
+
+***MIDI 2: It 1 Major example***
 
 *Primer: Simple minor Melody*
 
-- (midi/ audio example)
+ For the simple minor primer, ITeration 1 generates more sporadic outputs. The most of the melody examples capture some of the key of the melody, but sometimes also includes chromatic notes aka. values not in the scale. It also introduces a greater variety of rhytmcs than for the simple major primer, suggesting either that the minor key material in the dataset is more varied rhytmically, or that the model interprets a variation in key as a variation in general, throwing in rhythmic variations as well. 
+ 
+![alt text](https://github.com/lse-st449/st449-projects-casvalesen/blob/master/pictures/it_1_minor_example.png)
+
+***MIDI 3: It 1 Minor example***
 
 *Primer: Arpeggiated chord progression*
 
+The melodies generated from the arpeggiated primer in Iteration 1 manage to capture the major key of the primer sequence, however, they do are not able to capture the broken chords and generate further chord structures. Instead, the output includes a somewhat sporadic combination a combination of small and large interval jumps, lacking global structure. It is able to capture the main rhythmic building block.  
 
-- (midi/ audio example)
+![alt text](https://github.com/lse-st449/st449-projects-casvalesen/blob/master/pictures/it_1_arp_example.png)
+
+***MIDI 4: It 1 Arpeggiated example***
 
 *Primer: Bach Cello Suite 4 bars 
 
-- (midi/ audio example)
+
+The outputs for the Bach primer were able to capture the rhythm lenght of the primer melody as well as the major key. It also included several large interval jumps, suggesting the model picked up on some of the interval characteristics of the primer. However, several of the examples suffered from excessive repetition of notes. 
+
+![alt text](https://github.com/lse-st449/st449-projects-casvalesen/blob/master/pictures/it_1_bach_example.png)
+
+***MIDI 5: It 1 Bach example***
 
 
 ### Iteration 2: Mono_rnn based on Magenta´s RNN LSTM Model, complete general dataset (2.1) and style specific dataset (2.2)
@@ -538,8 +555,7 @@ For Iteration 2.1 both Accuracy (Figure 5.5), Loss (Figure 5.5) and loss per ste
 
 For the second iteration, a sixth primer melody was added. This was a simple phrase which would be similar to what would be used by the musical instrument player in the improvisation application context. 
 
-Lakh dataset: 
-Maestro:
+**Output Evaluation** 
 
 *Primer: One note* 
 
