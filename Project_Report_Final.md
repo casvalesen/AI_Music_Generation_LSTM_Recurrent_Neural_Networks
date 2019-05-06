@@ -17,7 +17,7 @@ The project examines how to generate musical melodies using artificial intellige
 - Empirical evaluations of trainig iterations in transfer learning.
 - Design and application of context specific model evaluations mechanisms informed by application domain literature and practice. 
 
-*Directions for further research includes**
+*Conceptual models laying the direction for further research include*
 
 - Theorized and explored how the Magenta RL tuner could be adapted to use Deep Q Reinforcement Learning to tune this context specific model further using customized rewards from the application domain
 - Theorized how this system could be trained to adapt to a performer in real time, using Online Reinforcement Learning and custom rewards aimed at musical collaboration.  
