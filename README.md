@@ -1,3 +1,20 @@
+
+
+# ST449 Course Project: Music Generation with Artificial Intelligence - Creative sequence modelling using LSTM Recurrent Neural Networks
+
+## Repository Contents 
+
+The repository Contains: 
+
+- **Project Report:** A research report including research goals, dataset selection, model design, implementation consideration and evaluations. 
+
+- **Code Implementation Notebook:**  The Model implementation code.  
+
+- **Model Outputs- AI Generated Music:** Midi files from all the model generations, audio files for selected examples ( ). 
+
+
+# Original Readme: Project, Approval, Proposal
+
 # ST449 Course Projects
 
 - This project accounts for 80% of the final mark.
@@ -6,7 +23,7 @@
 **Comments**:
 * **MV 5 April 2019**: project topic approved
 
-# Project Overview: Music Generation with RNN
+# Project Proposal Overview: Music Generation with RNN
 
 ## Topic
 
@@ -35,16 +52,5 @@ Jaques, N., Gu,S., Turner, R E., & Eck, D. 2017.'TUNING RECURRENT NEURAL NETWORK
 
 -  https://arxiv.org/pdf/1810.12247.pdf
 - https://arxiv.org/pdf/1803.05428.pdf
-
-## Repository Contents 
-
-The repository Contains: 
-
-- **Project Report :** A research report including research goals, dataset selection, model design, implementation consideration and evaluations. 
-
-- **Code Implementation Notebook:**  The Model implementation code.  
-
-- **Model Outputs- AI Generated Music:** Midi files from all the model generations, audio files for selected examples ( ). 
-
 
 
