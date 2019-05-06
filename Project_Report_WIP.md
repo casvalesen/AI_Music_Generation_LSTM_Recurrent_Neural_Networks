@@ -9,16 +9,6 @@
 
 The project examines how to generate musical melodies using artificial intelligence. The project goal was to examine how to effectively generate music melodies that capture the characteristics of a given melody sequence both in general and specific music contexts. This research goal was met by training three LSTM Recurrent Neural Networks on different dataset sizes, applying transfer learning to approach a domain specific model in iteration 2.2. Dataset choice, Model choice parameter options and customizations are informed by the requirements of the application context, application music practitioner literature, the authors own domain knowledge from 18 years as a music practitioner. The models entail customized implmentations of the Google AI Magenta models for melody generati (Google AI Magenta, 2019c).
 
-**Summary of Results**
-
-The final numerical evaluations show that Iteratin 2.2 managed to achieve the best metric scores of the models, with Accuracy of 0.9012, Loss and Loss per step of 0.3132 and no_event_accuracy of 0.9901.
-
-| **Model** | **Step** |***Accuracy*** |***Loss***| ***Loss_per_step***| ***no_event_accuracy*** |
-| --- |--- | --- | --- | --- | --- |
-| Iteration 1| 20k |  0.7347|  0.8976 | 0.8976 | 0.9678 |
-| Iteration 2.1 | 19.99k |0.7275 | 0.9203 |0.9203  | 0.9663 |
-| Iteration 2.2 | 72.05k | 0.9012| 0.3132 | 0.3132 |0.9901|
-
 *The project includes:* 
 
 - Dataset building for general sequence modelling in musical domains
@@ -32,6 +22,16 @@ The final numerical evaluations show that Iteratin 2.2 managed to achieve the be
 
 - Theorized and explored how the Magenta RL tuner could be adapted to use Deep Q Reinforcement Learning to tune this context specific model further using customized rewards from the application domain
 - Theorized how this system could be trained to adapt to a performer in real time, using Online Reinforcement Learning and custom rewards aimed at musical collaboration.  
+
+**Summary of Results**
+
+The final numerical evaluations show that Iteratin 2.2 managed to achieve the best metric scores of the models, with Accuracy of 0.9012, Loss and Loss per step of 0.3132 and no_event_accuracy of 0.9901.
+
+| **Model** | **Step** |***Accuracy*** |***Loss***| ***Loss_per_step***| ***no_event_accuracy*** |
+| --- |--- | --- | --- | --- | --- |
+| Iteration 1| 20k |  0.7347|  0.8976 | 0.8976 | 0.9678 |
+| Iteration 2.1 | 19.99k |0.7275 | 0.9203 |0.9203  | 0.9663 |
+| Iteration 2.2 | 72.05k | 0.9012| 0.3132 | 0.3132 |0.9901|
 
 
 ## Project Goals & Context
