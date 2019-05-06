@@ -3,20 +3,21 @@
 # Music Generation with Artificial Intelligence - *Creative sequence modelling using LSTM Recurrent Neural Networks*   
 
 
-
-
 # 1. Introduction and Research Question
 
 ## Project Overview 
 
+The project examines how to generate musical melodies using artificial intelligence. The project goal was to examine how to effectively generate music melodies that capture the characteristics of a given melody sequence both in general and specific music contexts. This research goal was met by training three LSTM Recurrent Neural Networks on different dataset sizes, applying transfer learning to approach a domain specific model in iteration 2.2. Dataset choice, Model choice parameter options and customizations are informed by the requirements of the application context, application music practitioner literature, the authors own domain knowledge from 18 years as a music practitioner. The models entail customized implmentations of the Google AI Magenta models for melody generati (Google AI Magenta, 2019c).
 
-The project models entail customized implmentations of the Google AI Magenta models for melody generating using a LSTM Recurrent Neural Network (Google AI Magenta, 2019c) 
+**Summary of Results**
 
-(and a Reinforcement Learning algorithm Tuning this network using Deep Q-Learning (Google AI Magenta, 2019d; Jaques et. al., 2017). )
+The final numerical evaluations show that Iteratin 2.2 managed to achieve the best metric scores of the models, with Accuracy of 0.9012, Loss and Loss per step of 0.3132 and no_event_accuracy of 0.9901.
 
-Dataset choice, Model choice parameter options and customizations are informed by the requirements of the application context, application music practitioner literature, the authors own domain knowledge from 18 years as a music practitioner. 
-
-Supervised learning 
+| **Model** | **Step** |***Accuracy*** |***Loss***| ***Loss_per_step***| ***no_event_accuracy*** |
+| --- |--- | --- | --- | --- | --- |
+| Iteration 1| 20k |  0.7347|  0.8976 | 0.8976 | 0.9678 |
+| Iteration 2.1 | 19.99k |0.7275 | 0.9203 |0.9203  | 0.9663 |
+| Iteration 2.2 | 72.05k | 0.9012| 0.3132 | 0.3132 |0.9901|
 
 *The project includes:* 
 
@@ -27,19 +28,10 @@ Supervised learning
 - Empirical evaluations of trainig iterations in transfer learning.
 - Design and application of context specific model evaluations mechanisms informed by application domain literature and practice. 
 
-*Appendix 1: directions for further research includes**
+*Directions for further research includes**
 
-- Theorized and explored how the Magenta RL tuner could be adapted to use Deep Q Reinforcement Learning to tune this context specific model further using customized rewards from the application domain.
+- Theorized and explored how the Magenta RL tuner could be adapted to use Deep Q Reinforcement Learning to tune this context specific model further using customized rewards from the application domain
 - Theorized how this system could be trained to adapt to a performer in real time, using Online Reinforcement Learning and custom rewards aimed at musical collaboration.  
-
-**Summary of Results**
-
-
-| **Model** | **Step** |***Accuracy*** |***Loss***| ***Loss_per_step***| ***no_event_accuracy*** |
-| --- |--- | --- | --- | --- | --- |
-| Iteration 1| 20k |  0.7347|  0.8976 | 0.8976 | 0.9678 |
-| Iteration 2.1 | 19.99k |0.7275 | 0.9203 |0.9203  | 0.9663 |
-| Iteration 2.2 | 72.05k | 0.9012| 0.3132 | 0.3132 |0.9901|
 
 
 ## Project Goals & Context
@@ -702,6 +694,8 @@ It was a modal melody, e.g. a melody following a single
 # Conclusion 
 
 
+The project successfully met its goals of examning how to effectively generate music melodies that capture the characteristics of a given melody sequence both in general and specific music contexts. Three LSTM RNN  models were developed to this end, Iteration 1 trained on a musical dataset of 11 133 examples, Iteration 2.1: A LSTM RNN trained on a larger general music dataset of 179 781 musical examples and including captured performances, and Iteration 2.2: A LSTM RNN applying transfer learning by continuing training from 2.1 on a small selection of 530 context specific music examples. 
+
 **Final Numerical Results**
 
 | **Model** | **Step** |***Accuracy*** |***Loss***| ***Loss_per_step***| ***no_event_accuracy*** |
@@ -710,7 +704,7 @@ It was a modal melody, e.g. a melody following a single
 | Iteration 2.1 | 19.99k |0.7275 | 0.9203 |0.9203  | 0.9663 |
 | Iteration 2.2 | 72.05k | 0.9012| 0.3132 | 0.3132 |0.9901|
 
-The project successfully met its goals of 
+The final numerical evaluations show that ITeratin 2.2 managed to achieve the best metric scores of the models, with Accuracy of 0.9012, Loss and Loss per step of 0.3132 and no_event_accuracy of 0.9901. Comparison of the numerical evaluation results also revealed a correlation between dataset size and performance, with iteration 1 performing slightly better than 2.1, and the most specialised iteration 2.2 significantly outperforming both. 
 
 
 # Directions for further research: Next Steps in Model and Application Development 
@@ -883,5 +877,5 @@ The initial cello suite was downloaded from an open source midi file repository 
 Overfitting the model on this data as opposed to keeping it balanced between the general and specific datasets was therefore justified. (?)
 
 Initially, the model was overfitted on this data in order to gain context specificity With 50 000 additional training iterations. However, the generated melodies had forgotten: 
-
+(and a Reinforcement Learning algorithm Tuning this network using Deep Q-Learning (Google AI Magenta, 2019d; Jaques et. al., 2017). )
 
