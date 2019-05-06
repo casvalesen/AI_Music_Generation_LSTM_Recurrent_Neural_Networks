@@ -559,33 +559,48 @@ For the second iteration, a sixth primer melody was added. This was a simple phr
 
 *Primer: One note* 
 
-- (midi/ audio example) 
+The melodies from the one note primer largely follow the same key, and have some local motif structures. They still lack global structure. 
+
+![alt text](https://github.com/lse-st449/st449-projects-casvalesen/blob/master/pictures/it_2.1_onenote_example.png)
+***MIDI 6: It 2.1 onenote example***
 
 *Primer: Simple major Melody* 
 
-- (midi/ audio example)
+The melodies from the simple major primer still capture both major rhythmic building blocks and the major key. For iteration 2.1 only one example melody included chromatic notes not in the key/scale, suggesting that the model was able to better learn scales and keys from the larger dataset. Also captured the stepwise intervals of the primer melody by generating many stepwise movement patters. One of the examples(MIDI 7) also included thematic development where the model almost directly imitated the primer pattern of first first playing three ascending notes, then approaching a target note from below (bars 5-7). 
+
+![alt text](https://github.com/lse-st449/st449-projects-casvalesen/blob/master/pictures/it_2.1_major_example.png)
+***MIDI 7: It 2.1 major example***
 
 *Primer: Simple minor Melody*
 
-- (midi/ audio example)
+The minor examples also captured the main rhythmic blocks and the minor key of the melody. As in iteration 1, some of the output melodies also included more chromatic material. However, when this was used it was either a note consistently returned to, suggesting the model interpreted the minor key as a different scale, or as a chromatic note between two scale note. The latter is interesting as this is a melody movement frequently used in music with minor harmonic material. This suggests the larger dataset allowed the model to learn to imitate more characteristic melody movement. As with the simple major, the model also imitates many stepwise melody movements. 
+
+![alt text](https://github.com/lse-st449/st449-projects-casvalesen/blob/master/pictures/it_2.1_minor_example.png)
+***MIDI 8: It 2.1 minor example***
 
 *Primer: Arpeggiated chord progression*
 
+The model was still strugglign with the arpeggiated primer, and most of the examples were not coherent or captured broken chords. There was some improvement, however, as one of the examples (MIDI 9) was able to imitate the melody shape of the primer, and repeat versions this local stucture four times to form an overall global structure. 
 
-- (midi/ audio example)
+![alt text](https://github.com/lse-st449/st449-projects-casvalesen/blob/master/pictures/it_2.1_arp_example.png)
+***MIDI 9: It 2.1 Arpeggiated example***
 
 *Primer: Bach Cello Suite 4 bars 
 
-- (midi/ audio example)
+The outputs from the bach primer were still able to capture the key and the key of the primer sequence. It was also able to imitate the large interval jumps and the local motive structure of alternating between two higher notes and a lower one. Some of the examples also included several broken chords, suggesting the model learned to pick up on the broken chords used in the bach example. There were also fewer repeated notes in this iteration.  
 
+
+![alt text](https://github.com/lse-st449/st449-projects-casvalesen/blob/master/pictures/it_2.1_bach_example.png)
+***MIDI 10: It 2.1 Bach example***
 
 *Modal* 
 
-- (midi/ audio example)
+The modal primer was a new addition in this iteration. 
+It was a modal melody in the scale of dorian minor. The model outputs were able to generate the major rhythmic building block of the primer, namely notes strctuning over two or more beats. The model also largely picked up on the scale of the primer, generating sequences in a minor scale.  However, the model occasionally also included chromatic non-scale notes.
 
-It was a modal melody, e.g. a melody following a single 
 
-- Cloud based training terminated, and was restarted. A memory overload issue led to loss of training data between (---). However, in the metric visualisations, this provides a good visualization of the step change occuring between training model 2.1. and 2.2. 
+![alt text](https://github.com/lse-st449/st449-projects-casvalesen/blob/master/pictures/it_2.1_modal_example.png)
+***MIDI 10: It 2.1 Modal example***
 
 
 ### Iteration 2.2: LSTM RNN Context Specific Model** 
