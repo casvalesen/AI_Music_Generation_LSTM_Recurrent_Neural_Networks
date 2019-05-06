@@ -6,11 +6,11 @@
 
 The repository Contains: 
 
-- **Project Report:** A research report including research goals, dataset selection, model design, implementation consideration and evaluations. 
+- **Project Report:** A research report including research goals, dataset selection, model design, implementation considerations, numerical and domain specific evaluations. 
 
 - **Code Implementation Notebook:**  The Model implementation code.  
 
-- **Model Outputs- AI Generated Music:** Midi files from all the model generations, audio files for selected examples ( ). 
+- **Model Outputs- AI Generated Music:** A selection of 85 AI Model Output melodies from all iterations in MIDI format.  
 
 
 # Original Readme: Project, Approval, Proposal
@@ -28,8 +28,7 @@ The repository Contains:
 ## Topic
 
 I would like to do my project on music generation using Recurrent Neural Networks. 
-Google´s Magenta team are currently working on many interesting approaches to this. The project will make use of the Magenta Resources, but will also be original in that it will be a new combination of approaches with a specific musical context in mind. 
-https://magenta.tensorflow.org/
+Google´s Magenta team are currently working on many interesting approaches to this. The project will make use of the Magenta Resources, but will also be original in that it will be a new combination of approaches with a specific musical context in mind.  https://magenta.tensorflow.org/
 
 ## Model 
 
@@ -47,10 +46,8 @@ Several Datasets are available for the task, amongst others the MEASTRO dataset 
 https://magenta.tensorflow.org/maestro-wave2midi2wave
 
 
-## References (Will be expanded for proper citation)
+## References
 Jaques, N., Gu,S., Turner, R E., & Eck, D. 2017.'TUNING RECURRENT NEURAL NETWORKS WITH REINFORCEMENT LEARNING'.  NIPS 2016 Deep Reinforcement Learning Workshop. Available at: https://arxiv.org/pdf/1611.02796v2.pdf [Accessed 04.04.2019]
-
--  https://arxiv.org/pdf/1810.12247.pdf
-- https://arxiv.org/pdf/1803.05428.pdf
-
+Google AI Magenta (2019a). Magenta Github Repository. https://github.com/tensorflow/magenta [Accessed 19.04.2018]
+Google AI Magenta (2019b). The Maestro Dataset. Tensorflow Magenta https://magenta.tensorflow.org/datasets/maestro
 
