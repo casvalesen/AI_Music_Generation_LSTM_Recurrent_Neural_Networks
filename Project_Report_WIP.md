@@ -287,8 +287,19 @@ The Melody RNN Model distribution also calls modules shared accross models, name
 
 Several of the subfunctions take ```unused_argv```as inputs. After a visit to stackoverflow, it was apparent this is internal code practice at Google, and the variable can be set to   ``` unused_argv= ' '``` to avoid any issues. 
 
+### Custom_functions Class 
 
-***Custom function: generate_test_melodies() *** 
+A Custom_functions class was defined to implement functions necessary to customize the Magenta Melody RNN Model. It includes:
+
+- **inspect_configs()** to inspect current configurations
+
+- **evaluate()** wrapping the .run_eval to automatically reuse hparams from training.
+
+- **generate_test_melodies()** generating test melodies for the current model iteration
+
+- **show_generated_outputs()** to display generated outputs as notesequences in the notebook
+
+- ***Custom function: generate_test_melodies()*** 
 
 An ``` generate_test_melodies(checkpoint_file,run_dir,output_dir) ``` was defined to generate all the outputs necessary for model evaluation (for specific evaluation metrics see below). It takes a the following arguments: A ```checkpoint_file``` which is the checkpoint for a specific model iteration to be used and a ```output_dir``` which is the directory to the mounted GDrive where the output melodies should be saved. 
 
@@ -453,7 +464,7 @@ Model Iteration was trained on the first 11 136 midi files from the Lakh dataset
 | --- |--- | --- | --- | --- | --- |
 | Iteration 1| 20k |  0.7347|  0.8976 | 0.8976 | 0.9678 |
 
-Accuracy (Figure 5.1), Loss (Figure 5.2) and Loss Per step  (5.3)improved during training, with value graphs showing the typical decelerating improvement as is typical in Neural Network training (Géron, 2017). Of all the measures, we can observe that the no_event_accuracy (Figure 5.4) shows the highest result variance. This graph also appears to first sharply increase, then descrease before either reaching a plateau or increasing again.
+Accuracy (Figure 5.1), Loss (Figure 5.2) and Loss Per step  (5.3) improved during training, with value graphs showing the typical decelerating improvement as is typical in Neural Network training (Géron, 2017). Of all the measures, we can observe that the no_event_accuracy (Figure 5.4) shows the highest result variance. This graph also first sharply increases, then descreases before reaching a plateau. However, it still has a final value of 0.9678. 
 
 ![alt text](https://github.com/lse-st449/st449-projects-casvalesen/blob/master/pictures/it_1_accuracy.png)
 
@@ -512,7 +523,7 @@ harmonic development?
 | Iteration 2.1 | 19.99k |0.7275 | 0.9203 |0.9203  | 0.9663 |
 
 
-
+For Iteration 2.1 both Accuracy (Figure 5.5), Loss (Figure 5.5) and loss per step (Figure 5.6) improve during the course of the training. Compared to Iteration final values are 0.0072 lower for accuracy, 0.0015 lower for no_event_accuracy and 0.0227 higher for the losses. This could be attributed to iteration 2.1 being trained on a larger dataset, thus taking slightly longer to converge. 
 
 ![alt text](https://github.com/lse-st449/st449-projects-casvalesen/blob/master/pictures/it_2.1_accuracy.png)
 
@@ -530,9 +541,6 @@ harmonic development?
 ![alt text](https://github.com/lse-st449/st449-projects-casvalesen/blob/master/pictures/it_2.1_no_event_accuracy.png)
 
 ***Figure 5.8: Iteration 2.1  no_event_accuracy***
-
-
-Diverging results. 
 
 
 For the second iteration, a sixth primer melody was added. This was a simple phrase which would be similar to what would be used by the musical instrument player in the improvisation application context. 
@@ -568,27 +576,10 @@ Maestro:
 
 It was a modal melody, e.g. a melody following a single 
 
-
-- Training statistics:  step change in several metric on context specific dataset as this is a lot less varied than the general dataset, thus easier with precision(?)
-
 - Cloud based training terminated, and was restarted. A memory overload issue led to loss of training data between (---). However, in the metric visualisations, this provides a good visualization of the step change occuring between training model 2.1. and 2.2. 
 
 
-**Iteration 2.2: LSTM RNN Context Specific Model** - Combine for discussion on transfer learning and training. (!!). 
-
-*Training* :  
-
-Transfer Learning (Géron, 2017 p.289)
-Goodfellow et. al., 2016 p.
-
-The style specific data contained a much lower number of than the instances in the Lakh and Maestro training sets combined, 530 as opposed to 179 781 instances. The data was selected because it was closer to the instances likely encountered in the application context. 
-
-
-Overfitting the model on this data as opposed to keeping it balanced between the general and specific datasets was therefore justified. (?)
-
-Initially, the model was overfitted on this data in order to gain context specificity With 50 000 additional training iterations. However, the generated melodies had forgotten: 
-
-THIS IS CRAZY; CHECK!!!(A rather Naive approach was used for this second stage training, in which the training  steps was increased by a factor 179 781/530≈ 340 to give equal weight to the context data. (?)
+**Iteration 2.2: LSTM RNN Context Specific Model** 
 
 
 **Model Outputs & Evaluation**
@@ -596,6 +587,12 @@ THIS IS CRAZY; CHECK!!!(A rather Naive approach was used for this second stage t
 | **Model** | **Step** |***Accuracy*** |***Loss***| ***Loss_per_step***| ***no_event_accuracy*** |
 | --- |--- | --- | --- | --- | --- |
 | Iteration 2.2 | 72.05k | 0.9012| 0.3132 | 0.3132 |0.9901|
+
+
+
+
+- Training statistics:  step change in several metric on context specific dataset as this is a lot less varied than the general dataset, thus easier with precision(?)
+
 
 
 ***Figure 5.9: Iteration 2.2 Accuracy***
@@ -881,4 +878,9 @@ In order to familiarize myself with the Google Magenta toolkit and create a simp
 The initial cello suite was downloaded from an open source midi file repository (8 Notes, 2019). 
 
 - Using default Magenta Tensorflow graphs )
+
+Overfitting the model on this data as opposed to keeping it balanced between the general and specific datasets was therefore justified. (?)
+
+Initially, the model was overfitted on this data in order to gain context specificity With 50 000 additional training iterations. However, the generated melodies had forgotten: 
+
 
