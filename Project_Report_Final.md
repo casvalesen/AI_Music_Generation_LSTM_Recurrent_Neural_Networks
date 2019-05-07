@@ -808,8 +808,6 @@ harmony: 9th below A = P - 9th (-oct)
 - Raffel, Colin. (2019). *Lakh Midi Dataset v0.1*. https://colinraffel.com/projects/lmd/ [Accessed 19.04.2019]
 - Raffel, Colin.2016 "Learning-Based Methods for Comparing Sequences, with Applications to Audio-to-MIDI Alignment and Matching". *PhD Thesis*. 
 - Russel, S & Norvig, P. (2016) *Artificial Intelligence - A Modern Approach*. 3rd Edition. Pearson Education Limited, Essex. 
--  https://arxiv.org/pdf/1810.12247.pdf
-- https://arxiv.org/pdf/1803.05428.pdf
 - Persichetti, V. 1961. *Twentieth Century Harmony* New York: W.W Norton & Company. 
 - The Jazzomat Research Project (2019). Data Base Content.*Jazzomat research project Online*  https://jazzomat.hfm-weimar.de/dbformat/dbcontent.html  [Last Accessed 29.04.2019]
 - The MIDI Association, 2019. The Complete MIDI 1.0 Detailed Specification. *The MIDI association Online* https://www.midi.org/specifications-old/item/the-midi-1-0-specification [Lasr Accessed 29.04.2019]
