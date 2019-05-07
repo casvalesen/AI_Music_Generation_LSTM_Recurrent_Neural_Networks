@@ -748,7 +748,8 @@ The original music theory rewards for the DQN RL tuner model only defined a C ma
 The next iteration could include the system learning to adapt to a certain performers style using online reinforcement learning. Using an online implementation of the RL tuner, custom rewards could be defined as follows: 
 
 
-**Rule**: 	Reward when desirable musical outcomes happen
+**Rule**: Reward when desirable musical outcomes happen
+
 **Desirable musical outcomes**
 
 *Following the melody of the performer*
