@@ -239,6 +239,9 @@ melody_rnn_create_dataset \
 
 ### Model Implementation 
 
+Below are some additional comments and considerations for the implementation. The full implementatin code can be found at: https://github.com/lse-st449/st449-projects-casvalesen/blob/master/Music_Generation_with_AI_Code_Implementation_Notebook_v_0_4.ipynb 
+
+
 **Gdrive integration**  
 
 The preprocessing was done on a local hardrive. The data was then uploaded to gdrive, with was mounted to Colab using the standard Colab mount function: 
