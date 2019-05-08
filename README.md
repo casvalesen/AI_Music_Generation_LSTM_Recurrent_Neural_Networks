@@ -11,4 +11,4 @@ The repository Contains:
 
 - **Model Outputs- AI Generated Music:** A selection of 85 AI Model Output melodies from all iterations in MIDI format.  
 
-- **Audio example:** https://github.com/casvalesen/AI_Music_Generation_LSTM_Recurrent_Neural_Networks/blob/master/AI_music_1_iteration_2.1_bach_nr_1.wav
+- **Generated Music Audio example:** https://github.com/casvalesen/AI_Music_Generation_LSTM_Recurrent_Neural_Networks/blob/master/AI_music_1_iteration_2.1_bach_nr_1.wav
