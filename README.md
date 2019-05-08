@@ -1,5 +1,5 @@
 
-# Music Generation with Artificial Intelligence - *Creative sequence modelling using LSTM Recurrent Neural Networks*
+# Music Generation with Artificial Intelligence - *Creative sequence prediction using LSTM Recurrent Neural Networks*
 
 ## Repository Contents 
 
