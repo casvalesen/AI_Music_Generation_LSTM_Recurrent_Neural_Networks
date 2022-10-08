@@ -1,6 +1,12 @@
 
 # Music Generation with Artificial Intelligence - *Creative sequence prediction using LSTM Recurrent Neural Networks*
 
+Term project for ST449 - Artificial Intelligence & Deep Learning at the London School of Economics. 
+https://www.lse.ac.uk/resources/calendar2018-2019/courseGuides/ST/2018_ST449.htm
+
+## Summary 
+The project uses Google AI Magenta´s framework for musical deep learning to train a Recurrent Neural network to generate musical sequences.
+
 ## Repository Contents 
 
 The repository Contains: 
