@@ -5,7 +5,7 @@ Term project for ST449 - Artificial Intelligence & Deep Learning at the London S
 https://www.lse.ac.uk/resources/calendar2018-2019/courseGuides/ST/2018_ST449.htm
 
 ## Summary 
-The project uses Google AI Magenta´s framework for musical deep learning to train a Recurrent Neural network to generate musical sequences.
+The project examines how to generate musical melodies using artificial intelligence. The project goal was to examine how to effectively generate music melodies that capture the characteristics of a given melody sequence both in general and specific music contexts. This research goal was met by training three LSTM Recurrent Neural Networks on different dataset sizes, applying transfer learning to approach a domain specific model in iteration 2.2. Dataset choice, Model choice parameter options and customizations are informed by the requirements of the application context, application music practitioner literature, the authors own domain knowledge from 18 years as a music practitioner. The models entail customized implmentations of the Google AI Magenta models for melody generation (Google AI Magenta, 2019c).
 
 ## Repository Contents 
 
